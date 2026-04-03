@@ -1,4 +1,109 @@
 {
-  "meta": { "total_contacted": 0, "current_batch": "", "last_updated": "", "focus": "Climate tech founders + ecosystem partners" },
-  "pipeline": []
+  "meta": {
+    "total_contacted": 0,
+    "current_batch": "Webinar Partner Outreach — Batch 1",
+    "last_updated": "Apr 2026",
+    "focus": "Webinar partners (Bryan network) + Canadian institutional investors (ABM)"
+  },
+  "pipeline": [
+    {
+      "name": "SVX",
+      "bucket": "sourcing",
+      "type": "Webinar partner",
+      "sector": "Impact investing",
+      "location": "Canada",
+      "connection": "Bryan Duarte",
+      "signals": ["Bryan direct network", "Distribution: small-check investors + impact founders"],
+      "sc_contact_id": "C1775180494358",
+      "sc_initiative_id": "INI-1775180449939"
+    },
+    {
+      "name": "Ontario Clean Tech Industry Association",
+      "bucket": "sourcing",
+      "type": "Webinar partner",
+      "sector": "Clean tech",
+      "location": "Ontario, Canada",
+      "connection": "Bryan Duarte",
+      "signals": ["Bryan direct network", "Distribution: Ontario climate tech founders + operators"],
+      "sc_contact_id": "C1775180510112",
+      "sc_initiative_id": "INI-1775180449939"
+    },
+    {
+      "name": "Clean Tech North",
+      "bucket": "sourcing",
+      "type": "Webinar partner",
+      "sector": "Clean tech",
+      "location": "Canada",
+      "connection": "Bryan Duarte",
+      "signals": ["Bryan direct network", "Regional clean tech distribution"],
+      "sc_contact_id": "C1775180511190",
+      "sc_initiative_id": "INI-1775180449939"
+    },
+    {
+      "name": "KAFD",
+      "bucket": "sourcing",
+      "type": "Webinar partner",
+      "sector": "Climate-aligned",
+      "location": "Canada",
+      "connection": "Bryan Duarte",
+      "signals": ["Bryan direct network", "Full name TBC — confirm with Bryan"],
+      "sc_contact_id": "C1775180512231",
+      "sc_initiative_id": "INI-1775180449939"
+    },
+    {
+      "name": "Good Investor (Tim)",
+      "bucket": "sourcing",
+      "type": "Webinar partner",
+      "sector": "Impact investing",
+      "location": "Canada",
+      "connection": "Bryan Duarte — direct",
+      "signals": ["Bryan direct connection", "Small-check investor distribution — ~$10K check size", "Get Tim's last name from Bryan"],
+      "sc_contact_id": "C1775180513230",
+      "sc_initiative_id": "INI-1775180449939"
+    },
+    {
+      "name": "Equality Fund",
+      "bucket": "active",
+      "type": "Institutional investor",
+      "sector": "Impact foundation",
+      "location": "Canada",
+      "connection": "Meeting April 2026",
+      "signals": ["Meeting scheduled April 2026", "Will intro intermediary for impact foundation due diligence", "Get contact name + intermediary name at the meeting"],
+      "sc_contact_id": "C1775180535187",
+      "sc_initiative_id": "INI-1775180457900"
+    },
+    {
+      "name": "Atmospheric Fund",
+      "bucket": "nurture",
+      "type": "Institutional investor",
+      "sector": "Climate foundation",
+      "location": "Canada",
+      "connection": "Bryan Duarte ABM",
+      "signals": ["Strong thesis alignment — climate focus", "Outreach TBD"],
+      "sc_contact_id": "C1775180533154",
+      "sc_initiative_id": "INI-1775180457900"
+    },
+    {
+      "name": "Toronto Foundation Fund",
+      "bucket": "nurture",
+      "type": "Institutional investor",
+      "sector": "Impact foundation",
+      "location": "Toronto, Canada",
+      "connection": "Bryan Duarte ABM",
+      "signals": ["Outreach TBD — identify intro path"],
+      "sc_contact_id": "C1775180531700",
+      "sc_initiative_id": "INI-1775180457900"
+    },
+    {
+      "name": "Boann",
+      "bucket": "nurture",
+      "type": "Institutional investor",
+      "sector": "Impact investing",
+      "location": "Canada",
+      "connection": "Bryan Duarte ABM",
+      "signals": ["Confirm full org name with Bryan", "Outreach TBD"],
+      "sc_contact_id": "C1775180534166",
+      "sc_initiative_id": "INI-1775180457900"
+    }
+  ]
 }
