@@ -1,3 +1,64 @@
 {
-  "audiences": []
+  "audiences": [
+    {
+      "id": "small-check-investors",
+      "name": "Small-check investors",
+      "segment": "Investor",
+      "targetTitles": ["Angel investor", "Emerging fund manager", "Community investor", "Impact-aligned individual investor"],
+      "sector": "Climate tech / impact investing",
+      "geo": "Canada + US",
+      "whyTheyMatter": "These are the ~$10K check-size investors BTC is building distribution with. Webinar content is a primary mechanism to reach them at scale.",
+      "angle": "Climate Tech Exit Lab preview webinars give them access to the investment framework and deal thesis before committing capital. Content builds trust and positions BTC as the knowledgeable guide.",
+      "campaigns": [],
+      "sc_contact_ids": []
+    },
+    {
+      "id": "climate-tech-founders",
+      "name": "Climate tech founders",
+      "segment": "Founder",
+      "targetTitles": ["Founder", "Co-founder", "CEO", "CTO"],
+      "sector": "Climate tech",
+      "geo": "Canada + US",
+      "whyTheyMatter": "Founders in the climate tech space are both a BTC audience and a deal source. Webinars that bring value to founders build BTC credibility and pipeline.",
+      "angle": "Operator-focused content on exits, fundraising strategy, and capital access in climate tech. Position BTC as the fund that actually understands the founder journey.",
+      "campaigns": [],
+      "sc_contact_ids": []
+    },
+    {
+      "id": "climate-tech-operators",
+      "name": "Climate tech operators",
+      "segment": "Operator",
+      "targetTitles": ["VP", "Director", "Head of", "Chief of Staff", "Program Manager"],
+      "sector": "Climate tech",
+      "geo": "Canada + US",
+      "whyTheyMatter": "Operators are the connective tissue of the climate tech ecosystem. They talk to founders, investors, and institutions. Building BTC visibility with operators compounds over time.",
+      "angle": "Practical, tactical content on how climate tech organizations scale, raise, and exit. Operators share and amplify content that gives them real tools.",
+      "campaigns": [],
+      "sc_contact_ids": []
+    },
+    {
+      "id": "canadian-impact-foundations",
+      "name": "Canadian impact foundations",
+      "segment": "Institutional investor",
+      "targetTitles": ["Program Officer", "Investment Manager", "Executive Director", "Chief Investment Officer", "VP Programs"],
+      "sector": "Impact investing / foundations",
+      "geo": "Canada",
+      "whyTheyMatter": "Toronto Foundation Fund, Atmospheric Fund, Boann, and Equality Fund are the ABM targets for end-of-summer sponsorship or LP conversations. These are relationship-first, multi-touch engagements.",
+      "angle": "BTC as the infrastructure for impact capital reaching climate tech at the earliest stages. The story is about additionality — BTC gets to deals that mainstream VC ignores.",
+      "campaigns": [],
+      "sc_contact_ids": ["C1775180531700", "C1775180533154", "C1775180534166", "C1775180535187"]
+    },
+    {
+      "id": "webinar-partner-orgs",
+      "name": "Webinar partner organizations",
+      "segment": "Partner",
+      "targetTitles": ["Executive Director", "Program Director", "Managing Director", "Partnerships Lead", "CEO"],
+      "sector": "Clean tech / impact ecosystem",
+      "geo": "Canada",
+      "whyTheyMatter": "SVX, Ontario Clean Tech Industry Association, Clean Tech North, KAFD, and Good Investor (Tim) are Bryan's network picks for co-branded webinar partners. They have the distribution BTC needs.",
+      "angle": "Pitch the webinar as a value-add for their audience — BTC brings the content and the Climate Tech Exit Lab framework, they bring the distribution. Co-branded and mutually beneficial.",
+      "campaigns": [],
+      "sc_contact_ids": ["C1775180494358", "C1775180510112", "C1775180511190", "C1775180512231", "C1775180513230"]
+    }
+  ]
 }
