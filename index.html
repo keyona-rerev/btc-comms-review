@@ -7,8 +7,6 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F2F5F0; color: #1a1f1a; min-height: 100vh; }
-
-    /* ── Gate ── */
     #gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #F2F5F0; }
     .gate-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 16px; padding: 40px 48px; max-width: 380px; width: 90%; text-align: center; }
     .gate-logo { font-size: 14px; font-weight: 700; color: #1A3A1A; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 6px; }
@@ -19,15 +17,11 @@
     .gate-btn { width: 100%; padding: 10px; font-size: 14px; font-weight: 600; background: #2D5C28; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
     .gate-btn:hover { background: #1A3A1A; }
     .gate-error { font-size: 12px; color: #8B3A1A; margin-top: 10px; display: none; }
-
-    /* ── Shell ── */
     #app { display: none; }
     .site-header { background: #E8EFE6; border-bottom: 1px solid #B0C9A8; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
     .site-logo { font-size: 15px; font-weight: 700; color: #1A3A1A; letter-spacing: 0.06em; text-transform: uppercase; }
     .site-logo span { color: #4A8C3F; font-weight: 400; }
     .header-meta { font-size: 12px; color: #3A6B35; }
-
-    /* ── Tabs ── */
     .tabs-bar { display: flex; gap: 4px; padding: 16px 32px 0; background: #E8EFE6; border-bottom: 2px solid #B0C9A8; overflow-x: auto; }
     .tab { padding: 9px 20px; font-size: 13px; color: #3A6B35; border-radius: 8px 8px 0 0; cursor: pointer; border: 1px solid transparent; border-bottom: none; background: transparent; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
     .tab.active { background: #fff; border-color: #B0C9A8; border-bottom-color: #fff; font-weight: 600; color: #1A3A1A; margin-bottom: -2px; }
@@ -40,16 +34,11 @@
     .badge-info     { background: #F0EEE8; color: #5A5850; }
     .badge-pipeline { background: #E6F4E0; color: #2D6B1A; }
     .badge-reports  { background: #E8EFE6; color: #3A6B35; }
-    .tab-external { text-decoration: none; }
-    .tab-external:hover { background: #F2F5F0; border-color: #B0C9A8; }
-
-    /* ── Main ── */
+    .badge-formats  { background: #FDF3DC; color: #7A5200; }
     .main { padding: 28px 32px; max-width: 900px; margin: 0 auto; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
     .section-label { font-size: 11px; color: #4A8C3F; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
-
-    /* ── Cards ── */
     .card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; }
     .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
     .card-title { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
@@ -64,27 +53,21 @@
     .usage-note { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
     .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .btn { font-size: 12px; padding: 6px 16px; border-radius: 6px; border: 1px solid; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-block; }
-    .btn-view     { background: #2D5C28; color: #fff; border-color: #2D5C28; }
+    .btn-view { background: #2D5C28; color: #fff; border-color: #2D5C28; }
     .btn-view:hover { background: #1A3A1A; }
     .btn-feedback { background: #E8EFE6; color: #3A6B35; border-color: #8BBF82; }
     .rejection-note { background: #FFF7F0; border: 1px solid #E8A07A; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #6B2A0D; margin-bottom: 12px; }
     .rejection-note strong { display: block; font-weight: 600; margin-bottom: 4px; color: #8B3A1A; }
     .approved-note { background: #F0F9EA; border: 1px solid #8BBF82; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #2D6B1A; margin-bottom: 12px; }
     .approved-note strong { display: block; font-weight: 600; margin-bottom: 4px; }
-
-    /* ── Status pills ── */
     .status-pill-seq { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.03em; }
     .pill-pending  { background: #FDF3DC; color: #7A5200; }
     .pill-approved { background: #E6F4E0; color: #2D6B1A; }
     .pill-rejected { background: #FAEAE6; color: #8B3A1A; }
-
-    /* ── Campaigns tab toolbar ── */
     .seq-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
     .seq-filter { padding: 7px 12px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; }
     .seq-filter:focus { border-color: #4A8C3F; }
     .seq-count-note { font-size: 12px; color: #3A6B35; }
-
-    /* ── Pipeline tab ── */
     .pipeline-header { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .pipeline-batch-name { font-size: 15px; font-weight: 700; color: #1A3A1A; }
     .pipeline-statement { font-size: 12px; color: #3A6B35; margin-top: 3px; }
@@ -107,22 +90,19 @@
     .pcard-loc { font-size: 11px; color: #3A6B35; margin-bottom: 5px; }
     .pcard-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; }
     .pcard-tag { font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 500; }
-    .pcard-tag-type   { background: #E8EFE6; color: #3A6B35; }
+    .pcard-tag-type { background: #E8EFE6; color: #3A6B35; }
     .pcard-tag-sector { background: #E6F4E0; color: #2D6B1A; }
-    .pcard-tag-conn   { background: #EDE8F5; color: #5A3A8C; }
+    .pcard-tag-conn { background: #EDE8F5; color: #5A3A8C; }
     .pcard-signals { font-size: 11px; color: #444; line-height: 1.5; border-top: 1px solid #E8EFE6; padding-top: 6px; margin-top: 4px; }
     .pcard-signals strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 2px; }
     .pcard-empty { font-size: 12px; color: #8BBF82; text-align: center; padding: 20px 0; font-style: italic; }
-
-    /* ── Weekly Reports tab ── */
     .reports-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
     .reports-week-select { padding: 8px 14px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; min-width: 160px; }
-    .reports-week-select:focus { border-color: #4A8C3F; }
     .reports-no-data { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
     .reports-no-data p { margin-top: 8px; font-size: 13px; color: #4A8C3F; }
     .report-block { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; margin-bottom: 16px; }
     .report-block-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4A8C3F; margin-bottom: 14px; }
-    .report-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin-bottom: 4px; }
+    .report-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
     .report-stat { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 12px 14px; text-align: center; }
     .report-stat-value { font-size: 22px; font-weight: 700; color: #1A3A1A; }
     .report-stat-label { font-size: 11px; color: #3A6B35; margin-top: 3px; }
@@ -132,8 +112,6 @@
     .report-table tr:last-child td { border-bottom: none; }
     .report-note { font-size: 13px; color: #444; line-height: 1.65; }
     .report-week-label { font-size: 13px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 20px; padding: 4px 14px; display: inline-block; margin-bottom: 20px; }
-
-    /* ── Scenarios ── */
     .scenario-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; margin-bottom: 18px; }
     .scenario-name { font-size: 16px; font-weight: 600; color: #1A3A1A; margin-bottom: 4px; }
     .scenario-audience { font-size: 13px; font-weight: 600; color: #4A8C3F; margin-bottom: 6px; }
@@ -149,8 +127,6 @@
     .scenario-seq-meta { font-size: 11px; color: #3A6B35; margin-top: 2px; }
     .typical-titles { font-size: 12px; color: #3A6B35; line-height: 1.6; }
     .typical-titles strong { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #4A8C3F; margin-bottom: 4px; }
-
-    /* ── Audiences ── */
     .aud-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
     .view-toggle { display: flex; border: 1px solid #B0C9A8; border-radius: 6px; overflow: hidden; }
     .view-btn { font-size: 12px; padding: 5px 14px; background: #fff; color: #3A6B35; border: none; cursor: pointer; font-weight: 500; }
@@ -164,7 +140,7 @@
     .aud-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
     .aud-tag { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
     .aud-tag-sector { background: #E6F4E0; color: #2D6B1A; }
-    .aud-tag-geo    { background: #E8EFE6; color: #3A6B35; }
+    .aud-tag-geo { background: #E8EFE6; color: #3A6B35; }
     .aud-angle { font-size: 12px; color: #444; line-height: 1.55; border-top: 1px solid #C8DFC2; padding-top: 10px; margin-top: 4px; }
     .aud-angle strong { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
     .aud-seq-link { margin-top: 10px; }
@@ -175,8 +151,22 @@
     .aud-list-table td:first-child { border-left: 4px solid #4A8C3F; padding-left: 12px; }
     .aud-list-name { font-weight: 600; font-size: 13px; color: #1A3A1A; }
     .aud-list-titles { font-size: 12px; color: #3A6B35; margin-top: 2px; }
-
-    /* ── System Info ── */
+    /* Content formats */
+    .fmt-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    .fmt-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; border-left: 4px solid #4A8C3F; }
+    .fmt-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .fmt-name { font-size: 16px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
+    .fmt-meta { font-size: 12px; color: #3A6B35; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .fmt-status { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    .fmt-status-dev { background: #E6F4E0; color: #2D6B1A; }
+    .fmt-status-concept { background: #FDF3DC; color: #7A5200; }
+    .fmt-section { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #4A8C3F; margin: 14px 0 8px; }
+    .fmt-value-prop { font-size: 13px; color: #444; line-height: 1.65; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
+    .fmt-outline { font-size: 13px; color: #1a1f1a; line-height: 1.6; padding-left: 18px; margin-bottom: 14px; }
+    .fmt-outline li { margin-bottom: 4px; }
+    .fmt-cohost { font-size: 12px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 8px; padding: 10px 14px; }
+    .fmt-notes { font-size: 12px; color: #7A5200; background: #FDF3DC; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
+    /* Sys info */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
     @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
     .info-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; }
@@ -197,10 +187,8 @@
     .focus-detail { font-size: 12px; color: #444; line-height: 1.65; }
     .focus-detail strong { color: #1A3A1A; font-weight: 600; display: block; margin-top: 8px; margin-bottom: 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
     .status-pill { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
-    .status-active   { background: #E6F4E0; color: #2D6B1A; }
-    .status-planned  { background: #FDF3DC; color: #7A5200; }
-
-    /* ── Shared ── */
+    .status-active  { background: #E6F4E0; color: #2D6B1A; }
+    .status-planned { background: #FDF3DC; color: #7A5200; }
     .empty-state { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
     .empty-state p { margin-top: 8px; font-size: 13px; color: #4A8C3F; }
     #loading { text-align: center; padding: 60px; color: #4A8C3F; font-size: 14px; }
@@ -226,6 +214,7 @@
 
   <div class="tabs-bar">
     <div class="tab active" onclick="switchTab('campaigns',this)">Campaigns <span class="tab-badge badge-pending" id="count-pending">—</span></div>
+    <div class="tab" onclick="switchTab('formats',this)">Content Formats <span class="tab-badge badge-formats" id="count-formats">—</span></div>
     <div class="tab" onclick="switchTab('pipeline',this)">Pipeline <span class="tab-badge badge-pipeline" id="count-pipeline">—</span></div>
     <div class="tab" onclick="switchTab('reports',this)">Weekly Reports <span class="tab-badge badge-reports" id="count-reports">—</span></div>
     <div class="tab" onclick="switchTab('scenarios',this)">Scenarios <span class="tab-badge badge-scenario" id="count-scenarios">—</span></div>
@@ -236,6 +225,7 @@
   <div class="main">
     <div id="loading">Loading...</div>
     <div id="campaigns" class="tab-content" style="display:none;"></div>
+    <div id="formats"   class="tab-content" style="display:none;"></div>
     <div id="pipeline"  class="tab-content" style="display:none;"></div>
     <div id="reports"   class="tab-content" style="display:none;"></div>
     <div id="scenarios" class="tab-content" style="display:none;"></div>
@@ -272,22 +262,24 @@
   async function loadData() {
     try {
       const ts = '?t=' + Date.now();
-      const [campRes, rejRes, scRes, audRes, pipeRes] = await Promise.all([
+      const [campRes, rejRes, scRes, audRes, pipeRes, fmtRes] = await Promise.all([
         fetch(REPO_RAW + '/campaigns.json' + ts),
         fetch(REPO_RAW + '/rejections.json' + ts),
         fetch(REPO_RAW + '/scenarios.json' + ts),
         fetch(REPO_RAW + '/audiences.json' + ts),
-        fetch(REPO_RAW + '/pipeline.json' + ts)
+        fetch(REPO_RAW + '/pipeline.json' + ts),
+        fetch(REPO_RAW + '/content_formats.json' + ts)
       ]);
       const campData = await campRes.json();
       const rejData  = await rejRes.json();
       const scData   = await scRes.json();
       const audData  = await audRes.json();
       const pipeData = await pipeRes.json();
+      const fmtData  = await fmtRes.json();
       allCampaigns  = campData.campaigns  || [];
       allRejections = rejData.rejections  || [];
       reportWeeks = await discoverReportWeeks();
-      render(allCampaigns, allRejections, scData.scenarios || [], audData.audiences || [], pipeData);
+      render(allCampaigns, allRejections, scData.scenarios || [], audData.audiences || [], pipeData, fmtData.formats || []);
     } catch(e) {
       document.getElementById('loading').textContent = 'Failed to load. Please refresh. (' + e.message + ')';
     }
@@ -307,10 +299,11 @@
     return found;
   }
 
-  function render(campaigns, rejections, scenarios, audiences, pipeData) {
+  function render(campaigns, rejections, scenarios, audiences, pipeData, formats) {
     document.getElementById('loading').style.display = 'none';
     const pending = campaigns.filter(c => c.status === 'pending');
-    document.getElementById('count-pending').textContent   = pending.length || '0';
+    document.getElementById('count-pending').textContent  = pending.length || '0';
+    document.getElementById('count-formats').textContent  = formats.length;
     document.getElementById('count-scenarios').textContent = scenarios.length;
     document.getElementById('count-audiences').textContent = audiences.length;
     const pipeCount = (pipeData.pipeline || []).length;
@@ -320,6 +313,7 @@
     const now = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('last-updated').textContent = 'keyona@rerev.io · ' + now;
     renderCampaignsTab(campaigns, rejections);
+    renderFormatsTab(formats);
     renderPipelineTab(pipeData);
     renderReportsTab();
     renderScenariosTab(scenarios, campaigns);
@@ -347,15 +341,7 @@
       ...campaigns.filter(c => c.status === 'approved'),
       ...campaigns.filter(c => c.status === 'rejected')
     ];
-    el.innerHTML = `<div class="seq-toolbar">
-      <select class="seq-filter" id="camp-filter-select" onchange="campFilter=this.value;applyCampFilter()">
-        <option value="all">All campaigns</option>
-        <option value="pending" selected>Awaiting Review</option>
-        <option value="approved">Approved</option>
-        <option value="rejected">Flagged</option>
-      </select>
-      <div class="seq-count-note" id="camp-count-note"></div>
-    </div><div id="camp-list"></div>`;
+    el.innerHTML = `<div class="seq-toolbar"><select class="seq-filter" id="camp-filter-select" onchange="campFilter=this.value;applyCampFilter()"><option value="all">All campaigns</option><option value="pending" selected>Awaiting Review</option><option value="approved">Approved</option><option value="rejected">Flagged</option></select><div class="seq-count-note" id="camp-count-note"></div></div><div id="camp-list"></div>`;
     window._allCampSorted = sorted;
     applyCampFilter();
   }
@@ -375,16 +361,8 @@
     list.innerHTML = filtered.map(c => renderCampCard(c)).join('');
   }
 
-  const TYPE_BADGE_MAP = {
-    email:    'badge-email',
-    linkedin: 'badge-linkedin',
-    content:  'badge-content',
-    event:    'badge-event',
-    pr:       'badge-pr'
-  };
-  const TYPE_LABEL_MAP = {
-    email: 'Email', linkedin: 'LinkedIn', content: 'Content', event: 'Event', pr: 'PR / Press'
-  };
+  const TYPE_BADGE_MAP = { email:'badge-email', linkedin:'badge-linkedin', content:'badge-content', event:'badge-event', pr:'badge-pr' };
+  const TYPE_LABEL_MAP = { email:'Email', linkedin:'LinkedIn', content:'Content', event:'Event', pr:'PR / Press' };
 
   function renderCampCard(camp) {
     const status = camp.status || 'pending';
@@ -394,12 +372,25 @@
     const typeBadge = '<span class="type-badge ' + (TYPE_BADGE_MAP[typeKey] || 'badge-content') + '">' + (TYPE_LABEL_MAP[typeKey] || camp.type) + '</span>';
     const viewBtn = camp.campaignFile ? '<a class="btn btn-view" href="' + PAGES_BASE + '/' + camp.campaignFile + '" target="_blank">View campaign</a>' : '';
     const feedbackBtn = status === 'pending' ? '<a class="btn btn-feedback" href="https://github.com/keyona-rerev/btc-comms-review/issues/new?title=Feedback%3A+' + encodeURIComponent(camp.title) + '&body=**Campaign+ID:**+' + camp.id + '%0A%0A**Feedback:**%0A" target="_blank">Leave feedback</a>' : '';
-    const note = status === 'approved' && camp.approvalNote ? '<div class="approved-note"><strong>Why it worked</strong>' + camp.approvalNote + '</div>'
-      : status === 'rejected' && (camp.rejectionReason || camp._rejectionReason) ? '<div class="rejection-note"><strong>Bryan\'s feedback</strong>' + (camp.rejectionReason || camp._rejectionReason) + '</div>' : '';
+    const note = status === 'approved' && camp.approvalNote ? '<div class="approved-note"><strong>Why it worked</strong>' + camp.approvalNote + '</div>' : status === 'rejected' && (camp.rejectionReason || camp._rejectionReason) ? '<div class="rejection-note"><strong>Bryan\'s feedback</strong>' + (camp.rejectionReason || camp._rejectionReason) + '</div>' : '';
     const usageNote = camp.usageNote ? '<div class="usage-note">' + camp.usageNote + '</div>' : '';
     const cadence = camp.cadence ? ' &middot; ' + camp.cadence : '';
     const channel = camp.channel ? ' &middot; ' + camp.channel : '';
-    return `<div class="card"><div class="card-top"><div><div class="card-title">${escHtml(camp.title)}</div>${camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : ''}<div class="card-meta">${escHtml(camp.pushedDate)}${cadence}${channel} ${typeBadge}</div></div><span class="status-pill-seq ${pillClass}">${pillLabel}</span></div>${usageNote}${note}<div class="card-actions">${viewBtn}${feedbackBtn}</div></div>`;
+    return `<div class="card"><div class="card-top"><div><div class="card-title">${escHtml(camp.title)}</div>${camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : ''}<div class="card-meta">${escHtml(camp.pushedDate||'')}${cadence}${channel} ${typeBadge}</div></div><span class="status-pill-seq ${pillClass}">${pillLabel}</span></div>${usageNote}${note}<div class="card-actions">${viewBtn}${feedbackBtn}</div></div>`;
+  }
+
+  function renderFormatsTab(formats) {
+    const el = document.getElementById('formats');
+    if (!formats.length) { el.innerHTML = '<div class="empty-state"><strong>No content formats yet.</strong><p>Content formats define the repeatable webinar and content structures BTC is building.</p></div>'; return; }
+    el.innerHTML = '<div class="section-label">' + formats.length + ' format' + (formats.length !== 1 ? 's' : '') + ' defined</div><div class="fmt-grid">' + formats.map(f => renderFormatCard(f)).join('') + '</div>';
+  }
+
+  function renderFormatCard(f) {
+    const statusClass = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
+    const outlineItems = (f.contentOutline||[]).map(item => '<li>' + escHtml(item) + '</li>').join('');
+    const aud = (f.targetAudiences||[]).join(', ');
+    const notes = f.notes ? '<div class="fmt-notes">' + escHtml(f.notes) + '</div>' : '';
+    return `<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">${escHtml(f.name)}</div><div class="fmt-meta"><span>${escHtml(f.duration||'')}</span><span>&middot;</span><span>${escHtml(aud)}</span></div></div><span class="fmt-status ${statusClass}">${escHtml(f.status)}</span></div><div class="fmt-value-prop">${escHtml(f.valueProp||'')}</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">${outlineItems}</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">${escHtml(f.coHostAngle||'')}</div>${notes}</div>`;
   }
 
   function renderPipelineTab(pipeData) {
@@ -408,7 +399,7 @@
     const pipeline = pipeData.pipeline || [];
     const batchName = meta.current_batch || 'No active batch';
     const lastUpdated = meta.last_updated || '';
-    const focus = meta.focus || 'Climate tech founders + ecosystem partners';
+    const focus = meta.focus || '';
     const sourcing = pipeline.filter(p => p.bucket === 'sourcing');
     const active   = pipeline.filter(p => p.bucket === 'active');
     const nurture  = pipeline.filter(p => p.bucket === 'nurture');
@@ -426,8 +417,8 @@
   }
 
   function renderPipelineCard(p) {
-    const typeTag   = p.type   ? '<span class="pcard-tag pcard-tag-type">' + escHtml(p.type) + '</span>'   : '';
-    const sectorTag = p.sector ? '<span class="pcard-tag pcard-tag-sector">' + escHtml(p.sector) + '</span>' : '';
+    const typeTag   = p.type       ? '<span class="pcard-tag pcard-tag-type">'   + escHtml(p.type)       + '</span>' : '';
+    const sectorTag = p.sector     ? '<span class="pcard-tag pcard-tag-sector">' + escHtml(p.sector)     + '</span>' : '';
     const connTag   = p.connection ? '<span class="pcard-tag pcard-tag-conn">&#10003; ' + escHtml(p.connection) + '</span>' : '';
     const signalHtml = p.signals && p.signals.length ? '<div class="pcard-signals"><strong>Context</strong>' + p.signals.map(s => escHtml(s)).join(' &middot; ') + '</div>' : '';
     return `<div class="pcard"><div class="pcard-name">${escHtml(p.name||'—')}</div><div class="pcard-loc">${escHtml(p.location||'')}</div><div class="pcard-tags">${typeTag}${sectorTag}${connTag}</div>${signalHtml}</div>`;
@@ -464,11 +455,10 @@
 
   function renderScenariosTab(scenarios, campaigns) {
     const el = document.getElementById('scenarios');
-    if (!scenarios.length) { el.innerHTML = '<div class="empty-state"><strong>No scenarios yet.</strong><p>Scenarios define the context for each type of outreach or content push.</p></div>'; return; }
+    if (!scenarios.length) { el.innerHTML = '<div class="empty-state"><strong>No scenarios yet.</strong></div>'; return; }
     el.innerHTML = '<div class="section-label">' + scenarios.length + ' scenario' + (scenarios.length>1?'s':'') + '</div>' + scenarios.map(sc => {
       const linkedCamps = campaigns.filter(c => (sc.campaigns||[]).includes(c.id));
       const triggerTag = sc.trigger ? '<span class="scenario-tag trigger">Trigger: ' + escHtml(sc.trigger) + '</span>' : '';
-      const sectorTag  = sc.sector  ? '<span class="scenario-tag sector">' + escHtml(sc.sector) + '</span>'  : '';
       const tags = (sc.tags||[]).map(t=>'<span class="scenario-tag">'+escHtml(t)+'</span>').join('');
       const titles = sc.typicalTitles&&sc.typicalTitles.length ? '<div class="typical-titles"><strong>Typical contacts</strong>'+escHtml(sc.typicalTitles.join(', '))+'</div>' : '';
       const campRows = linkedCamps.map(c => {
@@ -476,7 +466,8 @@
         const sb = c.status==='approved'?'<span class="scenario-tag" style="background:#E6F4E0;color:#2D6B1A;border-color:#8BBF82;">Approved</span>':c.status==='pending'?'<span class="scenario-tag" style="background:#FDF3DC;color:#7A5200;border-color:#E8C87A;">Pending</span>':'<span class="scenario-tag" style="background:#FAEAE6;color:#8B3A1A;border-color:#D8957A;">Flagged</span>';
         return '<div class="scenario-seq-row"><div><div class="scenario-seq-info">'+escHtml(c.title)+' &nbsp;'+sb+'</div><div class="scenario-seq-meta">'+(c.channel||c.type||'')+'</div></div><div>'+viewBtn+'</div></div>';
       }).join('');
-      return '<div class="scenario-card"><div class="scenario-name">'+escHtml(sc.name)+'</div><div class="scenario-audience">'+escHtml(sc.targetAudience)+'</div><div class="scenario-description">'+escHtml(sc.description)+'</div><div class="scenario-meta-row">'+triggerTag+sectorTag+tags+'</div>'+titles+'<hr class="scenario-divider"><div class="scenario-sequences-label">Campaigns in this scenario</div>'+(campRows||'<div style="font-size:13px;color:#3A6B35;">No campaigns linked yet.</div>')+'</div>';
+      const scInitLink = sc.sc_initiative_id ? '<div style="margin-top:10px;font-size:11px;color:#3A6B35;">SC Initiative: <code>' + sc.sc_initiative_id + '</code></div>' : '';
+      return '<div class="scenario-card"><div class="scenario-name">'+escHtml(sc.name)+'</div><div class="scenario-audience">'+escHtml(sc.targetAudience)+'</div><div class="scenario-description">'+escHtml(sc.description)+'</div><div class="scenario-meta-row">'+triggerTag+tags+'</div>'+titles+scInitLink+'<hr class="scenario-divider"><div class="scenario-sequences-label">Campaigns in this scenario</div>'+(campRows||'<div style="font-size:13px;color:#3A6B35;">No campaigns linked yet.</div>')+'</div>';
     }).join('');
   }
 
@@ -488,7 +479,8 @@
   function renderAudCard(a, campaigns) {
     const linkedCamps = campaigns.filter(c => (a.campaigns||[]).includes(c.id));
     const campLinks = linkedCamps.map(c=>c.campaignFile?'<a class="btn btn-view" style="font-size:11px;padding:4px 12px;" href="'+PAGES_BASE+'/'+c.campaignFile+'" target="_blank">'+escHtml(c.title)+'</a>':'').join('');
-    return '<div class="aud-card"><div class="aud-segment">'+escHtml(a.segment)+'</div><div class="aud-name">'+escHtml(a.name)+'</div><div class="aud-titles">'+escHtml((a.targetTitles||[]).join(', '))+'</div><div class="aud-tags"><span class="aud-tag aud-tag-sector">'+escHtml(a.sector||'')+'</span><span class="aud-tag aud-tag-geo">'+escHtml(a.geo||'')+'</span></div><div class="aud-angle"><strong>Why they matter</strong>'+escHtml(a.whyTheyMatter||'')+'</div><div class="aud-angle" style="margin-top:8px;"><strong>Outreach angle</strong>'+escHtml(a.angle||'')+'</div>'+(campLinks?'<div class="aud-seq-link"><div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4A8C3F;margin-bottom:6px;">Campaigns</div>'+campLinks+'</div>':'')+'</div>';
+    const scLink = a.sc_contact_ids && a.sc_contact_ids.length ? '<div style="margin-top:8px;font-size:11px;color:#3A6B35;">SC contacts: ' + a.sc_contact_ids.length + ' linked</div>' : '';
+    return '<div class="aud-card"><div class="aud-segment">'+escHtml(a.segment)+'</div><div class="aud-name">'+escHtml(a.name)+'</div><div class="aud-titles">'+escHtml((a.targetTitles||[]).join(', '))+'</div><div class="aud-tags"><span class="aud-tag aud-tag-sector">'+escHtml(a.sector||'')+'</span><span class="aud-tag aud-tag-geo">'+escHtml(a.geo||'')+'</span></div><div class="aud-angle"><strong>Why they matter</strong>'+escHtml(a.whyTheyMatter||'')+'</div><div class="aud-angle" style="margin-top:8px;"><strong>Outreach angle</strong>'+escHtml(a.angle||'')+'</div>'+scLink+(campLinks?'<div class="aud-seq-link"><div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4A8C3F;margin-bottom:6px;">Campaigns</div>'+campLinks+'</div>':'')+'</div>';
   }
 
   function renderAudList(audiences, campaigns) {
@@ -513,54 +505,7 @@
     const approved = campaigns.filter(c=>c.status==='approved').length;
     const pending  = campaigns.filter(c=>c.status==='pending').length;
     const flagged  = campaigns.filter(c=>c.status==='rejected').length;
-    el.innerHTML = `
-      <div class="section-label">BTC communications overview</div>
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-card-title">Campaign summary</div>
-          <div class="info-row"><span class="info-label">Total campaigns</span><span class="info-value">${campaigns.length}</span></div>
-          <div class="info-row"><span class="info-label">Approved</span><span class="info-value green">${approved}</span></div>
-          <div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">${pending}</span></div>
-          <div class="info-row"><span class="info-label">Flagged by Bryan</span><span class="info-value">${flagged}</span></div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-title">Venture</div>
-          <div class="info-row"><span class="info-label">Fund</span><span class="info-value">Black Tech Capital (BTC)</span></div>
-          <div class="info-row"><span class="info-label">Focus</span><span class="info-value">Climate tech nano VC</span></div>
-          <div class="info-row"><span class="info-label">Co-managed</span><span class="info-value">Keyona + Bryan Duarte</span></div>
-          <div class="info-row"><span class="info-label">Portal password</span><span class="info-value">btc2026</span></div>
-        </div>
-      </div>
-
-      <div class="section-label">Campaign types tracked</div>
-      <table class="stack-table">
-        <thead><tr><th>Type</th><th>Description</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>Email</td><td>Outreach sequences to founders, LPs, and ecosystem partners</td><td><span class="status-pill status-active">Tracked</span></td></tr>
-          <tr><td>LinkedIn</td><td>Organic posts, DM sequences, thought leadership content</td><td><span class="status-pill status-active">Tracked</span></td></tr>
-          <tr><td>Content</td><td>Blog posts, reports, newsletters, and website copy</td><td><span class="status-pill status-active">Tracked</span></td></tr>
-          <tr><td>Event</td><td>Sponsorships, speaking engagements, and event outreach</td><td><span class="status-pill status-active">Tracked</span></td></tr>
-          <tr><td>PR / Press</td><td>Press releases, media pitches, and announcements</td><td><span class="status-pill status-planned">Planned</span></td></tr>
-        </tbody>
-      </table>
-
-      <div class="section-label">How to add a campaign</div>
-      <div class="focus-card">
-        <div class="focus-name">Adding campaigns to this portal</div>
-        <div class="focus-role">For Keyona and Bryan</div>
-        <div class="focus-detail">
-          <strong>Step 1 — Draft the campaign</strong>
-          Create the campaign content (email copy, LinkedIn post, content piece, etc.) as an HTML file in the <code>campaigns/</code> folder. Use the naming convention: <code>camp-001-short-slug.html</code>
-          <strong>Step 2 — Add to campaigns.json</strong>
-          Add a new entry to <code>campaigns.json</code> with id, title, status (pending), type, pushedDate, targetAudience, campaignFile, and usageNote.
-          <strong>Step 3 — Link to scenarios and audiences</strong>
-          Add the campaign ID to the relevant entry in <code>scenarios.json</code> and <code>audiences.json</code>.
-          <strong>Step 4 — Leave feedback via GitHub Issues</strong>
-          Bryan can click "Leave feedback" on any pending campaign to open a GitHub issue thread for review comments.
-          <strong>Step 5 — Update status</strong>
-          When approved, change status to "approved" and add an approvalNote. When flagged, change to "rejected" and add rejectionReason and an entry in rejections.json.
-        </div>
-      </div>`;
+    el.innerHTML = `<div class="section-label">BTC communications overview</div><div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign summary</div><div class="info-row"><span class="info-label">Total campaigns</span><span class="info-value">${campaigns.length}</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">${approved}</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">${pending}</span></div><div class="info-row"><span class="info-label">Flagged by Bryan</span><span class="info-value">${flagged}</span></div></div><div class="info-card"><div class="info-card-title">Venture</div><div class="info-row"><span class="info-label">Fund</span><span class="info-value">Black Tech Capital (BTC)</span></div><div class="info-row"><span class="info-label">Focus</span><span class="info-value">Climate tech nano VC</span></div><div class="info-row"><span class="info-label">Co-managed</span><span class="info-value">Keyona + Bryan Duarte</span></div><div class="info-row"><span class="info-label">SC Webinar Initiative</span><span class="info-value" style="font-family:monospace;font-size:11px;">INI-1775180449939</span></div><div class="info-row"><span class="info-label">SC ABM Initiative</span><span class="info-value" style="font-family:monospace;font-size:11px;">INI-1775180457900</span></div></div></div><div class="section-label">Campaign types tracked</div><table class="stack-table"><thead><tr><th>Type</th><th>Description</th><th>Status</th></tr></thead><tbody><tr><td>Email</td><td>Outreach sequences to founders, LPs, and ecosystem partners</td><td><span class="status-pill status-active">Tracked</span></td></tr><tr><td>LinkedIn</td><td>Organic posts, DM sequences, thought leadership content</td><td><span class="status-pill status-active">Tracked</span></td></tr><tr><td>Content</td><td>Blog posts, reports, newsletters, and website copy</td><td><span class="status-pill status-active">Tracked</span></td></tr><tr><td>Event</td><td>Sponsorships, speaking engagements, and event outreach</td><td><span class="status-pill status-active">Tracked</span></td></tr><tr><td>PR / Press</td><td>Press releases, media pitches, and announcements</td><td><span class="status-pill status-planned">Planned</span></td></tr></tbody></table>`;
   }
 
   function escHtml(s) {
