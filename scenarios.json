@@ -1,3 +1,37 @@
 {
-  "scenarios": []
+  "scenarios": [
+    {
+      "id": "scenario-001",
+      "name": "Webinar Partner Outreach",
+      "description": "Outreach to organizations in Bryan's network to pitch a co-branded webinar partnership. These orgs have distribution to small-check investors (~$10K), climate tech founders, and operators. The webinar content will be a spin-off or truncated version of the Climate Tech Exit Lab.",
+      "targetAudience": "Organizations with climate tech / impact investor distribution",
+      "typicalTitles": ["Executive Director", "Program Director", "Managing Director", "Founder", "CEO"],
+      "trigger": "Bryan identifies org as a fit — warm intro path",
+      "campaigns": [],
+      "sc_initiative_id": "INI-1775180449939",
+      "tags": ["webinar", "partnership", "climate-tech", "warm-intro", "bryan-network"]
+    },
+    {
+      "id": "scenario-002",
+      "name": "Institutional Investor ABM — Canada",
+      "description": "Account-based marketing to Canadian impact foundations and institutional investors. Goal is to build warm relationships toward a sponsorship or LP conversation by end of summer 2026. These are high-stakes, relationship-first touches — not cold email blasts.",
+      "targetAudience": "Canadian impact foundations and institutional investors",
+      "typicalTitles": ["Program Officer", "Investment Manager", "Executive Director", "Chief Investment Officer", "VP Programs"],
+      "trigger": "Bryan identifies target — or intro path unlocked via Equality Fund intermediary",
+      "campaigns": [],
+      "sc_initiative_id": "INI-1775180457900",
+      "tags": ["abm", "institutional-investors", "canada", "impact-foundation", "sponsorship", "lp"]
+    },
+    {
+      "id": "scenario-003",
+      "name": "Sponsorship Platform Launch",
+      "description": "Building out a strong sponsorship ask and platform for BTC so we can have sponsorship conversations at the end of summer 2026. This includes developing the asset suite, the ask, and the outreach strategy.",
+      "targetAudience": "Corporate sponsors, foundations, and aligned organizations",
+      "typicalTitles": ["VP Partnerships", "Head of Corporate Social Responsibility", "Director of Strategic Initiatives", "Program Officer"],
+      "trigger": "End of Q2 2026 — assets built, ask ready",
+      "campaigns": [],
+      "sc_initiative_id": null,
+      "tags": ["sponsorship", "platform", "end-of-summer", "assets"]
+    }
+  ]
 }
