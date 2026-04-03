@@ -1,0 +1,60 @@
+{
+  "formats": [
+    {
+      "id": "fmt-001",
+      "name": "Climate Tech Exit Lab Preview",
+      "status": "In Development",
+      "type": "webinar",
+      "duration": "45–60 min",
+      "targetAudiences": ["small-check-investors", "climate-tech-founders"],
+      "partnerFit": ["webinar-partner-orgs"],
+      "valueProp": "A truncated, high-value preview of the Climate Tech Exit Lab framework. Gives small-check investors and founders the core mental model for how climate tech exits actually work — and positions BTC as the team that built that framework.",
+      "contentOutline": [
+        "Why climate tech exits are different from traditional tech (10 min)",
+        "The 3 exit archetypes BTC tracks — acquisition, project finance, strategic partnership (15 min)",
+        "Live case walk-through: a climate tech exit story (10 min)",
+        "What this means for a $10K check — risk, return, timeline (10 min)",
+        "Q&A (10–15 min)"
+      ],
+      "coHostAngle": "Partner org hosts + promotes to their list. BTC delivers the content. Co-branded across all materials.",
+      "notes": "This is the primary webinar format to develop first. It is the anchor content for the webinar partner program."
+    },
+    {
+      "id": "fmt-002",
+      "name": "Operator Office Hours",
+      "status": "Concept",
+      "type": "webinar",
+      "duration": "60 min",
+      "targetAudiences": ["climate-tech-operators", "climate-tech-founders"],
+      "partnerFit": ["webinar-partner-orgs"],
+      "valueProp": "A Q&A-first format where Keyona and Bryan field real questions from climate tech operators and founders on scaling, fundraising, and exits. No slides. Practical, tactical, real.",
+      "contentOutline": [
+        "Brief BTC intro + why we do this (5 min)",
+        "Live Q&A — audience submits questions, Keyona + Bryan answer (45 min)",
+        "3 resources or frameworks BTC recommends (5 min)",
+        "Wrap + next webinar preview (5 min)"
+      ],
+      "coHostAngle": "Partner org curates the audience and submits questions in advance. Keeps quality high and gives them editorial input.",
+      "notes": "Good for deeper engagement with orgs that already have warm communities. Second format to develop after Exit Lab Preview."
+    },
+    {
+      "id": "fmt-003",
+      "name": "LP Intro Webinar",
+      "status": "Concept",
+      "type": "webinar",
+      "duration": "30–45 min",
+      "targetAudiences": ["canadian-impact-foundations", "small-check-investors"],
+      "partnerFit": [],
+      "valueProp": "A structured, professional introduction to BTC for institutional investors and foundations. Covers the fund thesis, the climate tech landscape BTC operates in, deal flow strategy, and what a partnership or investment looks like.",
+      "contentOutline": [
+        "The climate tech nano VC thesis — why now, why BTC (10 min)",
+        "Our deal flow and portfolio strategy (10 min)",
+        "What we are building toward — Climate Tech Exit Lab, fund II (10 min)",
+        "What partnership or investment looks like — structures, minimums, timelines (5 min)",
+        "Q&A (10 min)"
+      ],
+      "coHostAngle": "Not a co-branded format. BTC-only. Used for warm institutional investor meetings, not public webinars.",
+      "notes": "This format is the ABM content asset. Develop after the Exit Lab Preview is locked. Will be used in the Equality Fund meeting prep and other institutional outreach."
+    }
+  ]
+}
