@@ -1,9 +1,10 @@
 {
   "meta": {
     "total_contacted": 0,
-    "current_batch": "Webinar Partner Outreach — Batch 1",
+    "current_batch": "Webinar Partner Outreach ? Batch 1",
     "last_updated": "Apr 2026",
-    "focus": "Webinar partners (Bryan network) + Canadian institutional investors (ABM)"
+    "focus": "Webinar partners (Bryan network) + Canadian institutional investors (ABM)",
+    "last_synced": "2026-04-06T14:32 UTC (Debbie)"
   },
   "pipeline": [
     {
@@ -13,9 +14,14 @@
       "sector": "Impact investing",
       "location": "Canada",
       "connection": "Bryan Duarte",
-      "signals": ["Bryan direct network", "Distribution: small-check investors + impact founders"],
+      "signals": [
+        "Bryan direct network",
+        "Distribution: small-check investors + impact founders"
+      ],
       "sc_contact_id": "C1775180494358",
-      "sc_initiative_id": "INI-1775180449939"
+      "sc_initiative_id": "INI-1775180449939",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Ontario Clean Tech Industry Association",
@@ -24,9 +30,14 @@
       "sector": "Clean tech",
       "location": "Ontario, Canada",
       "connection": "Bryan Duarte",
-      "signals": ["Bryan direct network", "Distribution: Ontario climate tech founders + operators"],
+      "signals": [
+        "Bryan direct network",
+        "Distribution: Ontario climate tech founders + operators"
+      ],
       "sc_contact_id": "C1775180510112",
-      "sc_initiative_id": "INI-1775180449939"
+      "sc_initiative_id": "INI-1775180449939",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Clean Tech North",
@@ -35,9 +46,14 @@
       "sector": "Clean tech",
       "location": "Canada",
       "connection": "Bryan Duarte",
-      "signals": ["Bryan direct network", "Regional clean tech distribution"],
+      "signals": [
+        "Bryan direct network",
+        "Regional clean tech distribution"
+      ],
       "sc_contact_id": "C1775180511190",
-      "sc_initiative_id": "INI-1775180449939"
+      "sc_initiative_id": "INI-1775180449939",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "KAFD",
@@ -46,9 +62,14 @@
       "sector": "Climate-aligned",
       "location": "Canada",
       "connection": "Bryan Duarte",
-      "signals": ["Bryan direct network", "Full name TBC — confirm with Bryan"],
+      "signals": [
+        "Bryan direct network",
+        "Full name TBC ? confirm with Bryan"
+      ],
       "sc_contact_id": "C1775180512231",
-      "sc_initiative_id": "INI-1775180449939"
+      "sc_initiative_id": "INI-1775180449939",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Good Investor (Tim)",
@@ -56,10 +77,16 @@
       "type": "Webinar partner",
       "sector": "Impact investing",
       "location": "Canada",
-      "connection": "Bryan Duarte — direct",
-      "signals": ["Bryan direct connection", "Small-check investor distribution — ~$10K check size", "Get Tim's last name from Bryan"],
+      "connection": "Bryan Duarte ? direct",
+      "signals": [
+        "Bryan direct connection",
+        "Small-check investor distribution ? ~$10K check size",
+        "Get Tim's last name from Bryan"
+      ],
       "sc_contact_id": "C1775180513230",
-      "sc_initiative_id": "INI-1775180449939"
+      "sc_initiative_id": "INI-1775180449939",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Equality Fund",
@@ -68,9 +95,15 @@
       "sector": "Impact foundation",
       "location": "Canada",
       "connection": "Meeting April 2026",
-      "signals": ["Meeting scheduled April 2026", "Will intro intermediary for impact foundation due diligence", "Get contact name + intermediary name at the meeting"],
+      "signals": [
+        "Meeting scheduled April 2026",
+        "Will intro intermediary for impact foundation due diligence",
+        "Get contact name + intermediary name at the meeting"
+      ],
       "sc_contact_id": "C1775180535187",
-      "sc_initiative_id": "INI-1775180457900"
+      "sc_initiative_id": "INI-1775180457900",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Atmospheric Fund",
@@ -79,9 +112,14 @@
       "sector": "Climate foundation",
       "location": "Canada",
       "connection": "Bryan Duarte ABM",
-      "signals": ["Strong thesis alignment — climate focus", "Outreach TBD"],
+      "signals": [
+        "Strong thesis alignment ? climate focus",
+        "Outreach TBD"
+      ],
       "sc_contact_id": "C1775180533154",
-      "sc_initiative_id": "INI-1775180457900"
+      "sc_initiative_id": "INI-1775180457900",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Toronto Foundation Fund",
@@ -90,9 +128,13 @@
       "sector": "Impact foundation",
       "location": "Toronto, Canada",
       "connection": "Bryan Duarte ABM",
-      "signals": ["Outreach TBD — identify intro path"],
+      "signals": [
+        "Outreach TBD ? identify intro path"
+      ],
       "sc_contact_id": "C1775180531700",
-      "sc_initiative_id": "INI-1775180457900"
+      "sc_initiative_id": "INI-1775180457900",
+      "open_action_count": 0,
+      "next_action": null
     },
     {
       "name": "Boann",
@@ -101,9 +143,14 @@
       "sector": "Impact investing",
       "location": "Canada",
       "connection": "Bryan Duarte ABM",
-      "signals": ["Confirm full org name with Bryan", "Outreach TBD"],
+      "signals": [
+        "Confirm full org name with Bryan",
+        "Outreach TBD"
+      ],
       "sc_contact_id": "C1775180534166",
-      "sc_initiative_id": "INI-1775180457900"
+      "sc_initiative_id": "INI-1775180457900",
+      "open_action_count": 0,
+      "next_action": null
     }
   ]
 }
