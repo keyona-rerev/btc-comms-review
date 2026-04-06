@@ -1,0 +1,59 @@
+{
+  "initiatives": [
+    {
+      "id": "INI-1775180449939",
+      "name": "BTC Webinar Partner Program",
+      "status": "Active",
+      "priority": "High",
+      "timeline": "Q2-Q3 2026",
+      "goal": "Build a series of co-branded webinars with organizations that have distribution to small-check investors, climate tech founders, and operators. Grow BTC visibility ahead of the sponsorship platform launch.",
+      "core_question": "Which partner organizations have the right distribution and credibility to co-host webinars that position BTC as the go-to climate tech nano VC?",
+      "notes": "Bryan sourced 5 partner orgs: SVX, OCTIA, Clean Tech North, CAFIID, Good Investor (Tim). Webinar content is a preview of the Climate Tech Exit Lab. CAFIID member activation (LinkedIn ABM) is a related initiative — run by Bryan Duarte before activating.",
+      "linked_campaigns": ["camp-svx-001", "camp-octia-001", "camp-ctn-001", "camp-cafiid-001", "camp-goodinvestor-001"]
+    },
+    {
+      "id": "INI-1775180457900",
+      "name": "BTC Institutional Investor ABM — Canada",
+      "status": "Active",
+      "priority": "Critical",
+      "timeline": "Q2-Q3 2026 — sponsorship ask by end of summer",
+      "goal": "Build warm relationships with Canadian impact foundations and institutional investors toward a sponsorship or LP ask by end of summer 2026.",
+      "core_question": "Which Canadian institutional investors are the most viable path to a first check or sponsorship conversation by September 2026?",
+      "notes": "Targets: Toronto Foundation Fund, Atmospheric Fund, Boann, Equality Fund. Meeting with Equality Fund in April 2026. Equality Fund contact will intro an intermediary for impact foundation due diligence.",
+      "linked_campaigns": []
+    },
+    {
+      "id": "INI-003",
+      "name": "BTC Compliance Calendar Optimization",
+      "status": "Planning",
+      "priority": "Medium",
+      "timeline": "Q2 2026",
+      "goal": "BTC has an optimized, automated compliance calendar reducing manual tracking and compliance risk.",
+      "core_question": "What are the key compliance deadlines for climate tech fund operations?",
+      "notes": "Followed up with a TIP member for feedback. Awaiting their response.",
+      "linked_campaigns": ["camp-btc-compliance-001"]
+    },
+    {
+      "id": "INI-001",
+      "name": "BTC Climate Tech Exit Lab",
+      "status": "Active",
+      "priority": "High",
+      "timeline": "Q2 2026",
+      "goal": "Build a comprehensive interview series and collective intelligence repository on climate tech exits.",
+      "core_question": "How do we systematize climate tech exit learnings for founders?",
+      "notes": "Foundational BTC initiative. Monthly interviews with experienced founders, advisory committee formation, sponsorship pipeline development. The Exit Lab is the content backbone for the webinar partner program.",
+      "linked_campaigns": []
+    },
+    {
+      "id": "INI-1775495424026",
+      "name": "CAFIID Member Activation — LinkedIn ABM + Webinar Pipeline",
+      "status": "Brain Dump",
+      "priority": "Medium",
+      "timeline": "TBD — run by Bryan Duarte first",
+      "goal": "Activate individual CAFIID members as an ABM layer via LinkedIn once BTC has brand exposure through a CAFIID co-hosted webinar, or independently if the org-level pitch doesn't move fast enough.",
+      "core_question": "Which CAFIID members are the best individual targets, and does the org-level webinar collab need to land first or can member-level outreach run independently?",
+      "notes": "CAFIID members include SVX, impact foundations, fund managers, and development finance institutions. Theory: co-hosted webinar builds BTC brand credibility with the CAFIID community, then individual member LinkedIn outreach lands warmer. Run the approach by Bryan Duarte before activating.",
+      "linked_campaigns": []
+    }
+  ]
+}
