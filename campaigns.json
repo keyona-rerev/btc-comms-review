@@ -12,16 +12,17 @@
       "cadence": "One-touch re-engagement",
       "from": "Bryan Duarte",
       "contactOrg": "SVX",
+      "contactPerson": "James",
       "contactLocation": "Canada",
       "sc_contact_id": "C1775180494358",
       "sc_initiative_id": "INI-1775180449939",
       "webinarAngle": "Exclusivity — SVX investor audience gets early access to the Climate Tech Exit Lab framework before it goes public. BTC brings the content, SVX brings the list.",
-      "outreachStatus": "needs_send",
-      "waitingOn": null,
+      "outreachStatus": "waiting",
+      "waitingOn": "Bryan's approval — Keyona sent Bryan the proposed email to James asking what he thinks before it goes out. Bryan has not sent yet.",
       "blocker": null,
-      "usageNote": "Bryan had interest from SVX at end of 2024. Re-engagement touch — acknowledge the gap, get back to business fast.",
+      "usageNote": "Keyona proposed this re-engagement email to Bryan for his sign-off. Contact is James at SVX. Once Bryan approves the draft, Bryan sends it. Status should move to 'needs_send' once Bryan confirms, then 'waiting' after it's sent to James.",
       "emailSubject": "Picking back up — webinar idea for your community",
-      "emailDraft": "Hey [Name],\n\nHope the new year is treating you well. We connected late last year and I've been thinking about a collaboration that could be a good fit for your community.\n\nWe're putting together a webinar series on climate tech exits — breaking down how exits actually work in this space for small-check investors who want to understand the landscape before they commit capital. It's practical, framework-driven content that honestly doesn't exist anywhere else right now.\n\nI'd love to co-host one session with SVX. You bring the audience, we bring the content. Low lift on your end, real value for your community.\n\nWorth a 20-minute call to see if it makes sense?\n\nBryan"
+      "emailDraft": "Hey James,\n\nHope the new year is treating you well. We connected late last year and I've been thinking about a collaboration that could be a good fit for your community.\n\nWe're putting together a webinar series on climate tech exits — breaking down how exits actually work in this space for small-check investors who want to understand the landscape before they commit capital. It's practical, framework-driven content that honestly doesn't exist anywhere else right now.\n\nI'd love to co-host one session with SVX. You bring the audience, we bring the content. Low lift on your end, real value for your community.\n\nWorth a 20-minute call to see if it makes sense?\n\nBryan"
     },
     {
       "id": "camp-octia-001",
@@ -90,7 +91,7 @@
       "blocker": "Need full org name and right contact from Bryan before sending. Draft is ready — just needs [Org Full Name] and [Name] filled in.",
       "usageNote": "KAFD full name TBC. Draft is written and ready to go the moment Bryan confirms the org name and who to address it to.",
       "emailSubject": "Webinar idea — climate tech exits for your community",
-      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC, and I've been putting together a webinar series on climate tech exits.\n\nThe content is built for communities at the intersection of climate and capital — practical frameworks on how exits actually work in this space, what the different paths look like, and what investors need to understand before they get into these deals.\n\nI think [Org Full Name] and BTC would be a natural fit for a co-hosted session. You have the community, we have the content. Fully co-branded, low lift, real value.\n\nWorth a quick conversation?\n\nBryan\n\n---\n[BLOCKED: Replace [Name] with contact name and [Org Full Name] with KAFD full name — confirm both with Bryan before sending.]"
+      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC, and I've been putting together a webinar series on climate tech exits.\n\nThe content is built for communities at the intersection of climate and capital — practical frameworks on how exits actually work in this space, what the different paths look like, and what investors need to understand before they get into these deals.\n\nI think [Org Full Name] and BTC would be a natural fit for a co-hosted session. You have the community, we have the content. Fully co-branded, low lift, real value.\n\nWorth a quick conversation?\n\nBryan"
     },
     {
       "id": "camp-goodinvestor-001",
@@ -113,7 +114,7 @@
       "blocker": "Need Tim's last name from Bryan before sending. Draft is ready to go once confirmed.",
       "usageNote": "Bryan's direct connection. Most casual of the five pitches — keep the tone warm and personal. Get Tim's last name from Bryan first.",
       "emailSubject": "Webinar idea — for your climate investor community",
-      "emailDraft": "Hey Tim,\n\nBryan here. Good to reconnect.\n\nI'm putting together a webinar for people who are making small-check climate tech investments — $10K range — and want a real framework for how these deals actually play out. How exits work, what the risk profile looks like, what to pay attention to before you commit. The kind of content that usually lives behind closed doors.\n\nThought of you because I know your community is probably wrestling with some of these same questions. I'd love to co-host a session with you — you bring the people, we bring the framework. Nothing fancy, just a useful conversation.\n\nInterested?\n\nBryan\n\n---\n[BLOCKED: Confirm Tim's last name with Bryan before sending.]"
+      "emailDraft": "Hey Tim,\n\nBryan here. Good to reconnect.\n\nI'm putting together a webinar for people who are making small-check climate tech investments — $10K range — and want a real framework for how these deals actually play out. How exits work, what the risk profile looks like, what to pay attention to before you commit. The kind of content that usually lives behind closed doors.\n\nThought of you because I know your community is probably wrestling with some of these same questions. I'd love to co-host a session with you — you bring the people, we bring the framework. Nothing fancy, just a useful conversation.\n\nInterested?\n\nBryan"
     },
     {
       "id": "camp-btc-compliance-001",
@@ -132,7 +133,7 @@
       "sc_initiative_id": "INI-003",
       "webinarAngle": null,
       "outreachStatus": "waiting",
-      "waitingOn": "TIP member response to feedback request on BTC compliance calendar. Followed up — ball is in their court.",
+      "waitingOn": "TIP member response to feedback request on BTC compliance calendar. Keyona followed up — ball is in their court.",
       "blocker": null,
       "usageNote": "Keyona followed up with a TIP member for feedback on the BTC compliance calendar. No action needed yet. Check back in 5-7 days if no response.",
       "emailSubject": null,
