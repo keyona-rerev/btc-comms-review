@@ -4,7 +4,7 @@
     "current_batch": "Webinar Partner Outreach ? Batch 1",
     "last_updated": "Apr 2026",
     "focus": "Webinar partners (Bryan network) + Canadian institutional investors (ABM)",
-    "last_synced": "2026-04-06T15:02 UTC (Debbie)"
+    "last_synced": "2026-04-06T15:32 UTC (Debbie)"
   },
   "pipeline": [
     {
@@ -21,7 +21,9 @@
       "sc_contact_id": "C1775180494358",
       "sc_initiative_id": "INI-1775180449939",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "High"
     },
     {
       "name": "Ontario Clean Tech Industry Association",
@@ -37,7 +39,9 @@
       "sc_contact_id": "C1775180510112",
       "sc_initiative_id": "INI-1775180449939",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "High"
     },
     {
       "name": "Clean Tech North",
@@ -53,7 +57,9 @@
       "sc_contact_id": "C1775180511190",
       "sc_initiative_id": "INI-1775180449939",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "High"
     },
     {
       "name": "KAFD",
@@ -69,7 +75,9 @@
       "sc_contact_id": "C1775180512231",
       "sc_initiative_id": "INI-1775180449939",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "High"
     },
     {
       "name": "Good Investor (Tim)",
@@ -86,7 +94,9 @@
       "sc_contact_id": "C1775180513230",
       "sc_initiative_id": "INI-1775180449939",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "High"
     },
     {
       "name": "Equality Fund",
@@ -103,7 +113,9 @@
       "sc_contact_id": "C1775180535187",
       "sc_initiative_id": "INI-1775180457900",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "Critical"
     },
     {
       "name": "Atmospheric Fund",
@@ -119,7 +131,9 @@
       "sc_contact_id": "C1775180533154",
       "sc_initiative_id": "INI-1775180457900",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "Critical"
     },
     {
       "name": "Toronto Foundation Fund",
@@ -134,7 +148,9 @@
       "sc_contact_id": "C1775180531700",
       "sc_initiative_id": "INI-1775180457900",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "Critical"
     },
     {
       "name": "Boann",
@@ -150,7 +166,9 @@
       "sc_contact_id": "C1775180534166",
       "sc_initiative_id": "INI-1775180457900",
       "open_action_count": 0,
-      "next_action": null
+      "next_action": null,
+      "sc_initiative_status": "Active",
+      "sc_initiative_priority": "Critical"
     }
   ]
 }
