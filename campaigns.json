@@ -19,14 +19,14 @@
       "webinarAngle": "Exclusivity — SVX investor audience gets early access to the Climate Tech Exit Lab framework before it goes public. BTC brings the content, SVX brings the list.",
       "flow": {
         "step1": "Keyona drafts email",
-        "step2": "Keyona sends draft to Bryan Duarte: 'What do you think of using this to re-engage James?'",
-        "step3": "Bryan Duarte approves and sends to James"
+        "step2": "Keyona sends draft to Bryan Duarte for greenlight",
+        "step3": "Bryan Duarte sends to contact"
       },
       "currentStep": 2,
       "outreachStatus": "waiting",
       "waitingOn": "Bryan Duarte's response to Keyona's proposed email to James. Draft sent to Bryan for approval — Bryan has not sent to James yet.",
       "blocker": null,
-      "usageNote": "Draft proposed to Bryan Duarte. Once he approves, he sends to James at SVX. Update outreachStatus to 'sent_to_contact' after Bryan fires it off.",
+      "usageNote": "Draft proposed to Bryan Duarte. Once he approves, he sends to James at SVX.",
       "emailSubject": "Picking back up — webinar idea for your community",
       "emailDraft": "Hey James,\n\nHope the new year is treating you well. We connected late last year and I've been thinking about a collaboration that could be a good fit for your community.\n\nWe're putting together a webinar series on climate tech exits — breaking down how exits actually work in this space for small-check investors who want to understand the landscape before they commit capital. It's practical, framework-driven content that honestly doesn't exist anywhere else right now.\n\nI'd love to co-host one session with SVX. You bring the audience, we bring the content. Low lift on your end, real value for your community.\n\nWorth a 20-minute call to see if it makes sense?\n\nBryan"
     },
@@ -46,19 +46,19 @@
       "contactLocation": "Ontario, Canada",
       "sc_contact_id": "C1775180510112",
       "sc_initiative_id": "INI-1775180449939",
-      "webinarAngle": "Peer credibility — not an investor lecture, a practitioner conversation. BTC as people who understand the founder and operator journey in climate tech. Frame as real talk, not a pitch.",
+      "webinarAngle": "Peer credibility — BTC as practitioners who understand the founder and operator journey. Frame as a real conversation, not a pitch.",
       "flow": {
         "step1": "Keyona drafts email",
-        "step2": "Keyona sends draft to Bryan Duarte: 'What do you think of using this to reach [contact]?'",
-        "step3": "Bryan Duarte approves and sends to contact"
+        "step2": "Keyona sends draft to Bryan Duarte for greenlight",
+        "step3": "Bryan Duarte sends to contact"
       },
       "currentStep": 1,
       "outreachStatus": "needs_send",
       "waitingOn": null,
       "blocker": null,
-      "usageNote": "Draft is written. Next step: Keyona sends to Bryan Duarte for his sign-off. Confirm contact name with Bryan before sending.",
-      "emailSubject": "Webinar idea for your members — climate tech exits",
-      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC focused on the earliest stages of the ecosystem.\n\nI've been building a webinar series aimed at climate tech founders and operators, and I think your community at OCTIA would be a great fit for a session.\n\nThe content is practitioner-focused: how exits actually work in climate tech, what the different paths look like, and what founders and operators need to understand before they get there. It's the kind of conversation that doesn't happen enough in this space — too much noise, not enough ground truth.\n\nI'd love to co-host a session with you. You bring the members, we bring the framework. Fully co-branded, no pitch, just useful content.\n\nOpen to a quick call to see if it's a fit?\n\nBryan"
+      "usageNote": "Draft ready. Keyona to send to Bryan Duarte for greenlight. Confirm contact name with Bryan first.",
+      "emailSubject": "Webinar collab idea — climate tech exits",
+      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC.\n\nI've been putting together a webinar series on how climate tech exits actually work, and I think your community would be a natural fit for a session. One co-hosted event — you bring the audience, we bring the content.\n\nWorth a quick call to see if it makes sense?\n\nBryan"
     },
     {
       "id": "camp-ctn-001",
@@ -76,20 +76,19 @@
       "contactLocation": "Canada",
       "sc_contact_id": "C1775180511190",
       "sc_initiative_id": "INI-1775180449939",
-      "webinarAngle": "Regional investment — BTC is building with the Canadian ecosystem, not passing through. The webinar is a proof point of that. Co-branding signals both orgs are invested in the region.",
+      "webinarAngle": "Regional community investment — BTC is building with the Canadian ecosystem. One co-hosted session as a proof point.",
       "flow": {
         "step1": "Keyona drafts email",
-        "step2": "Keyona sends draft to Bryan Duarte: 'What do you think of using this to reach Bryan Watson?'",
-        "step3": "Bryan Duarte approves and sends to Bryan Watson"
+        "step2": "Keyona sends draft to Bryan Duarte for greenlight",
+        "step3": "Bryan Duarte sends to Bryan Watson"
       },
       "currentStep": 2,
       "outreachStatus": "waiting",
-      "waitingOn": "Bryan Duarte's greenlight on the draft Keyona wrote for Bryan Watson at Clean Tech North.",
+      "waitingOn": "Bryan Duarte's greenlight on the draft Keyona wrote for Bryan Watson.",
       "blocker": null,
-      "usageNote": "Contact is Bryan Watson at Clean Tech North. Draft sent to Bryan Duarte for sign-off. Once approved, Bryan Duarte sends to Bryan Watson.",
-      "emailSubject": "What do you think of using this to reach Bryan Watson at Clean Tech North?",
-      "keyonaToBryanNote": "Hey Bryan, here's a draft I put together for Bryan Watson at Clean Tech North. Let me know if you want to adjust anything before you send it.",
-      "emailDraft": "Hey Bryan,\n\nHope you're feeling rested after the long weekend!\n\nBryan Duarte and I have been talking about what it would look like to do more collaborative content this year, and he mentioned the organizations you're a part of, including Clean Tech North. We think there are some natural synergies there.\n\nWe're trying to get the ecosystem more familiar with making climate tech investments and understanding what goes into successful ones. To do that, we're launching the Climate Tech Exit Lab this year — an initiative built for both founders and investors that does exactly that.\n\nWould you be open to a conversation about the initiative and where we might be able to collaborate?\n\nBryan"
+      "usageNote": "Contact is Bryan Watson. Draft sent to Bryan Duarte for sign-off. Once approved, Bryan Duarte sends.",
+      "emailSubject": "Webinar collab — want to co-host one session?",
+      "emailDraft": "Hey Bryan,\n\nHope you're feeling rested after the long weekend!\n\nBryan Duarte and I have been talking about doing more collaborative content this year, and he mentioned you and Clean Tech North. We think there are some natural synergies there.\n\nWe're launching the Climate Tech Exit Lab this year — an initiative for both founders and investors on what goes into successful climate tech investments and exits. We'd love to co-host one session with Clean Tech North to bring that content to your community.\n\nWould you be open to a quick conversation to see if it's a fit?\n\nBryan"
     },
     {
       "id": "camp-kafd-001",
@@ -107,19 +106,19 @@
       "contactLocation": "Canada",
       "sc_contact_id": "C1775180512231",
       "sc_initiative_id": "INI-1775180449939",
-      "webinarAngle": "Credibility amplification — co-branding with BTC signals to their network they are plugged into real emerging fund managers doing climate work. Mutual visibility play.",
+      "webinarAngle": "Credibility amplification — co-hosting one session with BTC signals they are connected to emerging climate fund managers doing real work.",
       "flow": {
         "step1": "Keyona drafts email",
-        "step2": "Keyona sends draft to Bryan Duarte: 'What do you think of using this to reach [contact]?'",
-        "step3": "Bryan Duarte approves and sends to contact"
+        "step2": "Keyona sends draft to Bryan Duarte for greenlight",
+        "step3": "Bryan Duarte sends to contact"
       },
       "currentStep": 1,
       "outreachStatus": "blocked",
       "waitingOn": null,
       "blocker": "Need KAFD full org name and contact name from Bryan Duarte before Keyona can finalize the draft.",
-      "usageNote": "Blocked on org name and contact. Once Bryan Duarte confirms, Keyona finalizes the draft and sends for his sign-off.",
-      "emailSubject": "Webinar idea — climate tech exits for your community",
-      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC, and I've been putting together a webinar series on climate tech exits.\n\nThe content is built for communities at the intersection of climate and capital — practical frameworks on how exits actually work in this space, what the different paths look like, and what investors need to understand before they get into these deals.\n\nI think [Org Full Name] and BTC would be a natural fit for a co-hosted session. You have the community, we have the content. Fully co-branded, low lift, real value.\n\nWorth a quick conversation?\n\nBryan"
+      "usageNote": "Blocked on org name and contact. Once Bryan Duarte confirms, Keyona drafts and sends for sign-off.",
+      "emailSubject": "Webinar collab — want to co-host one session?",
+      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC.\n\nI've been putting together a webinar series on how climate tech exits actually work, and I think [Org Full Name] and BTC would be a natural fit for one co-hosted session. You bring the community, we bring the content.\n\nWorth a quick conversation?\n\nBryan"
     },
     {
       "id": "camp-goodinvestor-001",
@@ -137,19 +136,19 @@
       "contactLocation": "Canada",
       "sc_contact_id": "C1775180513230",
       "sc_initiative_id": "INI-1775180449939",
-      "webinarAngle": "Peer-to-peer — Tim is a small-check investor himself (~$10K), so his network is people trying to figure out the same things he is. Frame it as a resource for his community, not a brand play.",
+      "webinarAngle": "Peer-to-peer — Tim's network is small-check investors trying to figure out the same things he is. One session gives them a real framework.",
       "flow": {
         "step1": "Keyona drafts email",
-        "step2": "Keyona sends draft to Bryan Duarte: 'What do you think of using this to reach Tim?'",
-        "step3": "Bryan Duarte approves and sends to Tim"
+        "step2": "Keyona sends draft to Bryan Duarte for greenlight",
+        "step3": "Bryan Duarte sends to Tim"
       },
       "currentStep": 1,
       "outreachStatus": "blocked",
       "waitingOn": null,
-      "blocker": "Need Tim's last name from Bryan Duarte before Keyona can finalize and send the draft for approval.",
-      "usageNote": "Draft written. Blocked only on Tim's last name. Once confirmed, Keyona sends to Bryan Duarte for sign-off.",
-      "emailSubject": "Webinar idea — for your climate investor community",
-      "emailDraft": "Hey Tim,\n\nBryan here. Good to reconnect.\n\nI'm putting together a webinar for people who are making small-check climate tech investments — $10K range — and want a real framework for how these deals actually play out. How exits work, what the risk profile looks like, what to pay attention to before you commit. The kind of content that usually lives behind closed doors.\n\nThought of you because I know your community is probably wrestling with some of these same questions. I'd love to co-host a session with you — you bring the people, we bring the framework. Nothing fancy, just a useful conversation.\n\nInterested?\n\nBryan"
+      "blocker": "Need Tim's last name from Bryan Duarte before Keyona can finalize the draft.",
+      "usageNote": "Draft ready pending Tim's last name. Once confirmed, Keyona sends to Bryan Duarte for sign-off.",
+      "emailSubject": "Webinar collab — want to co-host one session?",
+      "emailDraft": "Hey Tim,\n\nBryan here. Good to reconnect.\n\nI'm putting together a webinar on how climate tech exits actually work — built for small-check investors who want a real framework before they commit capital. I'd love to co-host one session with you. You bring the people, we bring the content.\n\nInterested?\n\nBryan"
     },
     {
       "id": "camp-btc-compliance-001",
@@ -171,9 +170,9 @@
       "flow": null,
       "currentStep": null,
       "outreachStatus": "waiting",
-      "waitingOn": "TIP member response to Keyona's feedback request on the BTC compliance calendar. Keyona sent the follow-up — ball is in their court.",
+      "waitingOn": "TIP member response to Keyona's feedback request on the BTC compliance calendar. Ball is in their court.",
       "blocker": null,
-      "usageNote": "Keyona followed up with a TIP member for feedback on the BTC compliance calendar. No action needed yet. Check back in 5-7 days if no response.",
+      "usageNote": "No action needed yet. Check back in 5-7 days if no response.",
       "emailSubject": null,
       "emailDraft": null
     }
