@@ -17,6 +17,7 @@
       "sc_contact_id": "C1775180494358",
       "sc_initiative_id": "INI-1775180449939",
       "webinarAngle": "Exclusivity — SVX investor audience gets early access to the Climate Tech Exit Lab framework before it goes public. BTC brings the content, SVX brings the list.",
+      "ecosystemNote": "SVX is a CAFIID member — same ecosystem as CAFIID. Useful context if Bryan wants to reference shared community.",
       "flow": {
         "step1": "Keyona drafts email",
         "step2": "Keyona sends draft to Bryan Duarte for greenlight",
@@ -91,8 +92,8 @@
       "emailDraft": "Hey Bryan,\n\nHope you're feeling rested after the long weekend!\n\nBryan Duarte and I have been talking about doing more collaborative content this year, and he mentioned you and Clean Tech North. We think there are some natural synergies there.\n\nWe're launching the Climate Tech Exit Lab this year — an initiative for both founders and investors on what goes into successful climate tech investments and exits. We'd love to co-host one session with Clean Tech North to bring that content to your community.\n\nWould you be open to a quick conversation to see if it's a fit?\n\nBryan"
     },
     {
-      "id": "camp-kafd-001",
-      "title": "KAFD — Webinar Pitch",
+      "id": "camp-cafiid-001",
+      "title": "CAFIID — Webinar Pitch",
       "targetAudience": "Webinar partner orgs",
       "scenario": "scenario-001",
       "type": "email",
@@ -101,24 +102,27 @@
       "pushedDate": "Apr 2026",
       "cadence": "First touch",
       "from": "Bryan Duarte",
-      "contactOrg": "KAFD",
+      "contactOrg": "CAFIID",
+      "contactOrgFull": "Canada Forum for Impact Investment and Development",
+      "contactOrgUrl": "https://www.cafiid.ca/",
       "contactPerson": "TBC — confirm with Bryan Duarte",
       "contactLocation": "Canada",
       "sc_contact_id": "C1775180512231",
       "sc_initiative_id": "INI-1775180449939",
-      "webinarAngle": "Credibility amplification — co-hosting one session with BTC signals they are connected to emerging climate fund managers doing real work.",
+      "webinarAngle": "Ecosystem fit — CAFIID runs a Climate Finance Community of Practice and already hosts webinars. BTC's Exit Lab content is a natural extension of what their members are already engaging with. One co-hosted session drops into an audience that already cares.",
+      "ecosystemNote": "CAFIID has a Climate Finance CoP with its own webinar series — e.g. 'Scaling biochar and carbon credits' April 2026. SVX is a CAFIID member. Strong alignment.",
       "flow": {
         "step1": "Keyona drafts email",
         "step2": "Keyona sends draft to Bryan Duarte for greenlight",
         "step3": "Bryan Duarte sends to contact"
       },
       "currentStep": 1,
-      "outreachStatus": "blocked",
+      "outreachStatus": "needs_send",
       "waitingOn": null,
-      "blocker": "Need KAFD full org name and contact name from Bryan Duarte before Keyona can finalize the draft.",
-      "usageNote": "Blocked on org name and contact. Once Bryan Duarte confirms, Keyona drafts and sends for sign-off.",
-      "emailSubject": "Webinar collab — want to co-host one session?",
-      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC.\n\nI've been putting together a webinar series on how climate tech exits actually work, and I think [Org Full Name] and BTC would be a natural fit for one co-hosted session. You bring the community, we bring the content.\n\nWorth a quick conversation?\n\nBryan"
+      "blocker": null,
+      "usageNote": "Full org name confirmed: Canada Forum for Impact Investment and Development. Draft ready. Confirm contact name with Bryan Duarte, then Keyona sends for his greenlight.",
+      "emailSubject": "Webinar collab — climate tech exits for your community",
+      "emailDraft": "Hey [Name],\n\nI'm Bryan — I run Black Tech Capital, a climate tech nano VC.\n\nI've been following CAFIID's work and noticed your Climate Finance Community of Practice — the work your members are doing sits right at the intersection of what we're building. We're launching the Climate Tech Exit Lab this year, focused on how climate tech investments and exits actually work, and I think your community would find real value in a session on it.\n\nI'd love to co-host one event with CAFIID. You bring the audience, we bring the content.\n\nWorth a quick conversation?\n\nBryan"
     },
     {
       "id": "camp-goodinvestor-001",
