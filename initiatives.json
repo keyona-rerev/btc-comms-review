@@ -54,6 +54,17 @@
       "core_question": "Which CAFIID members are the best individual targets, and does the org-level webinar collab need to land first or can member-level outreach run independently?",
       "notes": "CAFIID members include SVX, impact foundations, fund managers, and development finance institutions. Theory: co-hosted webinar builds BTC brand credibility with the CAFIID community, then individual member LinkedIn outreach lands warmer. Run the approach by Bryan Duarte before activating.",
       "linked_campaigns": []
+    },
+    {
+      "id": "INI-WOC-001",
+      "name": "Work on Climate Slack — Event Poster Activation",
+      "status": "Brain Dump",
+      "priority": "High",
+      "timeline": "Q2 2026",
+      "goal": "Identify and qualify the most relevant people posting events in the Work on Climate Slack group and other climate Slack communities, then convert the highest-fit contacts into webinar partners, Exit Lab participants, or warm BTC relationships.",
+      "core_question": "Who is actively doing climate work and publicly signaling it through event posts, and which of them are the right fit for a webinar collab or Exit Lab conversation?",
+      "notes": "Signal source: event posts in Work on Climate Slack and similar climate Slack groups. People who post events are self-selecting as active, public-facing, and already doing real work — this is a warm signal without cold outreach friction. Process: (1) Scrape or manually capture event post data from relevant Slack channels. (2) Do lightweight research on each poster — who they are, what org they represent, what the event is about. (3) Score for fit against two use cases: webinar co-host for BTC or guest/participant for the Climate Tech Exit Lab. (4) Draft personalized outreach referencing their specific event or work. Outreach tone should feel peer-to-peer, not transactional. This is a sourcing initiative — campaigns get created per contact once research is done.",
+      "linked_campaigns": []
     }
   ]
 }
