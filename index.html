@@ -27,7 +27,6 @@
     .tab.active { background: #fff; border-color: #B0C9A8; border-bottom-color: #fff; font-weight: 600; color: #1A3A1A; margin-bottom: -2px; }
     .tab-badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
     .badge-pending    { background: #FDF3DC; color: #7A5200; }
-    .badge-scenario   { background: #E8EFE6; color: #3A6B35; }
     .badge-audience   { background: #EDE8F5; color: #5A3A8C; }
     .badge-info       { background: #F0EEE8; color: #5A5850; }
     .badge-pipeline   { background: #E6F4E0; color: #2D6B1A; }
@@ -130,14 +129,33 @@
     .ini-question strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
     .ini-notes { font-size: 12px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
     .ini-notes strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
-    .ini-camp-row { margin-top: 12px; padding-top: 12px; border-top: 1px solid #E8EFE6; }
-    .ini-camp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; margin-bottom: 8px; display: block; }
+    .ini-section-divider { border: none; border-top: 1px solid #E8EFE6; margin: 14px 0; }
+    .ini-section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; margin-bottom: 8px; display: block; }
     .ini-contact-card { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
     .ini-contact-card:last-child { margin-bottom: 0; }
     .ini-contact-name { font-size: 13px; font-weight: 600; color: #1A3A1A; margin-bottom: 2px; }
     .ini-contact-title { font-size: 11px; color: #3A6B35; margin-bottom: 4px; }
     .ini-contact-intel { font-size: 11px; color: #444; line-height: 1.55; }
-    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 8px; }
+    .fmt-toggle-bar { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-top: 4px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+    .fmt-toggle-bar:hover { background: #EEF5EC; }
+    .fmt-toggle-label { font-size: 12px; font-weight: 600; color: #2D5C28; }
+    .fmt-toggle-icon { font-size: 14px; color: #4A8C3F; transition: transform 0.2s; }
+    .fmt-toggle-icon.open { transform: rotate(180deg); }
+    .fmt-panel { display: none; margin-top: 10px; }
+    .fmt-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; border-left: 3px solid #4A8C3F; }
+    .fmt-card:last-child { margin-bottom: 0; }
+    .fmt-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .fmt-name { font-size: 13px; font-weight: 600; color: #1A3A1A; }
+    .fmt-meta { font-size: 11px; color: #3A6B35; margin-bottom: 8px; }
+    .fmt-status { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+    .fmt-status-dev { background: #E6F4E0; color: #2D6B1A; }
+    .fmt-status-concept { background: #FDF3DC; color: #7A5200; }
+    .fmt-value-prop { font-size: 12px; color: #444; line-height: 1.6; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; }
+    .fmt-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; margin: 8px 0 4px; }
+    .fmt-outline { font-size: 12px; color: #1a1f1a; line-height: 1.6; padding-left: 16px; margin-bottom: 8px; }
+    .fmt-outline li { margin-bottom: 3px; }
+    .fmt-cohost { font-size: 11px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 6px; padding: 8px 12px; }
+    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 10px; }
     .pipeline-header { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .pipeline-batch-name { font-size: 15px; font-weight: 700; color: #1A3A1A; }
     .pipeline-statement { font-size: 12px; color: #3A6B35; margin-top: 3px; }
@@ -173,38 +191,6 @@
     .report-note { font-size: 13px; color: #444; line-height: 1.65; }
     .report-week-label { font-size: 13px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 20px; padding: 4px 14px; display: inline-block; margin-bottom: 20px; }
     .reports-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
-    .scenario-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; margin-bottom: 18px; }
-    .scenario-name { font-size: 16px; font-weight: 600; color: #1A3A1A; margin-bottom: 4px; }
-    .scenario-audience { font-size: 13px; font-weight: 600; color: #4A8C3F; margin-bottom: 6px; }
-    .scenario-description { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 14px; }
-    .scenario-meta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-    .scenario-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: #E8EFE6; color: #3A6B35; border: 1px solid #B0C9A8; }
-    .scenario-tag.trigger { background: #FDF3DC; color: #7A5200; border-color: #E8C87A; }
-    .scenario-divider { border: none; border-top: 1px solid #C8DFC2; margin: 14px 0; }
-    .scenario-sequences-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #4A8C3F; margin-bottom: 10px; }
-    .scenario-seq-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
-    .scenario-seq-info { font-size: 13px; color: #1A3A1A; font-weight: 500; }
-    .scenario-seq-meta { font-size: 11px; color: #3A6B35; margin-top: 2px; }
-    .formats-toggle-bar { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
-    .formats-toggle-bar:hover { background: #EEF5EC; }
-    .formats-toggle-label { font-size: 13px; font-weight: 600; color: #2D5C28; }
-    .formats-toggle-sub { font-size: 11px; color: #3A6B35; margin-top: 2px; }
-    .formats-toggle-icon { font-size: 16px; color: #4A8C3F; transition: transform 0.2s; }
-    .formats-toggle-icon.open { transform: rotate(180deg); }
-    .formats-panel { display: none; margin-bottom: 24px; }
-    .fmt-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; border-left: 4px solid #4A8C3F; }
-    .fmt-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-    .fmt-name { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
-    .fmt-meta { font-size: 12px; color: #3A6B35; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-    .fmt-status { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
-    .fmt-status-dev { background: #E6F4E0; color: #2D6B1A; }
-    .fmt-status-concept { background: #FDF3DC; color: #7A5200; }
-    .fmt-section { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #4A8C3F; margin: 12px 0 6px; }
-    .fmt-value-prop { font-size: 13px; color: #444; line-height: 1.65; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; }
-    .fmt-outline { font-size: 13px; color: #1a1f1a; line-height: 1.6; padding-left: 18px; margin-bottom: 12px; }
-    .fmt-outline li { margin-bottom: 4px; }
-    .fmt-cohost { font-size: 12px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 8px; padding: 10px 14px; }
-    .fmt-notes { font-size: 12px; color: #7A5200; background: #FDF3DC; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
     .aud-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
     .aud-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
     .aud-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; border-left: 4px solid #4A8C3F; }
@@ -242,12 +228,10 @@
     .status-active  { background: #E6F4E0; color: #2D6B1A; }
     .status-planned { background: #FDF3DC; color: #7A5200; }
     .empty-state { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
-    .empty-state p { margin-top: 8px; font-size: 13px; color: #4A8C3F; }
     #loading { text-align: center; padding: 60px; color: #4A8C3F; font-size: 14px; }
   </style>
 </head>
 <body>
-
 <div id="gate">
   <div class="gate-card">
     <div class="gate-logo">Black Tech Capital <span>/ Comms Review</span></div>
@@ -257,7 +241,6 @@
     <div class="gate-error" id="gate-error">Incorrect password. Please try again.</div>
   </div>
 </div>
-
 <div id="app">
   <div class="site-header">
     <div class="site-logo">Black Tech Capital <span>/ Comms &amp; Marketing</span></div>
@@ -268,7 +251,6 @@
     <div class="tab" onclick="switchTab('initiatives',this)">Initiatives <span class="tab-badge badge-initiative" id="count-initiatives">—</span></div>
     <div class="tab" onclick="switchTab('pipeline',this)">Pipeline <span class="tab-badge badge-pipeline" id="count-pipeline">—</span></div>
     <div class="tab" onclick="switchTab('reports',this)">Weekly Reports <span class="tab-badge badge-reports" id="count-reports">—</span></div>
-    <div class="tab" onclick="switchTab('scenarios',this)">Scenarios <span class="tab-badge badge-scenario" id="count-scenarios">—</span></div>
     <div class="tab" onclick="switchTab('audiences',this)">Audiences <span class="tab-badge badge-audience" id="count-audiences">—</span></div>
     <div class="tab" onclick="switchTab('sysinfo',this)">System Info <span class="tab-badge badge-info">&#9432;</span></div>
   </div>
@@ -278,12 +260,10 @@
     <div id="initiatives" class="tab-content" style="display:none;"></div>
     <div id="pipeline"    class="tab-content" style="display:none;"></div>
     <div id="reports"     class="tab-content" style="display:none;"></div>
-    <div id="scenarios"   class="tab-content" style="display:none;"></div>
     <div id="audiences"   class="tab-content" style="display:none;"></div>
     <div id="sysinfo"     class="tab-content" style="display:none;"></div>
   </div>
 </div>
-
 <script>
   const SITE_PASSWORD = 'btc2026';
   const REPO_RAW   = 'https://raw.githubusercontent.com/keyona-rerev/btc-comms-review/main';
@@ -295,6 +275,7 @@
   let allCampaigns = [];
   let allRejections = [];
   let allInitiatives = [];
+  let allFormats = [];
   let reportWeeks = [];
   let reportsCache = {};
   let currentReportWeek = null;
@@ -314,10 +295,9 @@
   async function loadData() {
     try {
       const ts = '?t=' + Date.now();
-      const [campRes, rejRes, scRes, audRes, pipeRes, fmtRes, iniRes] = await Promise.all([
+      const [campRes, rejRes, audRes, pipeRes, fmtRes, iniRes] = await Promise.all([
         fetch(REPO_RAW + '/campaigns.json' + ts),
         fetch(REPO_RAW + '/rejections.json' + ts),
-        fetch(REPO_RAW + '/scenarios.json' + ts),
         fetch(REPO_RAW + '/audiences.json' + ts),
         fetch(REPO_RAW + '/pipeline.json' + ts),
         fetch(REPO_RAW + '/content_formats.json' + ts),
@@ -325,17 +305,18 @@
       ]);
       const campData = await campRes.json();
       const rejData  = await rejRes.json();
-      const scData   = await scRes.json();
       const audData  = await audRes.json();
       const pipeData = await pipeRes.json();
       const fmtData  = await fmtRes.json();
       const iniData  = await iniRes.json();
-      allCampaigns   = campData.campaigns   || [];
-      allRejections  = rejData.rejections   || [];
-      allInitiatives = iniData.initiatives  || [];
+      allCampaigns   = campData.campaigns  || [];
+      allRejections  = rejData.rejections  || [];
+      allInitiatives = iniData.initiatives || [];
+      allFormats     = fmtData.formats     || [];
       window._allInitiatives = allInitiatives;
+      window._allFormats     = allFormats;
       reportWeeks = await discoverReportWeeks();
-      render(allCampaigns, allRejections, scData.scenarios || [], audData.audiences || [], pipeData, fmtData.formats || [], allInitiatives);
+      render(allCampaigns, allRejections, audData.audiences || [], pipeData, allFormats, allInitiatives);
     } catch(e) {
       document.getElementById('loading').textContent = 'Failed to load. Please refresh. (' + e.message + ')';
     }
@@ -355,21 +336,19 @@
     return found;
   }
 
-  function render(campaigns, rejections, scenarios, audiences, pipeData, formats, initiatives) {
+  function render(campaigns, rejections, audiences, pipeData, formats, initiatives) {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('count-pending').textContent     = campaigns.length || '0';
     document.getElementById('count-initiatives').textContent = initiatives.length || '0';
-    document.getElementById('count-scenarios').textContent   = scenarios.length;
     document.getElementById('count-audiences').textContent   = audiences.length;
     document.getElementById('count-pipeline').textContent    = (pipeData.pipeline || []).length || '0';
     document.getElementById('count-reports').textContent     = reportWeeks.length > 0 ? reportWeeks.length + ' wk' : '0';
     const now = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('last-updated').textContent = 'keyona@rerev.io · ' + now;
     renderCampaignsTab(campaigns, rejections);
-    renderInitiativesTab(initiatives, campaigns);
+    renderInitiativesTab(initiatives, campaigns, formats);
     renderPipelineTab(pipeData);
     renderReportsTab();
-    renderScenariosTab(scenarios, campaigns, formats);
     renderAudiencesTab(audiences, campaigns);
     renderSysInfo(campaigns);
     document.getElementById('campaigns').classList.add('active');
@@ -441,7 +420,6 @@
     const area = document.getElementById('camp-view-area');
     if (!area) return;
     if (!filtered.length) { area.innerHTML = '<div class="empty-state"><strong>No campaigns match this filter.</strong></div>'; return; }
-
     if (campView === 'board') {
       const waiting = filtered.filter(c => c.outreachStatus === 'waiting');
       const blocked = filtered.filter(c => c.outreachStatus === 'blocked');
@@ -480,16 +458,9 @@
   }
 
   function renderCampCard(camp) {
-    // Surface parent initiative goal as context strip
     const ini = (window._allInitiatives || []).find(i => i.id === camp.sc_initiative_id);
-    const iniStrip = ini
-      ? '<div class="ini-context-strip"><strong>Initiative</strong>' + escHtml(ini.name) + ' — ' + escHtml(ini.goal) + '</div>'
-      : '';
-    // Surface contact intel if present
-    const intelStrip = camp.contactIntel
-      ? '<div class="contact-intel-strip"><strong>Contact Intel</strong>' + escHtml(camp.contactIntel) + '</div>'
-      : '';
-
+    const iniStrip = ini ? '<div class="ini-context-strip"><strong>Initiative</strong>' + escHtml(ini.name) + ' — ' + escHtml(ini.goal) + '</div>' : '';
+    const intelStrip = camp.contactIntel ? '<div class="contact-intel-strip"><strong>Contact Intel</strong>' + escHtml(camp.contactIntel) + '</div>' : '';
     const status = camp.status || 'pending';
     const pillClass = status === 'approved' ? 'pill-approved' : status === 'rejected' ? 'pill-rejected' : 'pill-pending';
     const pillLabel = status === 'approved' ? 'Approved' : status === 'rejected' ? 'Flagged' : 'Awaiting Review';
@@ -518,11 +489,14 @@
   }
 
   /* ---- INITIATIVES ---- */
-  function renderInitiativesTab(initiatives, campaigns) {
+  function renderInitiativesTab(initiatives, campaigns, formats) {
     const el = document.getElementById('initiatives');
     if (!initiatives.length) { el.innerHTML = '<div class="empty-state"><strong>No initiatives yet.</strong></div>'; return; }
+    const fmtMap = {};
+    formats.forEach(f => { fmtMap[f.id] = f; });
     const ORDER = { Critical: 0, High: 1, Medium: 2, Low: 3 };
     const sorted = [...initiatives].sort((a, b) => (ORDER[a.priority] ?? 9) - (ORDER[b.priority] ?? 9));
+
     el.innerHTML = '<div class="section-label">' + sorted.length + ' initiative' + (sorted.length !== 1 ? 's' : '') + '</div>' + sorted.map(ini => {
       const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
       const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
@@ -530,31 +504,52 @@
       const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
       const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
 
-      // Show linked campaigns as contact cards with intel
-      const linkedCamps = campaigns.filter(c => (ini.linked_campaigns || []).includes(c.id));
-      // Also find campaigns linked by sc_initiative_id that aren't in linked_campaigns array
+      // Trigger + typical titles strip
+      const metaStrip = (ini.trigger || (ini.typicalTitles && ini.typicalTitles.length))
+        ? '<div style="font-size:11px;color:#3A6B35;margin-bottom:10px;">' +
+          (ini.trigger ? '<span style="font-weight:600;">Trigger:</span> ' + escHtml(ini.trigger) : '') +
+          (ini.trigger && ini.typicalTitles && ini.typicalTitles.length ? ' &middot; ' : '') +
+          (ini.typicalTitles && ini.typicalTitles.length ? '<span style="font-weight:600;">Typical titles:</span> ' + ini.typicalTitles.map(t => escHtml(t)).join(', ') : '') +
+          '</div>'
+        : '';
+
+      // Campaigns + contacts
       const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
       const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
-
-      const contactCards = uniqueLinked.length
-        ? '<div class="ini-camp-row"><span class="ini-camp-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>' +
+      const contactSection = uniqueLinked.length
+        ? '<hr class="ini-section-divider"><span class="ini-section-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>' +
           uniqueLinked.map(c => {
             const personLine = c.contactPerson ? escHtml(c.contactPerson) + (c.contactTitle ? ', ' + escHtml(c.contactTitle) : '') : '';
             const intel = c.contactIntel ? '<div class="ini-contact-intel">' + escHtml(c.contactIntel) + '</div>' : '';
             const outreach = c.outreachStatus === 'waiting' ? '<span style="font-size:10px;color:#2D6B1A;font-weight:600;">Waiting on them</span>'
               : c.outreachStatus === 'blocked' ? '<span style="font-size:10px;color:#8B3A1A;font-weight:600;">Blocker</span>'
               : '<span style="font-size:10px;color:#7A5200;font-weight:600;">Time to move</span>';
-            return '<div class="ini-contact-card">' +
-              '<div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' +
-              (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') +
-              intel +
-              '</div>';
+            return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' + (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') + intel + '</div>';
           }).join('')
-          + '</div>'
         : '';
 
-      return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + contactCards + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
+      // Content formats — collapsible, only if ini has them
+      const linkedFmts = (ini.contentFormats || []).map(fid => fmtMap[fid]).filter(Boolean);
+      const fmtSection = linkedFmts.length
+        ? '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(\'' + ini.id + '\')"><span class="fmt-toggle-label">Content Formats (' + linkedFmts.length + ')</span><span class="fmt-toggle-icon" id="fmticon-' + ini.id + '">&#9660;</span></div><div class="fmt-panel" id="fmtpanel-' + ini.id + '">' +
+          linkedFmts.map(f => {
+            const sc = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
+            const ol = (f.contentOutline || []).map(i => '<li>' + escHtml(i) + '</li>').join('');
+            return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.duration || '') + '</div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div></div>';
+          }).join('') + '</div>'
+        : '';
+
+      return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + metaStrip + question + notes + contactSection + fmtSection + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
     }).join('');
+  }
+
+  function toggleFmt(iniId) {
+    const panel = document.getElementById('fmtpanel-' + iniId);
+    const icon  = document.getElementById('fmticon-' + iniId);
+    if (!panel) return;
+    const open = panel.style.display === 'block';
+    panel.style.display = open ? 'none' : 'block';
+    if (icon) icon.classList.toggle('open', !open);
   }
 
   /* ---- PIPELINE ---- */
@@ -598,36 +593,6 @@
     if (data.next_steps && data.next_steps.length) html += '<div class="report-block"><div class="report-block-title">Next steps</div><ul style="padding-left:18px;font-size:13px;line-height:1.7;">' + data.next_steps.map(h => '<li style="margin-bottom:6px;">' + escHtml(h) + '</li>').join('') + '</ul></div>';
     if (data.notes) html += '<div class="report-block"><div class="report-block-title">Notes</div><div class="report-note">' + escHtml(data.notes) + '</div></div>';
     body.innerHTML = html;
-  }
-
-  /* ---- SCENARIOS ---- */
-  function renderScenariosTab(scenarios, campaigns, formats) {
-    const el = document.getElementById('scenarios');
-    if (!scenarios.length) { el.innerHTML = '<div class="empty-state"><strong>No scenarios yet.</strong></div>'; return; }
-    const fmtHtml = formats.map(f => {
-      const sc = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
-      const ol = (f.contentOutline || []).map(i => '<li>' + escHtml(i) + '</li>').join('');
-      return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta"><span>' + escHtml(f.duration || '') + '</span></div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div>' + (f.notes ? '<div class="fmt-notes">' + escHtml(f.notes) + '</div>' : '') + '</div>';
-    }).join('');
-    const toggle = '<div class="formats-toggle-bar" onclick="toggleFormats()"><div><div class="formats-toggle-label">Content Formats (' + formats.length + ')</div><div class="formats-toggle-sub">Webinar formats and templates — click to expand</div></div><span class="formats-toggle-icon" id="fmt-icon">&#9660;</span></div><div class="formats-panel" id="formats-panel">' + fmtHtml + '</div>';
-    const scCards = scenarios.map(sc => {
-      const linked = campaigns.filter(c => (sc.campaigns || []).includes(c.id));
-      const campRows = linked.map(c => {
-        const sb = c.status === 'approved' ? '<span class="scenario-tag" style="background:#E6F4E0;color:#2D6B1A;">Approved</span>' : c.status === 'pending' ? '<span class="scenario-tag" style="background:#FDF3DC;color:#7A5200;">Pending</span>' : '<span class="scenario-tag" style="background:#FAEAE6;color:#8B3A1A;">Flagged</span>';
-        return '<div class="scenario-seq-row"><div><div class="scenario-seq-info">' + escHtml(c.title) + ' ' + sb + '</div><div class="scenario-seq-meta">' + (c.channel || c.type || '') + '</div></div></div>';
-      }).join('');
-      return '<div class="scenario-card"><div class="scenario-name">' + escHtml(sc.name) + '</div><div class="scenario-audience">' + escHtml(sc.targetAudience) + '</div><div class="scenario-description">' + escHtml(sc.description) + '</div><div class="scenario-meta-row">' + (sc.trigger ? '<span class="scenario-tag trigger">Trigger: ' + escHtml(sc.trigger) + '</span>' : '') + (sc.tags || []).map(t => '<span class="scenario-tag">' + escHtml(t) + '</span>').join('') + '</div>' + (sc.sc_initiative_id ? '<div style="font-size:11px;color:#3A6B35;margin-bottom:10px;">SC Initiative: <code>' + sc.sc_initiative_id + '</code></div>' : '') + '<hr class="scenario-divider"><div class="scenario-sequences-label">Campaigns in this scenario</div>' + (campRows || '<div style="font-size:13px;color:#3A6B35;">No campaigns linked yet.</div>') + '</div>';
-    }).join('');
-    el.innerHTML = toggle + '<div class="section-label" style="margin-top:8px;">' + scenarios.length + ' scenario(s)</div>' + scCards;
-  }
-
-  function toggleFormats() {
-    const panel = document.getElementById('formats-panel');
-    const icon  = document.getElementById('fmt-icon');
-    if (!panel) return;
-    const open = panel.style.display === 'block';
-    panel.style.display = open ? 'none' : 'block';
-    if (icon) icon.classList.toggle('open', !open);
   }
 
   /* ---- AUDIENCES ---- */
