@@ -9,7 +9,11 @@
       "goal": "Build a series of co-branded webinars with organizations that have distribution to small-check investors, climate tech founders, and operators. Grow BTC visibility ahead of the sponsorship platform launch.",
       "core_question": "Which partner organizations have the right distribution and credibility to co-host webinars that position BTC as the go-to climate tech nano VC?",
       "notes": "Bryan sourced 5 partner orgs: SVX, OCTIA, Clean Tech North, CAFIID, Good Investor (Tim). Webinar content is a preview of the Climate Tech Exit Lab. CAFIID member activation (LinkedIn ABM) is a related initiative — run by Bryan Duarte before activating.",
-      "linked_campaigns": ["camp-svx-001", "camp-octia-001", "camp-ctn-001", "camp-cafiid-001", "camp-goodinvestor-001"]
+      "typicalTitles": ["Executive Director", "Program Director", "Managing Director", "Founder", "CEO"],
+      "trigger": "Bryan identifies org as a fit — warm intro path",
+      "tags": ["webinar", "partnership", "climate-tech", "warm-intro", "bryan-network"],
+      "contentFormats": ["fmt-001", "fmt-002"],
+      "linked_campaigns": ["camp-svx-001", "camp-ctn-octia-001", "camp-cafiid-001", "camp-goodinvestor-001"]
     },
     {
       "id": "INI-1775180457900",
@@ -19,8 +23,12 @@
       "timeline": "Q2-Q3 2026 — sponsorship ask by end of summer",
       "goal": "Build warm relationships with Canadian impact foundations and institutional investors toward a sponsorship or LP ask by end of summer 2026.",
       "core_question": "Which Canadian institutional investors are the most viable path to a first check or sponsorship conversation by September 2026?",
-      "notes": "Targets: Toronto Foundation Fund, Atmospheric Fund, Boann, Equality Fund. Meeting with Equality Fund in April 2026. Equality Fund contact will intro an intermediary for impact foundation due diligence.",
-      "linked_campaigns": []
+      "notes": "Targets: Toronto Foundation, Atmospheric Fund, Boann, Equality Fund. Meeting with Equality Fund in April 2026. Equality Fund contact will intro an intermediary for impact foundation due diligence.",
+      "typicalTitles": ["Program Officer", "Investment Manager", "Executive Director", "Chief Investment Officer", "Chief Operating Officer", "VP Programs"],
+      "trigger": "Bryan identifies target — or intro path unlocked via Equality Fund intermediary",
+      "tags": ["abm", "institutional-investors", "canada", "impact-foundation", "sponsorship", "lp"],
+      "contentFormats": ["fmt-003"],
+      "linked_campaigns": ["camp-atmospheric-001", "camp-toronto-foundation-001", "camp-boann-001"]
     },
     {
       "id": "INI-003",
@@ -31,6 +39,10 @@
       "goal": "BTC has an optimized, automated compliance calendar reducing manual tracking and compliance risk.",
       "core_question": "What are the key compliance deadlines for climate tech fund operations?",
       "notes": "Followed up with a TIP member for feedback. Awaiting their response.",
+      "typicalTitles": [],
+      "trigger": null,
+      "tags": ["compliance", "operations", "fund"],
+      "contentFormats": [],
       "linked_campaigns": ["camp-btc-compliance-001"]
     },
     {
@@ -42,6 +54,10 @@
       "goal": "Build a comprehensive interview series and collective intelligence repository on climate tech exits.",
       "core_question": "How do we systematize climate tech exit learnings for founders?",
       "notes": "Foundational BTC initiative. Monthly interviews with experienced founders, advisory committee formation, sponsorship pipeline development. The Exit Lab is the content backbone for the webinar partner program.",
+      "typicalTitles": ["Founder", "CEO", "CTO", "Managing Director"],
+      "trigger": "Ongoing — Bryan and Keyona identify interview candidates",
+      "tags": ["exit-lab", "content", "interviews", "founders"],
+      "contentFormats": [],
       "linked_campaigns": []
     },
     {
@@ -53,6 +69,10 @@
       "goal": "Activate individual CAFIID members as an ABM layer via LinkedIn once BTC has brand exposure through a CAFIID co-hosted webinar, or independently if the org-level pitch doesn't move fast enough.",
       "core_question": "Which CAFIID members are the best individual targets, and does the org-level webinar collab need to land first or can member-level outreach run independently?",
       "notes": "CAFIID members include SVX, impact foundations, fund managers, and development finance institutions. Theory: co-hosted webinar builds BTC brand credibility with the CAFIID community, then individual member LinkedIn outreach lands warmer. Run the approach by Bryan Duarte before activating.",
+      "typicalTitles": ["Managing Director", "Investment Manager", "Program Officer", "Executive Director"],
+      "trigger": "CAFIID org-level webinar confirmed — or Bryan decides to run member-level outreach independently",
+      "tags": ["cafiid", "linkedin", "abm", "member-activation"],
+      "contentFormats": [],
       "linked_campaigns": []
     },
     {
@@ -64,6 +84,10 @@
       "goal": "Identify and qualify the most relevant people posting events in the Work on Climate Slack group and other climate Slack communities, then convert the highest-fit contacts into webinar partners, Exit Lab participants, or warm BTC relationships.",
       "core_question": "Who is actively doing climate work and publicly signaling it through event posts, and which of them are the right fit for a webinar collab or Exit Lab conversation?",
       "notes": "Signal source: event posts in Work on Climate Slack and similar climate Slack groups. People who post events are self-selecting as active, public-facing, and already doing real work — this is a warm signal without cold outreach friction. Process: (1) Scrape or manually capture event post data from relevant Slack channels. (2) Do lightweight research on each poster — who they are, what org they represent, what the event is about. (3) Score for fit against two use cases: webinar co-host for BTC or guest/participant for the Climate Tech Exit Lab. (4) Draft personalized outreach referencing their specific event or work. Outreach tone should feel peer-to-peer, not transactional. This is a sourcing initiative — campaigns get created per contact once research is done.",
+      "typicalTitles": ["Founder", "Program Manager", "Director", "Researcher", "Organizer"],
+      "trigger": "Contact posts an event in a climate Slack channel",
+      "tags": ["slack", "work-on-climate", "event-sourcing", "warm-signal", "webinar", "exit-lab"],
+      "contentFormats": ["fmt-001"],
       "linked_campaigns": []
     }
   ]
