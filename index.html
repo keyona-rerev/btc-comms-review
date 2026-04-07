@@ -51,6 +51,10 @@
     .usage-note { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
     .angle-note { background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #7A5200; margin-bottom: 12px; line-height: 1.55; }
     .angle-note strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
+    .ini-context-strip { background: #E6EEF5; border: 1px solid #B0C4D8; border-radius: 6px; padding: 7px 12px; font-size: 11px; color: #1A4A7A; margin-bottom: 12px; line-height: 1.5; }
+    .ini-context-strip strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #1A5A8A; margin-bottom: 2px; }
+    .contact-intel-strip { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 6px; padding: 7px 12px; font-size: 11px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
+    .contact-intel-strip strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 2px; }
     .draft-toggle { font-size: 12px; color: #2D5C28; cursor: pointer; font-weight: 600; margin-bottom: 10px; display: inline-block; }
     .draft-toggle:hover { text-decoration: underline; }
     .draft-block { background: #F7FAF6; border: 1px solid #B0C9A8; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #1A3A1A; line-height: 1.7; white-space: pre-wrap; display: none; margin-bottom: 12px; }
@@ -67,14 +71,10 @@
     .pill-pending  { background: #FDF3DC; color: #7A5200; }
     .pill-approved { background: #E6F4E0; color: #2D6B1A; }
     .pill-rejected { background: #FAEAE6; color: #8B3A1A; }
-
-    /* OUTREACH STATUS PILL on cards */
     .outreach-pill { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.03em; margin-left: 6px; }
     .outreach-waiting  { background: #E6F4E0; color: #2D6B1A; }
     .outreach-blocked  { background: #FAEAE6; color: #8B3A1A; }
     .outreach-move     { background: #FDF3DC; color: #7A5200; }
-
-    /* CAMPAIGNS TOOLBAR */
     .camp-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
     .camp-toolbar-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .seq-filter { padding: 7px 12px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; }
@@ -83,8 +83,6 @@
     .view-btn { font-size: 12px; padding: 6px 14px; background: #fff; color: #3A6B35; border: none; cursor: pointer; font-weight: 500; }
     .view-btn.active { background: #E8EFE6; color: #1A3A1A; font-weight: 600; }
     .view-btn:not(:last-child) { border-right: 1px solid #B0C9A8; }
-
-    /* BOARD VIEW */
     .status-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
     @media (max-width: 720px) { .status-columns { grid-template-columns: 1fr; } }
     .status-col { border-radius: 12px; padding: 16px; }
@@ -115,8 +113,6 @@
     .status-col-blocked .status-card-detail strong { color: #8B3A1A; }
     .status-col-move    .status-card-detail strong { color: #7A5200; }
     .status-empty { font-size: 12px; color: #8BBF82; text-align: center; padding: 20px 0; font-style: italic; }
-
-    /* INITIATIVES TAB */
     .ini-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border-left: 4px solid #1A5A8A; }
     .ini-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
     .ini-name { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
@@ -134,12 +130,14 @@
     .ini-question strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
     .ini-notes { font-size: 12px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
     .ini-notes strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
-    .ini-camp-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; padding-top: 10px; border-top: 1px solid #E8EFE6; }
-    .ini-camp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; }
-    .ini-camp-tag { font-size: 11px; background: #E6EEF5; color: #1A4A7A; border-radius: 20px; padding: 2px 10px; font-weight: 500; }
-    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 6px; }
-
-    /* PIPELINE */
+    .ini-camp-row { margin-top: 12px; padding-top: 12px; border-top: 1px solid #E8EFE6; }
+    .ini-camp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; margin-bottom: 8px; display: block; }
+    .ini-contact-card { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
+    .ini-contact-card:last-child { margin-bottom: 0; }
+    .ini-contact-name { font-size: 13px; font-weight: 600; color: #1A3A1A; margin-bottom: 2px; }
+    .ini-contact-title { font-size: 11px; color: #3A6B35; margin-bottom: 4px; }
+    .ini-contact-intel { font-size: 11px; color: #444; line-height: 1.55; }
+    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 8px; }
     .pipeline-header { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .pipeline-batch-name { font-size: 15px; font-weight: 700; color: #1A3A1A; }
     .pipeline-statement { font-size: 12px; color: #3A6B35; margin-top: 3px; }
@@ -167,22 +165,14 @@
     .pcard-signals { font-size: 11px; color: #444; line-height: 1.5; border-top: 1px solid #E8EFE6; padding-top: 6px; margin-top: 4px; }
     .pcard-signals strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 2px; }
     .pcard-empty { font-size: 12px; color: #8BBF82; text-align: center; padding: 20px 0; font-style: italic; }
-
-    /* REPORTS */
     .reports-no-data { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
     .reports-no-data p { margin-top: 8px; font-size: 13px; color: #4A8C3F; }
     .report-block { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; margin-bottom: 16px; }
     .report-block-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4A8C3F; margin-bottom: 14px; }
-    .report-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
-    .report-stat { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 12px 14px; text-align: center; }
-    .report-stat-value { font-size: 22px; font-weight: 700; color: #1A3A1A; }
-    .report-stat-label { font-size: 11px; color: #3A6B35; margin-top: 3px; }
     .reports-week-select { padding: 8px 14px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; min-width: 160px; }
     .report-note { font-size: 13px; color: #444; line-height: 1.65; }
     .report-week-label { font-size: 13px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 20px; padding: 4px 14px; display: inline-block; margin-bottom: 20px; }
     .reports-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
-
-    /* SCENARIOS */
     .scenario-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; margin-bottom: 18px; }
     .scenario-name { font-size: 16px; font-weight: 600; color: #1A3A1A; margin-bottom: 4px; }
     .scenario-audience { font-size: 13px; font-weight: 600; color: #4A8C3F; margin-bottom: 6px; }
@@ -215,8 +205,6 @@
     .fmt-outline li { margin-bottom: 4px; }
     .fmt-cohost { font-size: 12px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 8px; padding: 10px 14px; }
     .fmt-notes { font-size: 12px; color: #7A5200; background: #FDF3DC; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
-
-    /* AUDIENCES */
     .aud-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
     .aud-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
     .aud-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; border-left: 4px solid #4A8C3F; }
@@ -236,8 +224,6 @@
     .aud-list-table td:first-child { border-left: 4px solid #4A8C3F; padding-left: 12px; }
     .aud-list-name { font-weight: 600; font-size: 13px; color: #1A3A1A; }
     .aud-list-titles { font-size: 12px; color: #3A6B35; margin-top: 2px; }
-
-    /* SYS INFO */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
     @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
     .info-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; }
@@ -277,7 +263,6 @@
     <div class="site-logo">Black Tech Capital <span>/ Comms &amp; Marketing</span></div>
     <div class="header-meta" id="last-updated">Loading...</div>
   </div>
-
   <div class="tabs-bar">
     <div class="tab active" onclick="switchTab('campaigns',this)">Campaigns <span class="tab-badge badge-pending" id="count-pending">—</span></div>
     <div class="tab" onclick="switchTab('initiatives',this)">Initiatives <span class="tab-badge badge-initiative" id="count-initiatives">—</span></div>
@@ -287,7 +272,6 @@
     <div class="tab" onclick="switchTab('audiences',this)">Audiences <span class="tab-badge badge-audience" id="count-audiences">—</span></div>
     <div class="tab" onclick="switchTab('sysinfo',this)">System Info <span class="tab-badge badge-info">&#9432;</span></div>
   </div>
-
   <div class="main">
     <div id="loading">Loading...</div>
     <div id="campaigns"   class="tab-content" style="display:none;"></div>
@@ -305,13 +289,14 @@
   const REPO_RAW   = 'https://raw.githubusercontent.com/keyona-rerev/btc-comms-review/main';
   const PAGES_BASE = 'https://keyona-rerev.github.io/btc-comms-review';
 
-  let audView   = 'card';
+  let audView = 'card';
   let campFilter = 'all';
-  let campView   = 'cards'; // 'cards' or 'board'
-  let allCampaigns  = [];
+  let campView = 'cards';
+  let allCampaigns = [];
   let allRejections = [];
-  let reportWeeks   = [];
-  let reportsCache  = {};
+  let allInitiatives = [];
+  let reportWeeks = [];
+  let reportsCache = {};
   let currentReportWeek = null;
 
   function checkPw() {
@@ -345,10 +330,12 @@
       const pipeData = await pipeRes.json();
       const fmtData  = await fmtRes.json();
       const iniData  = await iniRes.json();
-      allCampaigns  = campData.campaigns  || [];
-      allRejections = rejData.rejections  || [];
-      reportWeeks   = await discoverReportWeeks();
-      render(allCampaigns, allRejections, scData.scenarios || [], audData.audiences || [], pipeData, fmtData.formats || [], iniData.initiatives || []);
+      allCampaigns   = campData.campaigns   || [];
+      allRejections  = rejData.rejections   || [];
+      allInitiatives = iniData.initiatives  || [];
+      window._allInitiatives = allInitiatives;
+      reportWeeks = await discoverReportWeeks();
+      render(allCampaigns, allRejections, scData.scenarios || [], audData.audiences || [], pipeData, fmtData.formats || [], allInitiatives);
     } catch(e) {
       document.getElementById('loading').textContent = 'Failed to load. Please refresh. (' + e.message + ')';
     }
@@ -403,7 +390,6 @@
     const rejMap = {};
     rejections.forEach(r => { rejMap[r.id] = r.reason; });
     campaigns.forEach(c => { if (c.status === 'rejected' && rejMap[c.id]) c._rejectionReason = rejMap[c.id]; });
-
     el.innerHTML = `
       <div class="camp-toolbar">
         <div class="camp-toolbar-left">
@@ -438,13 +424,13 @@
 
   function getFilteredCamps() {
     const camps = window._allCamps || [];
-    if (campFilter === 'all')     return camps;
-    if (campFilter === 'pending') return camps.filter(c => c.status === 'pending');
+    if (campFilter === 'all')      return camps;
+    if (campFilter === 'pending')  return camps.filter(c => c.status === 'pending');
     if (campFilter === 'approved') return camps.filter(c => c.status === 'approved');
     if (campFilter === 'rejected') return camps.filter(c => c.status === 'rejected');
-    if (campFilter === 'waiting') return camps.filter(c => c.outreachStatus === 'waiting');
-    if (campFilter === 'blocked') return camps.filter(c => c.outreachStatus === 'blocked');
-    if (campFilter === 'move')    return camps.filter(c => c.outreachStatus === 'needs_send' || !c.outreachStatus);
+    if (campFilter === 'waiting')  return camps.filter(c => c.outreachStatus === 'waiting');
+    if (campFilter === 'blocked')  return camps.filter(c => c.outreachStatus === 'blocked');
+    if (campFilter === 'move')     return camps.filter(c => c.outreachStatus === 'needs_send' || !c.outreachStatus);
     return camps;
   }
 
@@ -454,32 +440,25 @@
     if (note) note.textContent = filtered.length + ' campaign' + (filtered.length !== 1 ? 's' : '');
     const area = document.getElementById('camp-view-area');
     if (!area) return;
-
-    if (!filtered.length) {
-      area.innerHTML = '<div class="empty-state"><strong>No campaigns match this filter.</strong></div>';
-      return;
-    }
+    if (!filtered.length) { area.innerHTML = '<div class="empty-state"><strong>No campaigns match this filter.</strong></div>'; return; }
 
     if (campView === 'board') {
       const waiting = filtered.filter(c => c.outreachStatus === 'waiting');
       const blocked = filtered.filter(c => c.outreachStatus === 'blocked');
       const move    = filtered.filter(c => c.outreachStatus === 'needs_send' || !c.outreachStatus);
-
-      function boardCol(label, sub, cls, dotCls, countCls, items, detailKey, detailLabel) {
+      function boardCol(label, sub, cls, dotCls, items, detailKey, detailLabel) {
         const cards = items.length ? items.map(c => {
           const det = c[detailKey] ? '<div class="status-card-detail"><strong>' + detailLabel + '</strong>' + escHtml(c[detailKey]) + '</div>' : '';
           return '<div class="status-card"><div class="status-card-title">' + escHtml(c.title) + '</div><div class="status-card-org">' + escHtml(c.contactOrg || c.targetAudience || '') + (c.from ? ' &middot; ' + escHtml(c.from) : '') + '</div>' + det + '</div>';
         }).join('') : '<div class="status-empty">None right now.</div>';
-        return '<div class="status-col ' + cls + '"><div class="status-col-header"><span class="status-dot ' + dotCls + '"></span>' + label + ' <span class="status-col-count ' + countCls + '">' + items.length + '</span></div><div class="status-col-sub">' + sub + '</div>' + cards + '</div>';
+        return '<div class="status-col ' + cls + '"><div class="status-col-header"><span class="status-dot ' + dotCls + '"></span>' + label + ' <span class="status-col-count">' + items.length + '</span></div><div class="status-col-sub">' + sub + '</div>' + cards + '</div>';
       }
-
       area.innerHTML = '<div class="status-columns">' +
-        boardCol('Waiting on Them', 'You sent something. Ball is in their court.', 'status-col-waiting', 'dot-waiting', '', waiting, 'waitingOn', 'Waiting on') +
-        boardCol('Legitimate Blocker', 'Something real is in the way before you can move.', 'status-col-blocked', 'dot-blocked', '', blocked, 'blocker', 'Blocker') +
-        boardCol('Time to Move', 'Outreach not sent yet. Your attention goes here.', 'status-col-move', 'dot-move', '', move, 'webinarAngle', 'Angle') +
+        boardCol('Waiting on Them', 'You sent something. Ball is in their court.', 'status-col-waiting', 'dot-waiting', waiting, 'waitingOn', 'Waiting on') +
+        boardCol('Legitimate Blocker', 'Something real is in the way.', 'status-col-blocked', 'dot-blocked', blocked, 'blocker', 'Blocker') +
+        boardCol('Time to Move', 'Outreach not sent yet. Your attention goes here.', 'status-col-move', 'dot-move', move, 'webinarAngle', 'Angle') +
         '</div>';
     } else {
-      // Cards view — sorted pending first, then approved, then rejected
       const sorted = [
         ...filtered.filter(c => c.status === 'pending'),
         ...filtered.filter(c => c.status === 'approved'),
@@ -496,12 +475,21 @@
     const s = camp.outreachStatus;
     if (s === 'waiting')    return '<span class="outreach-pill outreach-waiting">Waiting on Them</span>';
     if (s === 'blocked')    return '<span class="outreach-pill outreach-blocked">Blocker</span>';
-    if (s === 'needs_send') return '<span class="outreach-pill outreach-move">Time to Move</span>';
-    if (!s)                 return '<span class="outreach-pill outreach-move">Time to Move</span>';
+    if (s === 'needs_send' || !s) return '<span class="outreach-pill outreach-move">Time to Move</span>';
     return '';
   }
 
   function renderCampCard(camp) {
+    // Surface parent initiative goal as context strip
+    const ini = (window._allInitiatives || []).find(i => i.id === camp.sc_initiative_id);
+    const iniStrip = ini
+      ? '<div class="ini-context-strip"><strong>Initiative</strong>' + escHtml(ini.name) + ' — ' + escHtml(ini.goal) + '</div>'
+      : '';
+    // Surface contact intel if present
+    const intelStrip = camp.contactIntel
+      ? '<div class="contact-intel-strip"><strong>Contact Intel</strong>' + escHtml(camp.contactIntel) + '</div>'
+      : '';
+
     const status = camp.status || 'pending';
     const pillClass = status === 'approved' ? 'pill-approved' : status === 'rejected' ? 'pill-rejected' : 'pill-pending';
     const pillLabel = status === 'approved' ? 'Approved' : status === 'rejected' ? 'Flagged' : 'Awaiting Review';
@@ -518,7 +506,7 @@
     const blockerNote = camp.outreachStatus === 'blocked' && camp.blocker ? '<div class="rejection-note"><strong>Blocker</strong>' + escHtml(camp.blocker) + '</div>' : '';
     const draftId = 'draft-' + camp.id;
     const draftHtml = camp.emailDraft ? '<span class="draft-toggle" onclick="toggleDraft(\'' + draftId + '\', this)">&#9660; View email draft</span><div class="draft-block" id="' + draftId + '">' + escHtml(camp.emailDraft) + '</div>' : '';
-    return '<div class="card"><div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>' + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '') + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + cadence + fromTag + ' ' + typeBadge + outreachPill(camp) + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>' + usageNote + angleNote + blockerNote + approvedNote + rejectedNote + draftHtml + '<div class="card-actions">' + viewBtn + feedbackBtn + '</div></div>';
+    return '<div class="card"><div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>' + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '') + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + cadence + fromTag + ' ' + typeBadge + outreachPill(camp) + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>' + iniStrip + intelStrip + usageNote + angleNote + blockerNote + approvedNote + rejectedNote + draftHtml + '<div class="card-actions">' + viewBtn + feedbackBtn + '</div></div>';
   }
 
   function toggleDraft(id, btn) {
@@ -539,11 +527,33 @@
       const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
       const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
       const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
-      const linkedCamps = campaigns.filter(c => (ini.linked_campaigns || []).includes(c.id));
-      const campTags = linkedCamps.length ? '<div class="ini-camp-row"><span class="ini-camp-label">Campaigns</span>' + linkedCamps.map(c => '<span class="ini-camp-tag">' + escHtml(c.contactOrg || c.title) + '</span>').join('') + '</div>' : '';
       const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
       const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
-      return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + campTags + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
+
+      // Show linked campaigns as contact cards with intel
+      const linkedCamps = campaigns.filter(c => (ini.linked_campaigns || []).includes(c.id));
+      // Also find campaigns linked by sc_initiative_id that aren't in linked_campaigns array
+      const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
+      const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
+
+      const contactCards = uniqueLinked.length
+        ? '<div class="ini-camp-row"><span class="ini-camp-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>' +
+          uniqueLinked.map(c => {
+            const personLine = c.contactPerson ? escHtml(c.contactPerson) + (c.contactTitle ? ', ' + escHtml(c.contactTitle) : '') : '';
+            const intel = c.contactIntel ? '<div class="ini-contact-intel">' + escHtml(c.contactIntel) + '</div>' : '';
+            const outreach = c.outreachStatus === 'waiting' ? '<span style="font-size:10px;color:#2D6B1A;font-weight:600;">Waiting on them</span>'
+              : c.outreachStatus === 'blocked' ? '<span style="font-size:10px;color:#8B3A1A;font-weight:600;">Blocker</span>'
+              : '<span style="font-size:10px;color:#7A5200;font-weight:600;">Time to move</span>';
+            return '<div class="ini-contact-card">' +
+              '<div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' +
+              (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') +
+              intel +
+              '</div>';
+          }).join('')
+          + '</div>'
+        : '';
+
+      return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + contactCards + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
     }).join('');
   }
 
@@ -636,7 +646,7 @@
 
   function renderAudCard(a, campaigns) {
     const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
-    const seqLink = linked.length ? '<div class="aud-seq-link"><span style="font-size:11px;color:#4A8C3F;font-weight:600;">' + linked.length + ' campaign(s)</span></div>' : '';
+    const seqLink = linked.length ? '<div style="margin-top:10px;"><span style="font-size:11px;color:#4A8C3F;font-weight:600;">' + linked.length + ' campaign(s)</span></div>' : '';
     return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml(a.typicalTitles || '') + '</div><div class="aud-tags">' + (a.sectors || []).map(s => '<span class="aud-tag aud-tag-sector">' + escHtml(s) + '</span>').join('') + (a.geos || []).map(g => '<span class="aud-tag aud-tag-geo">' + escHtml(g) + '</span>').join('') + '</div><div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle || '') + '</div>' + seqLink + '</div>';
   }
 
