@@ -32,7 +32,6 @@
     .badge-info       { background: #F0EEE8; color: #5A5850; }
     .badge-pipeline   { background: #E6F4E0; color: #2D6B1A; }
     .badge-reports    { background: #E8EFE6; color: #3A6B35; }
-    .badge-status     { background: #FDF3DC; color: #7A5200; }
     .badge-initiative { background: #E6EEF5; color: #1A4A7A; }
     .main { padding: 28px 32px; max-width: 960px; margin: 0 auto; }
     .tab-content { display: none; }
@@ -68,34 +67,24 @@
     .pill-pending  { background: #FDF3DC; color: #7A5200; }
     .pill-approved { background: #E6F4E0; color: #2D6B1A; }
     .pill-rejected { background: #FAEAE6; color: #8B3A1A; }
-    .seq-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+
+    /* OUTREACH STATUS PILL on cards */
+    .outreach-pill { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.03em; margin-left: 6px; }
+    .outreach-waiting  { background: #E6F4E0; color: #2D6B1A; }
+    .outreach-blocked  { background: #FAEAE6; color: #8B3A1A; }
+    .outreach-move     { background: #FDF3DC; color: #7A5200; }
+
+    /* CAMPAIGNS TOOLBAR */
+    .camp-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+    .camp-toolbar-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .seq-filter { padding: 7px 12px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; }
     .seq-count-note { font-size: 12px; color: #3A6B35; }
+    .view-toggle { display: flex; border: 1px solid #B0C9A8; border-radius: 6px; overflow: hidden; }
+    .view-btn { font-size: 12px; padding: 6px 14px; background: #fff; color: #3A6B35; border: none; cursor: pointer; font-weight: 500; }
+    .view-btn.active { background: #E8EFE6; color: #1A3A1A; font-weight: 600; }
+    .view-btn:not(:last-child) { border-right: 1px solid #B0C9A8; }
 
-    /* INITIATIVES TAB */
-    .ini-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border-left: 4px solid #1A5A8A; }
-    .ini-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-    .ini-name { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
-    .ini-timeline { font-size: 12px; color: #3A6B35; }
-    .ini-pills { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
-    .ini-status-pill { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
-    .ini-status-active    { background: #E6F4E0; color: #2D6B1A; }
-    .ini-status-planning  { background: #E6EEF5; color: #1A4A7A; }
-    .ini-status-braindump { background: #F0EEE8; color: #5A5850; }
-    .ini-priority-critical { background: #FAEAE6; color: #8B3A1A; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-    .ini-priority-high     { background: #FDF3DC; color: #7A5200; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-    .ini-priority-medium   { background: #E8EFE6; color: #3A6B35; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-    .ini-goal { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 10px; }
-    .ini-question { font-size: 12px; color: #3A6B35; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
-    .ini-question strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
-    .ini-notes { font-size: 12px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
-    .ini-notes strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
-    .ini-camp-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; padding-top: 10px; border-top: 1px solid #E8EFE6; }
-    .ini-camp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; }
-    .ini-camp-tag { font-size: 11px; background: #E6EEF5; color: #1A4A7A; border-radius: 20px; padding: 2px 10px; font-weight: 500; }
-    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 6px; }
-
-    /* STATUS TAB */
+    /* BOARD VIEW */
     .status-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
     @media (max-width: 720px) { .status-columns { grid-template-columns: 1fr; } }
     .status-col { border-radius: 12px; padding: 16px; }
@@ -126,6 +115,29 @@
     .status-col-blocked .status-card-detail strong { color: #8B3A1A; }
     .status-col-move    .status-card-detail strong { color: #7A5200; }
     .status-empty { font-size: 12px; color: #8BBF82; text-align: center; padding: 20px 0; font-style: italic; }
+
+    /* INITIATIVES TAB */
+    .ini-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border-left: 4px solid #1A5A8A; }
+    .ini-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .ini-name { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
+    .ini-timeline { font-size: 12px; color: #3A6B35; }
+    .ini-pills { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .ini-status-pill { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    .ini-status-active    { background: #E6F4E0; color: #2D6B1A; }
+    .ini-status-planning  { background: #E6EEF5; color: #1A4A7A; }
+    .ini-status-braindump { background: #F0EEE8; color: #5A5850; }
+    .ini-priority-critical { background: #FAEAE6; color: #8B3A1A; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .ini-priority-high     { background: #FDF3DC; color: #7A5200; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .ini-priority-medium   { background: #E8EFE6; color: #3A6B35; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .ini-goal { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 10px; }
+    .ini-question { font-size: 12px; color: #3A6B35; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
+    .ini-question strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
+    .ini-notes { font-size: 12px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
+    .ini-notes strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
+    .ini-camp-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; padding-top: 10px; border-top: 1px solid #E8EFE6; }
+    .ini-camp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; }
+    .ini-camp-tag { font-size: 11px; background: #E6EEF5; color: #1A4A7A; border-radius: 20px; padding: 2px 10px; font-weight: 500; }
+    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 6px; }
 
     /* PIPELINE */
     .pipeline-header { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -183,8 +195,6 @@
     .scenario-seq-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
     .scenario-seq-info { font-size: 13px; color: #1A3A1A; font-weight: 500; }
     .scenario-seq-meta { font-size: 11px; color: #3A6B35; margin-top: 2px; }
-    .typical-titles { font-size: 12px; color: #3A6B35; line-height: 1.6; }
-    .typical-titles strong { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #4A8C3F; margin-bottom: 4px; }
     .formats-toggle-bar { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
     .formats-toggle-bar:hover { background: #EEF5EC; }
     .formats-toggle-label { font-size: 13px; font-weight: 600; color: #2D5C28; }
@@ -208,10 +218,6 @@
 
     /* AUDIENCES */
     .aud-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
-    .view-toggle { display: flex; border: 1px solid #B0C9A8; border-radius: 6px; overflow: hidden; }
-    .view-btn { font-size: 12px; padding: 5px 14px; background: #fff; color: #3A6B35; border: none; cursor: pointer; font-weight: 500; }
-    .view-btn.active { background: #E8EFE6; color: #1A3A1A; font-weight: 600; }
-    .view-btn:first-child { border-right: 1px solid #B0C9A8; }
     .aud-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
     .aud-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; border-left: 4px solid #4A8C3F; }
     .aud-segment { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #4A8C3F; margin-bottom: 5px; }
@@ -223,7 +229,6 @@
     .aud-tag-geo { background: #E8EFE6; color: #3A6B35; }
     .aud-angle { font-size: 12px; color: #444; line-height: 1.55; border-top: 1px solid #C8DFC2; padding-top: 10px; margin-top: 4px; }
     .aud-angle strong { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
-    .aud-seq-link { margin-top: 10px; }
     .aud-list-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 12px; overflow: hidden; }
     .aud-list-table th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #3A6B35; background: #E8EFE6; border-bottom: 1px solid #B0C9A8; }
     .aud-list-table td { padding: 12px 16px; border-bottom: 1px solid #C8DFC2; color: #1a1f1a; vertical-align: top; line-height: 1.5; }
@@ -275,7 +280,6 @@
 
   <div class="tabs-bar">
     <div class="tab active" onclick="switchTab('campaigns',this)">Campaigns <span class="tab-badge badge-pending" id="count-pending">—</span></div>
-    <div class="tab" onclick="switchTab('statusview',this)">Status <span class="tab-badge badge-status" id="count-status">—</span></div>
     <div class="tab" onclick="switchTab('initiatives',this)">Initiatives <span class="tab-badge badge-initiative" id="count-initiatives">—</span></div>
     <div class="tab" onclick="switchTab('pipeline',this)">Pipeline <span class="tab-badge badge-pipeline" id="count-pipeline">—</span></div>
     <div class="tab" onclick="switchTab('reports',this)">Weekly Reports <span class="tab-badge badge-reports" id="count-reports">—</span></div>
@@ -287,7 +291,6 @@
   <div class="main">
     <div id="loading">Loading...</div>
     <div id="campaigns"   class="tab-content" style="display:none;"></div>
-    <div id="statusview"  class="tab-content" style="display:none;"></div>
     <div id="initiatives" class="tab-content" style="display:none;"></div>
     <div id="pipeline"    class="tab-content" style="display:none;"></div>
     <div id="reports"     class="tab-content" style="display:none;"></div>
@@ -302,12 +305,13 @@
   const REPO_RAW   = 'https://raw.githubusercontent.com/keyona-rerev/btc-comms-review/main';
   const PAGES_BASE = 'https://keyona-rerev.github.io/btc-comms-review';
 
-  let audView = 'card';
+  let audView   = 'card';
   let campFilter = 'all';
-  let allCampaigns = [];
+  let campView   = 'cards'; // 'cards' or 'board'
+  let allCampaigns  = [];
   let allRejections = [];
-  let reportWeeks = [];
-  let reportsCache = {};
+  let reportWeeks   = [];
+  let reportsCache  = {};
   let currentReportWeek = null;
 
   function checkPw() {
@@ -366,16 +370,15 @@
 
   function render(campaigns, rejections, scenarios, audiences, pipeData, formats, initiatives) {
     document.getElementById('loading').style.display = 'none';
-    document.getElementById('count-pending').textContent    = campaigns.length || '0';
+    document.getElementById('count-pending').textContent     = campaigns.length || '0';
     document.getElementById('count-initiatives').textContent = initiatives.length || '0';
-    document.getElementById('count-scenarios').textContent  = scenarios.length;
-    document.getElementById('count-audiences').textContent  = audiences.length;
-    document.getElementById('count-pipeline').textContent   = (pipeData.pipeline || []).length || '0';
-    document.getElementById('count-reports').textContent    = reportWeeks.length > 0 ? reportWeeks.length + ' wk' : '0';
+    document.getElementById('count-scenarios').textContent   = scenarios.length;
+    document.getElementById('count-audiences').textContent   = audiences.length;
+    document.getElementById('count-pipeline').textContent    = (pipeData.pipeline || []).length || '0';
+    document.getElementById('count-reports').textContent     = reportWeeks.length > 0 ? reportWeeks.length + ' wk' : '0';
     const now = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('last-updated').textContent = 'keyona@rerev.io · ' + now;
     renderCampaignsTab(campaigns, rejections);
-    renderStatusTab(campaigns);
     renderInitiativesTab(initiatives, campaigns);
     renderPipelineTab(pipeData);
     renderReportsTab();
@@ -400,25 +403,103 @@
     const rejMap = {};
     rejections.forEach(r => { rejMap[r.id] = r.reason; });
     campaigns.forEach(c => { if (c.status === 'rejected' && rejMap[c.id]) c._rejectionReason = rejMap[c.id]; });
-    const sorted = [...campaigns.filter(c => c.status === 'pending'), ...campaigns.filter(c => c.status === 'approved'), ...campaigns.filter(c => c.status === 'rejected')];
-    el.innerHTML = '<div class="seq-toolbar"><select class="seq-filter" id="camp-filter-select" onchange="campFilter=this.value;applyCampFilter()"><option value="all" selected>All campaigns</option><option value="pending">Awaiting Review</option><option value="approved">Approved</option><option value="rejected">Flagged</option></select><div class="seq-count-note" id="camp-count-note"></div></div><div id="camp-list"></div>';
-    window._allCampSorted = sorted;
-    applyCampFilter();
+
+    el.innerHTML = `
+      <div class="camp-toolbar">
+        <div class="camp-toolbar-left">
+          <select class="seq-filter" id="camp-filter-select" onchange="campFilter=this.value;renderCampView()">
+            <option value="all">All campaigns</option>
+            <option value="pending">Awaiting Review</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Flagged</option>
+            <option value="waiting">Waiting on Them</option>
+            <option value="blocked">Legitimate Blocker</option>
+            <option value="move">Time to Move</option>
+          </select>
+          <div class="seq-count-note" id="camp-count-note"></div>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="btn-cards" onclick="setCampView('cards')">&#9632; Cards</button>
+          <button class="view-btn" id="btn-board" onclick="setCampView('board')">&#9638; Board</button>
+        </div>
+      </div>
+      <div id="camp-view-area"></div>
+    `;
+    window._allCamps = campaigns;
+    renderCampView();
   }
 
-  function applyCampFilter() {
-    const sorted = window._allCampSorted || [];
-    const filtered = campFilter === 'all' ? sorted : sorted.filter(c => c.status === campFilter);
+  function setCampView(v) {
+    campView = v;
+    document.getElementById('btn-cards').classList.toggle('active', v === 'cards');
+    document.getElementById('btn-board').classList.toggle('active', v === 'board');
+    renderCampView();
+  }
+
+  function getFilteredCamps() {
+    const camps = window._allCamps || [];
+    if (campFilter === 'all')     return camps;
+    if (campFilter === 'pending') return camps.filter(c => c.status === 'pending');
+    if (campFilter === 'approved') return camps.filter(c => c.status === 'approved');
+    if (campFilter === 'rejected') return camps.filter(c => c.status === 'rejected');
+    if (campFilter === 'waiting') return camps.filter(c => c.outreachStatus === 'waiting');
+    if (campFilter === 'blocked') return camps.filter(c => c.outreachStatus === 'blocked');
+    if (campFilter === 'move')    return camps.filter(c => c.outreachStatus === 'needs_send' || !c.outreachStatus);
+    return camps;
+  }
+
+  function renderCampView() {
+    const filtered = getFilteredCamps();
     const note = document.getElementById('camp-count-note');
     if (note) note.textContent = filtered.length + ' campaign' + (filtered.length !== 1 ? 's' : '');
-    const list = document.getElementById('camp-list');
-    if (!list) return;
-    if (!filtered.length) { list.innerHTML = '<div class="empty-state"><strong>No campaigns yet.</strong></div>'; return; }
-    list.innerHTML = filtered.map(c => renderCampCard(c)).join('');
+    const area = document.getElementById('camp-view-area');
+    if (!area) return;
+
+    if (!filtered.length) {
+      area.innerHTML = '<div class="empty-state"><strong>No campaigns match this filter.</strong></div>';
+      return;
+    }
+
+    if (campView === 'board') {
+      const waiting = filtered.filter(c => c.outreachStatus === 'waiting');
+      const blocked = filtered.filter(c => c.outreachStatus === 'blocked');
+      const move    = filtered.filter(c => c.outreachStatus === 'needs_send' || !c.outreachStatus);
+
+      function boardCol(label, sub, cls, dotCls, countCls, items, detailKey, detailLabel) {
+        const cards = items.length ? items.map(c => {
+          const det = c[detailKey] ? '<div class="status-card-detail"><strong>' + detailLabel + '</strong>' + escHtml(c[detailKey]) + '</div>' : '';
+          return '<div class="status-card"><div class="status-card-title">' + escHtml(c.title) + '</div><div class="status-card-org">' + escHtml(c.contactOrg || c.targetAudience || '') + (c.from ? ' &middot; ' + escHtml(c.from) : '') + '</div>' + det + '</div>';
+        }).join('') : '<div class="status-empty">None right now.</div>';
+        return '<div class="status-col ' + cls + '"><div class="status-col-header"><span class="status-dot ' + dotCls + '"></span>' + label + ' <span class="status-col-count ' + countCls + '">' + items.length + '</span></div><div class="status-col-sub">' + sub + '</div>' + cards + '</div>';
+      }
+
+      area.innerHTML = '<div class="status-columns">' +
+        boardCol('Waiting on Them', 'You sent something. Ball is in their court.', 'status-col-waiting', 'dot-waiting', '', waiting, 'waitingOn', 'Waiting on') +
+        boardCol('Legitimate Blocker', 'Something real is in the way before you can move.', 'status-col-blocked', 'dot-blocked', '', blocked, 'blocker', 'Blocker') +
+        boardCol('Time to Move', 'Outreach not sent yet. Your attention goes here.', 'status-col-move', 'dot-move', '', move, 'webinarAngle', 'Angle') +
+        '</div>';
+    } else {
+      // Cards view — sorted pending first, then approved, then rejected
+      const sorted = [
+        ...filtered.filter(c => c.status === 'pending'),
+        ...filtered.filter(c => c.status === 'approved'),
+        ...filtered.filter(c => c.status === 'rejected')
+      ];
+      area.innerHTML = sorted.map(c => renderCampCard(c)).join('');
+    }
   }
 
   const TYPE_BADGE_MAP = { email:'badge-email', linkedin:'badge-linkedin', content:'badge-content', event:'badge-event', pr:'badge-pr' };
   const TYPE_LABEL_MAP = { email:'Email', linkedin:'LinkedIn', content:'Content', event:'Event', pr:'PR / Press' };
+
+  function outreachPill(camp) {
+    const s = camp.outreachStatus;
+    if (s === 'waiting')    return '<span class="outreach-pill outreach-waiting">Waiting on Them</span>';
+    if (s === 'blocked')    return '<span class="outreach-pill outreach-blocked">Blocker</span>';
+    if (s === 'needs_send') return '<span class="outreach-pill outreach-move">Time to Move</span>';
+    if (!s)                 return '<span class="outreach-pill outreach-move">Time to Move</span>';
+    return '';
+  }
 
   function renderCampCard(camp) {
     const status = camp.status || 'pending';
@@ -437,7 +518,7 @@
     const blockerNote = camp.outreachStatus === 'blocked' && camp.blocker ? '<div class="rejection-note"><strong>Blocker</strong>' + escHtml(camp.blocker) + '</div>' : '';
     const draftId = 'draft-' + camp.id;
     const draftHtml = camp.emailDraft ? '<span class="draft-toggle" onclick="toggleDraft(\'' + draftId + '\', this)">&#9660; View email draft</span><div class="draft-block" id="' + draftId + '">' + escHtml(camp.emailDraft) + '</div>' : '';
-    return '<div class="card"><div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>' + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '') + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + cadence + fromTag + ' ' + typeBadge + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>' + usageNote + angleNote + blockerNote + approvedNote + rejectedNote + draftHtml + '<div class="card-actions">' + viewBtn + feedbackBtn + '</div></div>';
+    return '<div class="card"><div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>' + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '') + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + cadence + fromTag + ' ' + typeBadge + outreachPill(camp) + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>' + usageNote + angleNote + blockerNote + approvedNote + rejectedNote + draftHtml + '<div class="card-actions">' + viewBtn + feedbackBtn + '</div></div>';
   }
 
   function toggleDraft(id, btn) {
@@ -448,35 +529,12 @@
     btn.textContent = open ? '\u25bc View email draft' : '\u25b2 Hide email draft';
   }
 
-  /* ---- STATUS ---- */
-  function renderStatusTab(campaigns) {
-    const el = document.getElementById('statusview');
-    const waiting = campaigns.filter(c => c.outreachStatus === 'waiting');
-    const blocked = campaigns.filter(c => c.outreachStatus === 'blocked');
-    const move    = campaigns.filter(c => c.outreachStatus === 'needs_send' || !c.outreachStatus);
-    document.getElementById('count-status').textContent = waiting.length + blocked.length + move.length;
-
-    function cols(list, cls) {
-      if (!list.length) return '<div class="status-empty">None right now.</div>';
-      return list.map(c => {
-        const det = cls === 'status-col-waiting' && c.waitingOn ? '<div class="status-card-detail"><strong>Waiting on</strong>' + escHtml(c.waitingOn) + '</div>'
-          : cls === 'status-col-blocked' && c.blocker ? '<div class="status-card-detail"><strong>Blocker</strong>' + escHtml(c.blocker) + '</div>'
-          : cls === 'status-col-move' && c.webinarAngle ? '<div class="status-card-detail"><strong>Angle</strong>' + escHtml(c.webinarAngle.split('.')[0]) + '</div>' : '';
-        return '<div class="status-card"><div class="status-card-title">' + escHtml(c.title) + '</div><div class="status-card-org">' + escHtml(c.contactOrg || c.targetAudience || '') + (c.from ? ' &middot; ' + escHtml(c.from) : '') + '</div>' + det + '</div>';
-      }).join('');
-    }
-
-    el.innerHTML = '<div style="margin-bottom:20px;"><div class="section-label">Outreach status triage</div><div style="font-size:13px;color:#444;margin-top:2px;">Three questions: Am I waiting? Is something blocking me? Or do I need to make a move?</div></div><div class="status-columns"><div class="status-col status-col-waiting"><div class="status-col-header"><span class="status-dot dot-waiting"></span>Waiting on Them <span class="status-col-count">' + waiting.length + '</span></div><div class="status-col-sub">You sent something. Ball is in their court. No action needed yet.</div>' + cols(waiting, 'status-col-waiting') + '</div><div class="status-col status-col-blocked"><div class="status-col-header"><span class="status-dot dot-blocked"></span>Legitimate Blocker <span class="status-col-count">' + blocked.length + '</span></div><div class="status-col-sub">Something real is in the way before you can move.</div>' + cols(blocked, 'status-col-blocked') + '</div><div class="status-col status-col-move"><div class="status-col-header"><span class="status-dot dot-move"></span>Time to Move <span class="status-col-count">' + move.length + '</span></div><div class="status-col-sub">Outreach not sent yet. This is where your attention goes.</div>' + cols(move, 'status-col-move') + '</div></div>';
-  }
-
   /* ---- INITIATIVES ---- */
   function renderInitiativesTab(initiatives, campaigns) {
     const el = document.getElementById('initiatives');
     if (!initiatives.length) { el.innerHTML = '<div class="empty-state"><strong>No initiatives yet.</strong></div>'; return; }
-
     const ORDER = { Critical: 0, High: 1, Medium: 2, Low: 3 };
     const sorted = [...initiatives].sort((a, b) => (ORDER[a.priority] ?? 9) - (ORDER[b.priority] ?? 9));
-
     el.innerHTML = '<div class="section-label">' + sorted.length + ' initiative' + (sorted.length !== 1 ? 's' : '') + '</div>' + sorted.map(ini => {
       const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
       const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
@@ -568,34 +626,38 @@
     el.innerHTML = '<div class="aud-toolbar"><div class="section-label" style="margin:0;">' + audiences.length + ' audience profile(s)</div><div class="view-toggle"><button class="view-btn active" id="aud-card-btn" onclick="setAudView(\'card\')">Cards</button><button class="view-btn" id="aud-list-btn" onclick="setAudView(\'list\')">List</button></div></div><div id="aud-card-view" class="aud-grid">' + audiences.map(a => renderAudCard(a, campaigns)).join('') + '</div><div id="aud-list-view" style="display:none;">' + renderAudList(audiences, campaigns) + '</div>';
   }
 
-  function renderAudCard(a, campaigns) {
-    const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
-    const campLinks = linked.map(c => c.campaignFile ? '<a class="btn btn-view" style="font-size:11px;padding:4px 12px;" href="' + PAGES_BASE + '/' + c.campaignFile + '" target="_blank">' + escHtml(c.title) + '</a>' : '').join('');
-    return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment) + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml((a.targetTitles || []).join(', ')) + '</div><div class="aud-tags"><span class="aud-tag aud-tag-sector">' + escHtml(a.sector || '') + '</span><span class="aud-tag aud-tag-geo">' + escHtml(a.geo || '') + '</span></div><div class="aud-angle"><strong>Why they matter</strong>' + escHtml(a.whyTheyMatter || '') + '</div><div class="aud-angle" style="margin-top:8px;"><strong>Outreach angle</strong>' + escHtml(a.angle || '') + '</div>' + (a.sc_contact_ids && a.sc_contact_ids.length ? '<div style="margin-top:8px;font-size:11px;color:#3A6B35;">SC contacts: ' + a.sc_contact_ids.length + ' linked</div>' : '') + (campLinks ? '<div class="aud-seq-link" style="margin-top:10px;">' + campLinks + '</div>' : '') + '</div>';
-  }
-
-  function renderAudList(audiences, campaigns) {
-    return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Sector</th><th>Geography</th></tr></thead><tbody>' + audiences.map(a => '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml((a.targetTitles || []).join(', ')) + '</div></td><td><span class="aud-tag aud-tag-sector">' + escHtml(a.sector || '') + '</span></td><td><span class="aud-tag aud-tag-geo">' + escHtml(a.geo || '') + '</span></td></tr>').join('') + '</tbody></table>';
-  }
-
   function setAudView(v) {
     audView = v;
     document.getElementById('aud-card-view').style.display = v === 'card' ? 'grid' : 'none';
     document.getElementById('aud-list-view').style.display = v === 'list' ? 'block' : 'none';
-    document.getElementById('aud-card-btn').className = 'view-btn' + (v === 'card' ? ' active' : '');
-    document.getElementById('aud-list-btn').className = 'view-btn' + (v === 'list' ? ' active' : '');
+    document.getElementById('aud-card-btn').classList.toggle('active', v === 'card');
+    document.getElementById('aud-list-btn').classList.toggle('active', v === 'list');
+  }
+
+  function renderAudCard(a, campaigns) {
+    const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
+    const seqLink = linked.length ? '<div class="aud-seq-link"><span style="font-size:11px;color:#4A8C3F;font-weight:600;">' + linked.length + ' campaign(s)</span></div>' : '';
+    return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml(a.typicalTitles || '') + '</div><div class="aud-tags">' + (a.sectors || []).map(s => '<span class="aud-tag aud-tag-sector">' + escHtml(s) + '</span>').join('') + (a.geos || []).map(g => '<span class="aud-tag aud-tag-geo">' + escHtml(g) + '</span>').join('') + '</div><div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle || '') + '</div>' + seqLink + '</div>';
+  }
+
+  function renderAudList(audiences, campaigns) {
+    return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Typical Titles</th><th>Angle</th><th>Campaigns</th></tr></thead><tbody>' + audiences.map(a => {
+      const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
+      return '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml(a.segment || '') + '</div></td><td>' + escHtml(a.typicalTitles || '') + '</td><td>' + escHtml(a.angle || '') + '</td><td>' + (linked.length ? linked.length + ' campaign(s)' : 'None yet') + '</td></tr>';
+    }).join('') + '</tbody></table>';
   }
 
   /* ---- SYS INFO ---- */
   function renderSysInfo(campaigns) {
     const el = document.getElementById('sysinfo');
-    const approved = campaigns.filter(c => c.status === 'approved').length;
     const pending  = campaigns.filter(c => c.status === 'pending').length;
-    const flagged  = campaigns.filter(c => c.status === 'rejected').length;
-    el.innerHTML = '<div class="section-label">BTC communications overview</div><div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign summary</div><div class="info-row"><span class="info-label">Total</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">' + approved + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + flagged + '</span></div></div><div class="info-card"><div class="info-card-title">Venture</div><div class="info-row"><span class="info-label">Fund</span><span class="info-value">Black Tech Capital</span></div><div class="info-row"><span class="info-label">Focus</span><span class="info-value">Climate tech nano VC</span></div><div class="info-row"><span class="info-label">Co-managed</span><span class="info-value">Keyona + Bryan Duarte</span></div><div class="info-row"><span class="info-label">Webinar Initiative</span><span class="info-value" style="font-family:monospace;font-size:11px;">INI-1775180449939</span></div><div class="info-row"><span class="info-label">ABM Initiative</span><span class="info-value" style="font-family:monospace;font-size:11px;">INI-1775180457900</span></div></div></div>';
+    const approved = campaigns.filter(c => c.status === 'approved').length;
+    const rejected = campaigns.filter(c => c.status === 'rejected').length;
+    el.innerHTML = '<div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign Summary</div><div class="info-row"><span class="info-label">Total campaigns</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">' + approved + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + rejected + '</span></div></div><div class="info-card"><div class="info-card-title">Portal Info</div><div class="info-row"><span class="info-label">Repo</span><span class="info-value">keyona-rerev/btc-comms-review</span></div><div class="info-row"><span class="info-label">Access</span><span class="info-value green">Authenticated</span></div><div class="info-row"><span class="info-label">Reviewer</span><span class="info-value">Bryan Duarte</span></div></div></div><table class="stack-table"><thead><tr><th>Tool</th><th>Role</th><th>Status</th></tr></thead><tbody><tr><td>Railway / Super Connector</td><td>Warm contact CRM</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>Apollo / Pipedrive</td><td>Cold outreach</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>GitHub Pages</td><td>Portal hosting</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>Google Tasks</td><td>Action items</td><td><span class="status-pill status-active">Active</span></td></tr></tbody></table>';
   }
 
   function escHtml(s) {
+    if (!s) return '';
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 </script>
