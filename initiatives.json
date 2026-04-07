@@ -89,6 +89,21 @@
       "tags": ["slack", "work-on-climate", "event-sourcing", "warm-signal", "webinar", "exit-lab"],
       "contentFormats": ["fmt-001"],
       "linked_campaigns": []
+    },
+    {
+      "id": "INI-TTI-001",
+      "name": "Top Tier Impacts — Member Audit (WhatsApp + Email)",
+      "status": "Brain Dump",
+      "priority": "High",
+      "timeline": "Q2 2026",
+      "goal": "Audit the Top Tier Impacts WhatsApp group and email list to identify which members are the best fit for BTC's comms and marketing initiatives (webinar partners, Exit Lab guests) and which are viable deal flow or investing pipeline candidates.",
+      "core_question": "Which Top Tier Impacts members should go into the BTC comms pipeline, and which should go into the investing pipeline — and do any qualify for both?",
+      "notes": "Keyona is in the Top Tier Impacts WhatsApp group and email list. Access to the full member list needs to be confirmed — it's unclear whether full contact details are still accessible. First step is to pull whatever member list is available (WhatsApp contacts, email recipients) and do lightweight research on each person. Score each member against two tracks: (1) Comms fit — are they a good webinar co-host, Exit Lab guest, or warm BTC relationship to develop? (2) Investing fit — are they a founder or operator in climate tech that could be a deal flow candidate or portfolio company? Members who qualify for both tracks get flagged separately. This is a sourcing and qualification initiative — outreach and campaigns come after the audit is done.",
+      "typicalTitles": ["Founder", "CEO", "CTO", "Impact Investor", "Climate Tech Operator", "Program Director"],
+      "trigger": "Keyona reviews WhatsApp group or email list and begins member audit",
+      "tags": ["top-tier-impacts", "whatsapp", "email-list", "member-audit", "deal-flow", "webinar", "exit-lab", "investing-pipeline"],
+      "contentFormats": ["fmt-001", "fmt-003"],
+      "linked_campaigns": []
     }
   ]
 }
