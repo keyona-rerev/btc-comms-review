@@ -104,6 +104,31 @@
       "tags": ["top-tier-impacts", "whatsapp", "email-list", "member-audit", "deal-flow", "webinar", "exit-lab", "investing-pipeline"],
       "contentFormats": ["fmt-001", "fmt-003"],
       "linked_campaigns": []
+    },
+    {
+      "id": "INI-AB-001",
+      "name": "Advisory Board + Investment Committee — Collaborative Content",
+      "status": "Active",
+      "priority": "High",
+      "timeline": "Q2 2026",
+      "goal": "Activate all 8 Advisory Board and Investment Committee members as collaborative content contributors — interviews, co-hosted webinars, social posts, or Exit Lab contributions. Bryan Watson is confirmed. All others need to be engaged.",
+      "core_question": "What content format works best for each member, and what's the right ask to get them engaged without it feeling like a chore?",
+      "notes": "8 members total. Bryan Watson confirmed. All others are unengaged as of April 2026 — Keyona needs to reach out individually. The ask should be low-lift: a 20-minute recorded conversation, a quote for a piece of content, or a co-hosted webinar slot. Match the format to the person. This initiative tracks engagement status per member. Campaigns get created per person once the right format is identified.",
+      "typicalTitles": ["Advisor", "Board Member", "Investment Committee Member"],
+      "trigger": "Keyona reaches out individually to each unengaged member",
+      "tags": ["advisory-board", "investment-committee", "collaborative-content", "member-engagement", "webinar", "exit-lab"],
+      "contentFormats": ["fmt-001", "fmt-002"],
+      "linked_campaigns": [],
+      "members": [
+        { "name": "Bryan Watson", "role": "Advisory Board", "status": "confirmed", "note": "Confirmed — webinar collab in progress" },
+        { "name": "Member 2", "role": "Advisory Board", "status": "not_engaged", "note": "" },
+        { "name": "Member 3", "role": "Advisory Board", "status": "not_engaged", "note": "" },
+        { "name": "Member 4", "role": "Advisory Board", "status": "not_engaged", "note": "" },
+        { "name": "Member 5", "role": "Advisory Board", "status": "not_engaged", "note": "" },
+        { "name": "Member 6", "role": "Investment Committee", "status": "not_engaged", "note": "" },
+        { "name": "Member 7", "role": "Investment Committee", "status": "not_engaged", "note": "" },
+        { "name": "Member 8", "role": "Investment Committee", "status": "not_engaged", "note": "" }
+      ]
     }
   ]
 }
