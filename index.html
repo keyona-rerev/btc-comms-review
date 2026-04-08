@@ -132,9 +132,15 @@
     .list-person { font-size: 11px; color: #555; }
     .list-email { font-size: 11px; color: #1A4A7A; word-break: break-all; }
     .list-email.tbc { color: #B07A00; font-style: italic; }
-    .list-source-link { font-size: 11px; color: #4A8C3F; text-decoration: none; }
-    .list-source-link:hover { text-decoration: underline; }
     .list-status-select { font-size: 11px; padding: 3px 7px; border-radius: 6px; border: 1px solid #B0C9A8; background: #F7FAF6; color: #1A3A1A; outline: none; cursor: pointer; min-width: 130px; }
+    .ini-list-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; overflow: hidden; }
+    .ini-list-table th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #3A6B35; background: #E8EFE6; border-bottom: 1px solid #B0C9A8; white-space: nowrap; }
+    .ini-list-table td { padding: 11px 14px; border-bottom: 1px solid #C8DFC2; vertical-align: top; color: #1a1f1a; line-height: 1.5; font-size: 13px; }
+    .ini-list-table tr:last-child td { border-bottom: none; }
+    .ini-list-table td:first-child { border-left: 4px solid #1A5A8A; padding-left: 10px; }
+    .ini-list-name { font-weight: 600; color: #1A3A1A; }
+    .ini-list-venture { font-size: 11px; color: #3A6B35; margin-top: 2px; }
+    .ini-list-question { font-size: 11px; color: #555; margin-top: 4px; line-height: 1.5; font-style: italic; }
     .ini-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border-left: 4px solid #1A5A8A; }
     .ini-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
     .ini-name { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
@@ -270,6 +276,7 @@
   let audView = 'card';
   let campFilter = 'all';
   let campView = 'cards';
+  let iniView = 'cards';
   let allCampaigns = [];
   let allRejections = [];
   let allInitiatives = [];
@@ -315,6 +322,7 @@
   }
 
   function moveStatus(campId, newStatus) {
+    if (!newStatus) return;
     statusOverrides[campId] = newStatus;
     try { localStorage.setItem('btc_status', JSON.stringify(statusOverrides)); } catch(e) {}
     showToast('Status updated to: ' + newStatus);
@@ -392,6 +400,7 @@
     el.classList.add('active');
   }
 
+  /* ---- CAMPAIGNS ---- */
   function renderCampaignsTab(campaigns, rejections) {
     const el = document.getElementById('campaigns');
     const rejMap = {};
@@ -454,9 +463,8 @@
     const area = document.getElementById('camp-view-area');
     if (!area) return;
     if (!filtered.length) { area.innerHTML = '<div class="empty-state"><strong>No campaigns match this filter.</strong></div>'; return; }
-
     if (campView === 'list') {
-      renderListView(filtered, area);
+      renderCampListView(filtered, area);
     } else if (campView === 'board') {
       const waiting = filtered.filter(c => getEffectiveStatus(c) === 'waiting');
       const blocked = filtered.filter(c => getEffectiveStatus(c) === 'blocked');
@@ -489,7 +497,7 @@
     }
   }
 
-  function renderListView(filtered, area) {
+  function renderCampListView(filtered, area) {
     const rows = filtered.map(c => {
       const eff = getEffectiveStatus(c);
       const isSent = c.sent || sentOverrides[c.id];
@@ -531,8 +539,8 @@
 
   function outreachPillHtml(camp) {
     const s = getEffectiveStatus(camp);
-    if (s === 'waiting')    return '<span class="outreach-pill outreach-waiting">Waiting on Them</span>';
-    if (s === 'blocked')    return '<span class="outreach-pill outreach-blocked">Blocker</span>';
+    if (s === 'waiting') return '<span class="outreach-pill outreach-waiting">Waiting on Them</span>';
+    if (s === 'blocked') return '<span class="outreach-pill outreach-blocked">Blocker</span>';
     return '<span class="outreach-pill outreach-move">Time to Move</span>';
   }
 
@@ -591,44 +599,97 @@
     btn.textContent = open ? '\u25bc View email draft' : '\u25b2 Hide email draft';
   }
 
+  /* ---- INITIATIVES ---- */
+  function setIniView(v) {
+    iniView = v;
+    document.getElementById('ini-btn-cards').classList.toggle('active', v === 'cards');
+    document.getElementById('ini-btn-list').classList.toggle('active', v === 'list');
+    renderIniView();
+  }
+
   function renderInitiativesTab(initiatives, campaigns, formats) {
     const el = document.getElementById('initiatives');
     if (!initiatives.length) { el.innerHTML = '<div class="empty-state"><strong>No initiatives yet.</strong></div>'; return; }
-    const fmtMap = {};
-    formats.forEach(f => { fmtMap[f.id] = f; });
+    window._iniCampaigns = campaigns;
+    window._iniFmtMap = {};
+    formats.forEach(f => { window._iniFmtMap[f.id] = f; });
     const ORDER = { Critical: 0, High: 1, Medium: 2, Low: 3 };
-    const sorted = [...initiatives].sort((a, b) => (ORDER[a.priority] ?? 9) - (ORDER[b.priority] ?? 9));
-    el.innerHTML = '<div class="section-label">' + sorted.length + ' initiative' + (sorted.length !== 1 ? 's' : '') + '</div>' + sorted.map(ini => {
-      const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
-      const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
-      const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
-      const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
-      const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
-      const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
-      const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
-      const contactSection = uniqueLinked.length
-        ? '<hr class="ini-section-divider"><span class="ini-section-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>'
-          + uniqueLinked.map(c => {
-            const personLine = c.contactPerson ? escHtml(c.contactPerson) + (c.contactTitle ? ', ' + escHtml(c.contactTitle) : '') : '';
-            const intel = c.contactIntel ? '<div class="ini-contact-intel">' + escHtml(c.contactIntel) + '</div>' : '';
-            const eff = getEffectiveStatus(c);
-            const outreach = eff === 'waiting' ? '<span style="font-size:10px;color:#2D6B1A;font-weight:600;">Waiting on them</span>'
-              : eff === 'blocked' ? '<span style="font-size:10px;color:#8B3A1A;font-weight:600;">Blocker</span>'
-              : '<span style="font-size:10px;color:#7A5200;font-weight:600;">Time to move</span>';
-            return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' + (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') + intel + '</div>';
-          }).join('')
-        : '';
-      const linkedFmts = (ini.contentFormats || []).map(fid => fmtMap[fid]).filter(Boolean);
-      const fmtSection = linkedFmts.length
-        ? '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(\'' + ini.id + '\')"><span class="fmt-toggle-label">Content Formats (' + linkedFmts.length + ')</span><span class="fmt-toggle-icon" id="fmticon-' + ini.id + '">&#9660;</span></div><div class="fmt-panel" id="fmtpanel-' + ini.id + '">'
-          + linkedFmts.map(f => {
-            const sc = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
-            const ol = (f.contentOutline || []).map(i => '<li>' + escHtml(i) + '</li>').join('');
-            return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.duration || '') + '</div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div></div>';
-          }).join('') + '</div>'
-        : '';
-      return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + contactSection + fmtSection + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
-    }).join('');
+    window._iniSorted = [...initiatives].sort((a, b) => (ORDER[a.priority] ?? 9) - (ORDER[b.priority] ?? 9));
+    el.innerHTML = `
+      <div class="camp-toolbar">
+        <div class="camp-toolbar-left">
+          <div class="section-label" style="margin:0;">${initiatives.length} initiative${initiatives.length !== 1 ? 's' : ''}</div>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="ini-btn-cards" onclick="setIniView('cards')">&#9632; Cards</button>
+          <button class="view-btn" id="ini-btn-list" onclick="setIniView('list')">&#9776; List</button>
+        </div>
+      </div>
+      <div id="ini-view-area"></div>
+    `;
+    renderIniView();
+  }
+
+  function renderIniView() {
+    const area = document.getElementById('ini-view-area');
+    if (!area) return;
+    const sorted = window._iniSorted || [];
+    const campaigns = window._iniCampaigns || [];
+    const fmtMap = window._iniFmtMap || {};
+
+    if (iniView === 'list') {
+      const rows = sorted.map(ini => {
+        const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
+        const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
+        const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
+        const linked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
+        const campCount = linked.length ? '<span style="font-size:11px;color:#3A6B35;">' + linked.length + ' campaign' + (linked.length !== 1 ? 's' : '') + '</span>' : '<span style="font-size:11px;color:#ccc;">—</span>';
+        const question = ini.core_question ? '<div class="ini-list-question">' + escHtml(ini.core_question) + '</div>' : '';
+        return '<tr>'
+          + '<td><div class="ini-list-name">' + escHtml(ini.name) + '</div><div class="ini-list-venture">' + escHtml(ini.venture || '') + '</div>' + question + '</td>'
+          + '<td><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span></td>'
+          + '<td><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></td>'
+          + '<td style="font-size:12px;color:#555;">' + escHtml(ini.timeline || '—') + '</td>'
+          + '<td>' + campCount + '</td>'
+          + '<td style="font-size:11px;color:#8BBF82;font-family:monospace;">' + escHtml(ini.id) + '</td>'
+          + '</tr>';
+      }).join('');
+      area.innerHTML = '<table class="ini-list-table"><thead><tr><th>Initiative</th><th>Status</th><th>Priority</th><th>Timeline</th><th>Campaigns</th><th>ID</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    } else {
+      area.innerHTML = sorted.map(ini => renderIniCard(ini, campaigns, fmtMap)).join('');
+    }
+  }
+
+  function renderIniCard(ini, campaigns, fmtMap) {
+    const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
+    const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
+    const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
+    const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
+    const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
+    const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
+    const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
+    const contactSection = uniqueLinked.length
+      ? '<hr class="ini-section-divider"><span class="ini-section-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>'
+        + uniqueLinked.map(c => {
+          const personLine = c.contactPerson ? escHtml(c.contactPerson) + (c.contactTitle ? ', ' + escHtml(c.contactTitle) : '') : '';
+          const intel = c.contactIntel ? '<div class="ini-contact-intel">' + escHtml(c.contactIntel) + '</div>' : '';
+          const eff = getEffectiveStatus(c);
+          const outreach = eff === 'waiting' ? '<span style="font-size:10px;color:#2D6B1A;font-weight:600;">Waiting on them</span>'
+            : eff === 'blocked' ? '<span style="font-size:10px;color:#8B3A1A;font-weight:600;">Blocker</span>'
+            : '<span style="font-size:10px;color:#7A5200;font-weight:600;">Time to move</span>';
+          return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' + (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') + intel + '</div>';
+        }).join('')
+      : '';
+    const linkedFmts = (ini.contentFormats || []).map(fid => fmtMap[fid]).filter(Boolean);
+    const fmtSection = linkedFmts.length
+      ? '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(\'' + ini.id + '\')"><span class="fmt-toggle-label">Content Formats (' + linkedFmts.length + ')</span><span class="fmt-toggle-icon" id="fmticon-' + ini.id + '">&#9660;</span></div><div class="fmt-panel" id="fmtpanel-' + ini.id + '">'
+        + linkedFmts.map(f => {
+          const sc = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
+          const ol = (f.contentOutline || []).map(i => '<li>' + escHtml(i) + '</li>').join('');
+          return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.duration || '') + '</div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div></div>';
+        }).join('') + '</div>'
+      : '';
+    return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + contactSection + fmtSection + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
   }
 
   function toggleFmt(iniId) {
@@ -640,6 +701,7 @@
     if (icon) icon.classList.toggle('open', !open);
   }
 
+  /* ---- REPORTS ---- */
   function renderReportsTab() {
     const el = document.getElementById('reports');
     if (!reportWeeks.length) { el.innerHTML = '<div class="reports-no-data"><strong>No reports yet.</strong><p>Add reports/week-1.json to populate.</p></div>'; return; }
@@ -663,6 +725,7 @@
     body.innerHTML = html;
   }
 
+  /* ---- AUDIENCES ---- */
   function renderAudiencesTab(audiences, campaigns) {
     const el = document.getElementById('audiences');
     el.innerHTML = '<div class="aud-toolbar"><div class="section-label" style="margin:0;">' + audiences.length + ' audience profile(s)</div><div class="view-toggle"><button class="view-btn active" id="aud-card-btn" onclick="setAudView(\'card\')">Cards</button><button class="view-btn" id="aud-list-btn" onclick="setAudView(\'list\')">List</button></div></div><div id="aud-card-view" class="aud-grid">' + audiences.map(a => renderAudCard(a, campaigns)).join('') + '</div><div id="aud-list-view" style="display:none;">' + renderAudList(audiences, campaigns) + '</div>';
@@ -687,6 +750,7 @@
     return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Titles</th><th>Sector / Geo</th></tr></thead><tbody>' + audiences.map(a => '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml(a.segment || '') + '</div></td><td>' + escHtml((a.targetTitles || []).join(', ')) + '</td><td>' + escHtml(a.sector || '') + (a.geo ? ' / ' + escHtml(a.geo) : '') + '</td></tr>').join('') + '</tbody></table>';
   }
 
+  /* ---- SYS INFO ---- */
   function renderSysInfo(campaigns) {
     const el = document.getElementById('sysinfo');
     const pending  = campaigns.filter(c => c.status === 'pending').length;
