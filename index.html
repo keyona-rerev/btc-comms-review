@@ -37,6 +37,8 @@
     .tab-content.active { display: block; }
     .section-label { font-size: 11px; color: #4A8C3F; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
     .card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; }
+    .card.exit-lab { border-left: 4px solid #1A4A7A; }
+    .card.sent-done { background: #F7FAF6; opacity: 0.7; }
     .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
     .card-title { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
     .card-audience { font-size: 13px; font-weight: 500; color: #3A6B35; margin-bottom: 4px; }
@@ -47,9 +49,13 @@
     .badge-content  { background: #FDF3DC; color: #7A5200; border: 1px solid #E8C87A; }
     .badge-event    { background: #EDE8F5; color: #5A3A8C; border: 1px solid #B09AD8; }
     .badge-pr       { background: #FAEAE6; color: #8B3A1A; border: 1px solid #D8957A; }
+    .badge-exitlab  { background: #E6EEF5; color: #1A4A7A; border: 1px solid #85B0D8; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+    .sent-badge     { background: #E6F4E0; color: #2D6B1A; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
     .usage-note { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
     .angle-note { background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #7A5200; margin-bottom: 12px; line-height: 1.55; }
     .angle-note strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
+    .exitlab-angle { background: #E6EEF5; border: 1px solid #B0C4D8; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #1A3A5A; margin-bottom: 12px; line-height: 1.55; }
+    .exitlab-angle strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #1A4A7A; margin-bottom: 3px; }
     .ini-context-strip { background: #E6EEF5; border: 1px solid #B0C4D8; border-radius: 6px; padding: 7px 12px; font-size: 11px; color: #1A4A7A; margin-bottom: 12px; line-height: 1.5; }
     .ini-context-strip strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #1A5A8A; margin-bottom: 2px; }
     .contact-intel-strip { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 6px; padding: 7px 12px; font-size: 11px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
@@ -57,11 +63,14 @@
     .draft-toggle { font-size: 12px; color: #2D5C28; cursor: pointer; font-weight: 600; margin-bottom: 10px; display: inline-block; }
     .draft-toggle:hover { text-decoration: underline; }
     .draft-block { background: #F7FAF6; border: 1px solid #B0C9A8; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #1A3A1A; line-height: 1.7; white-space: pre-wrap; display: none; margin-bottom: 12px; }
-    .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .btn { font-size: 12px; padding: 6px 16px; border-radius: 6px; border: 1px solid; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-block; }
+    .card-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .btn { font-size: 12px; padding: 6px 16px; border-radius: 6px; border: 1px solid; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-block; background: none; }
     .btn-view { background: #2D5C28; color: #fff; border-color: #2D5C28; }
     .btn-view:hover { background: #1A3A1A; }
     .btn-feedback { background: #E8EFE6; color: #3A6B35; border-color: #8BBF82; }
+    .btn-mark-sent { background: #E6EEF5; color: #1A4A7A; border-color: #85B0D8; font-size: 12px; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; }
+    .btn-mark-sent:hover { background: #D0DFF0; }
+    .btn-mark-sent.done { background: #E6F4E0; color: #2D6B1A; border-color: #8BBF82; cursor: default; }
     .rejection-note { background: #FFF7F0; border: 1px solid #E8A07A; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #6B2A0D; margin-bottom: 12px; }
     .rejection-note strong { display: block; font-weight: 600; margin-bottom: 4px; color: #8B3A1A; }
     .approved-note { background: #F0F9EA; border: 1px solid #8BBF82; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #2D6B1A; margin-bottom: 12px; }
@@ -229,6 +238,8 @@
     .status-planned { background: #FDF3DC; color: #7A5200; }
     .empty-state { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
     #loading { text-align: center; padding: 60px; color: #4A8C3F; font-size: 14px; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1A3A1A; color: #fff; font-size: 13px; padding: 10px 20px; border-radius: 8px; display: none; z-index: 999; }
+    .apollo-note { font-size: 11px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 6px; padding: 6px 10px; margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -264,10 +275,12 @@
     <div id="sysinfo"     class="tab-content" style="display:none;"></div>
   </div>
 </div>
+<div class="toast" id="toast"></div>
 <script>
   const SITE_PASSWORD = 'btc2026';
   const REPO_RAW   = 'https://raw.githubusercontent.com/keyona-rerev/btc-comms-review/main';
   const PAGES_BASE = 'https://keyona-rerev.github.io/btc-comms-review';
+  const GITHUB_EDIT = 'https://github.com/keyona-rerev/btc-comms-review/edit/main/campaigns.json';
 
   let audView = 'card';
   let campFilter = 'all';
@@ -279,17 +292,39 @@
   let reportWeeks = [];
   let reportsCache = {};
   let currentReportWeek = null;
+  let sentOverrides = {};
+
+  function showToast(msg, ms) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, ms || 3000);
+  }
 
   function checkPw() {
     if (document.getElementById('pw-input').value === SITE_PASSWORD) {
       document.getElementById('gate').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+      try { const s = localStorage.getItem('btc_sent'); if (s) sentOverrides = JSON.parse(s); } catch(e) {}
       loadData();
     } else {
       document.getElementById('gate-error').style.display = 'block';
       document.getElementById('pw-input').value = '';
       document.getElementById('pw-input').focus();
     }
+  }
+
+  function markSent(campId, btn) {
+    sentOverrides[campId] = true;
+    try { localStorage.setItem('btc_sent', JSON.stringify(sentOverrides)); } catch(e) {}
+    btn.textContent = 'Sent';
+    btn.classList.add('done');
+    btn.disabled = true;
+    const card = btn.closest('.card');
+    if (card) card.classList.add('sent-done');
+    navigator.clipboard.writeText('"sent": true').catch(() => {});
+    showToast('Marked as sent. Open GitHub to commit the change.', 4000);
+    setTimeout(() => { window.open(GITHUB_EDIT, '_blank'); }, 800);
   }
 
   async function loadData() {
@@ -363,7 +398,6 @@
     el.classList.add('active');
   }
 
-  /* ---- CAMPAIGNS ---- */
   function renderCampaignsTab(campaigns, rejections) {
     const el = document.getElementById('campaigns');
     const rejMap = {};
@@ -374,6 +408,7 @@
         <div class="camp-toolbar-left">
           <select class="seq-filter" id="camp-filter-select" onchange="campFilter=this.value;renderCampView()">
             <option value="all">All campaigns</option>
+            <option value="exitlab">Exit Lab outreach</option>
             <option value="pending">Awaiting Review</option>
             <option value="approved">Approved</option>
             <option value="rejected">Flagged</option>
@@ -401,9 +436,12 @@
     renderCampView();
   }
 
+  function isExitLab(c) { return c.id && c.id.startsWith('el-camp-'); }
+
   function getFilteredCamps() {
     const camps = window._allCamps || [];
     if (campFilter === 'all')      return camps;
+    if (campFilter === 'exitlab')  return camps.filter(isExitLab);
     if (campFilter === 'pending')  return camps.filter(c => c.status === 'pending');
     if (campFilter === 'approved') return camps.filter(c => c.status === 'approved');
     if (campFilter === 'rejected') return camps.filter(c => c.status === 'rejected');
@@ -434,7 +472,7 @@
       area.innerHTML = '<div class="status-columns">' +
         boardCol('Waiting on Them', 'You sent something. Ball is in their court.', 'status-col-waiting', 'dot-waiting', waiting, 'waitingOn', 'Waiting on') +
         boardCol('Legitimate Blocker', 'Something real is in the way.', 'status-col-blocked', 'dot-blocked', blocked, 'blocker', 'Blocker') +
-        boardCol('Time to Move', 'Outreach not sent yet. Your attention goes here.', 'status-col-move', 'dot-move', move, 'webinarAngle', 'Angle') +
+        boardCol('Time to Move', 'Outreach not sent yet. Your attention goes here.', 'status-col-move', 'dot-move', move, 'exitLabAngle', 'Exit Lab angle') +
         '</div>';
     } else {
       const sorted = [
@@ -458,6 +496,8 @@
   }
 
   function renderCampCard(camp) {
+    const el_flag = isExitLab(camp);
+    const isSent = camp.sent || sentOverrides[camp.id];
     const ini = (window._allInitiatives || []).find(i => i.id === camp.sc_initiative_id);
     const iniStrip = ini ? '<div class="ini-context-strip"><strong>Initiative</strong>' + escHtml(ini.name) + ' — ' + escHtml(ini.goal) + '</div>' : '';
     const intelStrip = camp.contactIntel ? '<div class="contact-intel-strip"><strong>Contact Intel</strong>' + escHtml(camp.contactIntel) + '</div>' : '';
@@ -466,18 +506,25 @@
     const pillLabel = status === 'approved' ? 'Approved' : status === 'rejected' ? 'Flagged' : 'Awaiting Review';
     const typeKey = (camp.type || 'content').toLowerCase();
     const typeBadge = '<span class="type-badge ' + (TYPE_BADGE_MAP[typeKey] || 'badge-content') + '">' + (TYPE_LABEL_MAP[typeKey] || camp.type) + '</span>';
+    const exitLabBadge = el_flag ? '<span class="badge-exitlab">Exit Lab</span>' : '';
+    const sentBadgeHtml = isSent ? '<span class="sent-badge">Sent</span>' : '';
     const fromTag = camp.from ? ' &middot; From: ' + escHtml(camp.from) : '';
     const cadence = camp.cadence ? ' &middot; ' + camp.cadence : '';
     const viewBtn = camp.campaignFile ? '<a class="btn btn-view" href="' + PAGES_BASE + '/' + camp.campaignFile + '" target="_blank">View campaign</a>' : '';
-    const feedbackBtn = status === 'pending' ? '<a class="btn btn-feedback" href="https://github.com/keyona-rerev/btc-comms-review/issues/new?title=Feedback%3A+' + encodeURIComponent(camp.title) + '&body=**Campaign+ID:**+' + camp.id + '%0A%0A**Feedback:**%0A" target="_blank">Leave feedback</a>' : '';
+    const feedbackBtn = status === 'pending' && !el_flag ? '<a class="btn btn-feedback" href="https://github.com/keyona-rerev/btc-comms-review/issues/new?title=Feedback%3A+' + encodeURIComponent(camp.title) + '&body=**Campaign+ID:**+' + camp.id + '%0A%0A**Feedback:**%0A" target="_blank">Leave feedback</a>' : '';
+    const markSentBtn = el_flag && !isSent ? '<button class="btn btn-mark-sent" onclick="markSent(\'' + camp.id + '\', this)">Mark as sent</button>' : '';
     const approvedNote = status === 'approved' && camp.approvalNote ? '<div class="approved-note"><strong>Why it worked</strong>' + escHtml(camp.approvalNote) + '</div>' : '';
     const rejectedNote = status === 'rejected' && (camp.rejectionReason || camp._rejectionReason) ? '<div class="rejection-note"><strong>Bryan\'s feedback</strong>' + escHtml(camp.rejectionReason || camp._rejectionReason) + '</div>' : '';
     const usageNote = camp.usageNote ? '<div class="usage-note">' + escHtml(camp.usageNote) + '</div>' : '';
     const angleNote = camp.webinarAngle ? '<div class="angle-note"><strong>Webinar angle</strong>' + escHtml(camp.webinarAngle) + '</div>' : '';
+    const elAngleNote = camp.exitLabAngle ? '<div class="exitlab-angle"><strong>Exit Lab angle</strong>' + escHtml(camp.exitLabAngle) + '</div>' : '';
     const blockerNote = camp.outreachStatus === 'blocked' && camp.blocker ? '<div class="rejection-note"><strong>Blocker</strong>' + escHtml(camp.blocker) + '</div>' : '';
+    const apolloNote = el_flag && camp.contactEmail && camp.contactEmail.includes('TBC') ? '<div class="apollo-note">Apollo needed: ' + escHtml(camp.contactEmail) + '</div>' : '';
+    const emailNote = el_flag && camp.contactEmail && !camp.contactEmail.includes('TBC') ? '<div class="usage-note"><strong>Email:</strong> ' + escHtml(camp.contactEmail) + '</div>' : '';
     const draftId = 'draft-' + camp.id;
     const draftHtml = camp.emailDraft ? '<span class="draft-toggle" onclick="toggleDraft(\'' + draftId + '\', this)">&#9660; View email draft</span><div class="draft-block" id="' + draftId + '">' + escHtml(camp.emailDraft) + '</div>' : '';
-    return '<div class="card"><div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>' + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '') + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + cadence + fromTag + ' ' + typeBadge + outreachPill(camp) + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>' + iniStrip + intelStrip + usageNote + angleNote + blockerNote + approvedNote + rejectedNote + draftHtml + '<div class="card-actions">' + viewBtn + feedbackBtn + '</div></div>';
+    const cardCls = 'card' + (el_flag ? ' exit-lab' : '') + (isSent ? ' sent-done' : '');
+    return '<div class="' + cardCls + '"><div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>' + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '') + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + cadence + fromTag + ' ' + typeBadge + (exitLabBadge ? ' ' + exitLabBadge : '') + outreachPill(camp) + (sentBadgeHtml ? ' ' + sentBadgeHtml : '') + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>' + iniStrip + intelStrip + emailNote + apolloNote + usageNote + angleNote + elAngleNote + blockerNote + approvedNote + rejectedNote + draftHtml + '<div class="card-actions">' + viewBtn + feedbackBtn + markSentBtn + '</div></div>';
   }
 
   function toggleDraft(id, btn) {
@@ -488,7 +535,6 @@
     btn.textContent = open ? '\u25bc View email draft' : '\u25b2 Hide email draft';
   }
 
-  /* ---- INITIATIVES ---- */
   function renderInitiativesTab(initiatives, campaigns, formats) {
     const el = document.getElementById('initiatives');
     if (!initiatives.length) { el.innerHTML = '<div class="empty-state"><strong>No initiatives yet.</strong></div>'; return; }
@@ -496,15 +542,12 @@
     formats.forEach(f => { fmtMap[f.id] = f; });
     const ORDER = { Critical: 0, High: 1, Medium: 2, Low: 3 };
     const sorted = [...initiatives].sort((a, b) => (ORDER[a.priority] ?? 9) - (ORDER[b.priority] ?? 9));
-
     el.innerHTML = '<div class="section-label">' + sorted.length + ' initiative' + (sorted.length !== 1 ? 's' : '') + '</div>' + sorted.map(ini => {
       const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
       const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
       const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
       const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
       const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
-
-      // Trigger + typical titles strip
       const metaStrip = (ini.trigger || (ini.typicalTitles && ini.typicalTitles.length))
         ? '<div style="font-size:11px;color:#3A6B35;margin-bottom:10px;">' +
           (ini.trigger ? '<span style="font-weight:600;">Trigger:</span> ' + escHtml(ini.trigger) : '') +
@@ -512,8 +555,6 @@
           (ini.typicalTitles && ini.typicalTitles.length ? '<span style="font-weight:600;">Typical titles:</span> ' + ini.typicalTitles.map(t => escHtml(t)).join(', ') : '') +
           '</div>'
         : '';
-
-      // Campaigns + contacts
       const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
       const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
       const contactSection = uniqueLinked.length
@@ -527,8 +568,6 @@
             return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' + (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') + intel + '</div>';
           }).join('')
         : '';
-
-      // Content formats — collapsible, only if ini has them
       const linkedFmts = (ini.contentFormats || []).map(fid => fmtMap[fid]).filter(Boolean);
       const fmtSection = linkedFmts.length
         ? '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(\'' + ini.id + '\')"><span class="fmt-toggle-label">Content Formats (' + linkedFmts.length + ')</span><span class="fmt-toggle-icon" id="fmticon-' + ini.id + '">&#9660;</span></div><div class="fmt-panel" id="fmtpanel-' + ini.id + '">' +
@@ -538,7 +577,6 @@
             return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.duration || '') + '</div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div></div>';
           }).join('') + '</div>'
         : '';
-
       return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + metaStrip + question + notes + contactSection + fmtSection + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
     }).join('');
   }
@@ -552,7 +590,6 @@
     if (icon) icon.classList.toggle('open', !open);
   }
 
-  /* ---- PIPELINE ---- */
   function renderPipelineTab(pipeData) {
     const el = document.getElementById('pipeline');
     const meta = pipeData.meta || {};
@@ -571,7 +608,6 @@
     }).join('') : '<div class="pcard-empty">No entries yet</div>') + '</div>').join('') + '</div>';
   }
 
-  /* ---- REPORTS ---- */
   function renderReportsTab() {
     const el = document.getElementById('reports');
     if (!reportWeeks.length) { el.innerHTML = '<div class="reports-no-data"><strong>No reports yet.</strong><p>Add reports/week-1.json to populate.</p></div>'; return; }
@@ -595,7 +631,6 @@
     body.innerHTML = html;
   }
 
-  /* ---- AUDIENCES ---- */
   function renderAudiencesTab(audiences, campaigns) {
     const el = document.getElementById('audiences');
     el.innerHTML = '<div class="aud-toolbar"><div class="section-label" style="margin:0;">' + audiences.length + ' audience profile(s)</div><div class="view-toggle"><button class="view-btn active" id="aud-card-btn" onclick="setAudView(\'card\')">Cards</button><button class="view-btn" id="aud-list-btn" onclick="setAudView(\'list\')">List</button></div></div><div id="aud-card-view" class="aud-grid">' + audiences.map(a => renderAudCard(a, campaigns)).join('') + '</div><div id="aud-list-view" style="display:none;">' + renderAudList(audiences, campaigns) + '</div>';
@@ -611,29 +646,28 @@
 
   function renderAudCard(a, campaigns) {
     const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
-    const seqLink = linked.length ? '<div style="margin-top:10px;"><span style="font-size:11px;color:#4A8C3F;font-weight:600;">' + linked.length + ' campaign(s)</span></div>' : '';
-    return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml(a.typicalTitles || '') + '</div><div class="aud-tags">' + (a.sectors || []).map(s => '<span class="aud-tag aud-tag-sector">' + escHtml(s) + '</span>').join('') + (a.geos || []).map(g => '<span class="aud-tag aud-tag-geo">' + escHtml(g) + '</span>').join('') + '</div><div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle || '') + '</div>' + seqLink + '</div>';
+    const seqLink = linked.length ? '<div style="margin-top:8px;font-size:11px;color:#4A8C3F;">' + linked.length + ' campaign(s) linked</div>' : '';
+    return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml((a.targetTitles || []).join(', ')) + '</div><div class="aud-tags">' + (a.sector ? '<span class="aud-tag aud-tag-sector">' + escHtml(a.sector) + '</span>' : '') + (a.geo ? '<span class="aud-tag aud-tag-geo">' + escHtml(a.geo) + '</span>' : '') + '</div><div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle || a.whyTheyMatter || '') + '</div>' + seqLink + '</div>';
   }
 
   function renderAudList(audiences, campaigns) {
-    return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Typical Titles</th><th>Angle</th><th>Campaigns</th></tr></thead><tbody>' + audiences.map(a => {
-      const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
-      return '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml(a.segment || '') + '</div></td><td>' + escHtml(a.typicalTitles || '') + '</td><td>' + escHtml(a.angle || '') + '</td><td>' + (linked.length ? linked.length + ' campaign(s)' : 'None yet') + '</td></tr>';
-    }).join('') + '</tbody></table>';
+    if (!audiences.length) return '<div class="empty-state"><strong>No audience profiles yet.</strong></div>';
+    return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Titles</th><th>Sector / Geo</th></tr></thead><tbody>' + audiences.map(a => '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml(a.segment || '') + '</div></td><td>' + escHtml((a.targetTitles || []).join(', ')) + '</td><td>' + escHtml(a.sector || '') + (a.geo ? ' / ' + escHtml(a.geo) : '') + '</td></tr>').join('') + '</tbody></table>';
   }
 
-  /* ---- SYS INFO ---- */
   function renderSysInfo(campaigns) {
     const el = document.getElementById('sysinfo');
     const pending  = campaigns.filter(c => c.status === 'pending').length;
     const approved = campaigns.filter(c => c.status === 'approved').length;
     const rejected = campaigns.filter(c => c.status === 'rejected').length;
-    el.innerHTML = '<div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign Summary</div><div class="info-row"><span class="info-label">Total campaigns</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">' + approved + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + rejected + '</span></div></div><div class="info-card"><div class="info-card-title">Portal Info</div><div class="info-row"><span class="info-label">Repo</span><span class="info-value">keyona-rerev/btc-comms-review</span></div><div class="info-row"><span class="info-label">Access</span><span class="info-value green">Authenticated</span></div><div class="info-row"><span class="info-label">Reviewer</span><span class="info-value">Bryan Duarte</span></div></div></div><table class="stack-table"><thead><tr><th>Tool</th><th>Role</th><th>Status</th></tr></thead><tbody><tr><td>Railway / Super Connector</td><td>Warm contact CRM</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>Apollo / Pipedrive</td><td>Cold outreach</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>GitHub Pages</td><td>Portal hosting</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>Google Tasks</td><td>Action items</td><td><span class="status-pill status-active">Active</span></td></tr></tbody></table>';
+    const elTotal  = campaigns.filter(isExitLab).length;
+    const elSent   = campaigns.filter(c => isExitLab(c) && (c.sent || sentOverrides[c.id])).length;
+    el.innerHTML = '<div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign summary</div><div class="info-row"><span class="info-label">Total</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">' + approved + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + rejected + '</span></div></div><div class="info-card"><div class="info-card-title">Exit Lab outreach</div><div class="info-row"><span class="info-label">Total targets</span><span class="info-value">' + elTotal + '</span></div><div class="info-row"><span class="info-label">Sent</span><span class="info-value green">' + elSent + '</span></div><div class="info-row"><span class="info-label">Still to send</span><span class="info-value">' + (elTotal - elSent) + '</span></div><div class="info-row"><span class="info-label">Source</span><span class="info-value">Work on Climate Slack</span></div></div></div><table class="stack-table"><thead><tr><th>File</th><th>Purpose</th><th>Status</th></tr></thead><tbody><tr><td>campaigns.json</td><td>All campaign records</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>audiences.json</td><td>Audience profiles</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>initiatives.json</td><td>Active BTC initiatives</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>pipeline.json</td><td>Outreach pipeline board</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>content_formats.json</td><td>Webinar and content formats</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>reports/week-N.json</td><td>Weekly progress reports</td><td><span class="status-pill status-planned">Add as needed</span></td></tr></tbody></table>';
   }
 
-  function escHtml(s) {
-    if (!s) return '';
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 </script>
 </body>
