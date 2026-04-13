@@ -664,93 +664,144 @@
     const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
     const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
     const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
-    const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
-    const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
-    const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
-    const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
-    const contactSection = uniqueLinked.length
-      ? '<hr class="ini-section-divider"><span class="ini-section-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>'
-        + uniqueLinked.map(c => {
-          const personLine = c.contactPerson ? escHtml(c.contactPerson) + (c.contactTitle ? ', ' + escHtml(c.contactTitle) : '') : '';
-          const intel = c.contactIntel ? '<div class="ini-contact-intel">' + escHtml(c.contactIntel) + '</div>' : '';
-          const eff = getEffectiveStatus(c);
-          const outreach = eff === 'waiting' ? '<span style="font-size:10px;color:#2D6B1A;font-weight:600;">Waiting on them</span>'
-            : eff === 'blocked' ? '<span style="font-size:10px;color:#8B3A1A;font-weight:600;">Blocker</span>'
-            : '<span style="font-size:10px;color:#7A5200;font-weight:600;">Time to move</span>';
-          return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' + (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') + intel + '</div>';
-        }).join('')
-      : '';
-    const linkedFmts = (ini.contentFormats || []).map(fid => fmtMap[fid]).filter(Boolean);
-    const fmtSection = linkedFmts.length
-      ? '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(\'' + ini.id + '\')"><span class="fmt-toggle-label">Content Formats (' + linkedFmts.length + ')</span><span class="fmt-toggle-icon" id="fmticon-' + ini.id + '">&#9660;</span></div><div class="fmt-panel" id="fmtpanel-' + ini.id + '">'
-        + linkedFmts.map(f => {
-          const sc = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
-          const ol = (f.contentOutline || []).map(i => '<li>' + escHtml(i) + '</li>').join('');
-          return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.duration || '') + '</div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div></div>';
-        }).join('') + '</div>'
-      : '';
-    return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + contactSection + fmtSection + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
+    const linked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
+    const campItems = linked.length ? linked.map(c => {
+      const typeKey = (c.type || 'content').toLowerCase();
+      const typeBadge = '<span class="type-badge ' + (TYPE_BADGE_MAP[typeKey] || 'badge-content') + '">' + (TYPE_LABEL_MAP[typeKey] || c.type) + '</span>';
+      const isSent = c.sent || sentOverrides[c.id];
+      const sentB = isSent ? ' <span class="sent-badge">Sent</span>' : '';
+      return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.title) + sentB + '</div>'
+        + '<div class="ini-contact-title">' + escHtml(c.targetAudience || '') + (c.contactOrg ? ' &middot; ' + escHtml(c.contactOrg) : '') + '</div>'
+        + '<div style="margin-top:4px;">' + typeBadge + outreachPillHtml(c) + '</div></div>';
+    }).join('') : '<div style="font-size:12px;color:#8BBF82;font-style:italic;padding:6px 0;">No campaigns linked yet.</div>';
+
+    const fmtIds = ini.format_ids || [];
+    let fmtHtml = '';
+    if (fmtIds.length) {
+      const fmtCards = fmtIds.map(fid => {
+        const f = fmtMap[fid];
+        if (!f) return '';
+        const fStatusCls = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
+        const outline = f.outline ? '<ul class="fmt-outline">' + f.outline.map(o => '<li>' + escHtml(o) + '</li>').join('') + '</ul>' : '';
+        const cohost = f.cohost_profile ? '<div class="fmt-cohost"><strong style="display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#3A6B35;margin-bottom:3px;">Co-host profile</strong>' + escHtml(f.cohost_profile) + '</div>' : '';
+        return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.format_type || '') + (f.duration ? ' &middot; ' + escHtml(f.duration) : '') + '</div></div><span class="fmt-status ' + fStatusCls + '">' + escHtml(f.status) + '</span></div>'
+          + (f.value_prop ? '<div class="fmt-value-prop">' + escHtml(f.value_prop) + '</div>' : '')
+          + (outline ? '<div class="fmt-section">Outline</div>' + outline : '')
+          + cohost + '</div>';
+      }).filter(Boolean).join('');
+      if (fmtCards) {
+        fmtHtml = '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(this)"><span class="fmt-toggle-label">&#9660; Content formats (' + fmtIds.length + ')</span><span class="fmt-toggle-icon">&#9660;</span></div><div class="fmt-panel">' + fmtCards + '</div>';
+      }
+    }
+
+    return '<div class="ini-card">'
+      + '<div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div>'
+      + (ini.timeline ? '<div class="ini-timeline">' + escHtml(ini.timeline) + '</div>' : '') + '</div>'
+      + '<div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div>'
+      + (ini.goal ? '<div class="ini-goal">' + escHtml(ini.goal) + '</div>' : '')
+      + (ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '')
+      + (ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '')
+      + '<hr class="ini-section-divider"><span class="ini-section-label">Linked campaigns (' + linked.length + ')</span>'
+      + campItems + fmtHtml
+      + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
   }
 
-  function toggleFmt(iniId) {
-    const panel = document.getElementById('fmtpanel-' + iniId);
-    const icon  = document.getElementById('fmticon-' + iniId);
-    if (!panel) return;
+  function toggleFmt(bar) {
+    const panel = bar.nextElementSibling;
+    const icon = bar.querySelector('.fmt-toggle-icon');
+    const label = bar.querySelector('.fmt-toggle-label');
     const open = panel.style.display === 'block';
     panel.style.display = open ? 'none' : 'block';
     if (icon) icon.classList.toggle('open', !open);
+    if (label) label.textContent = (open ? '\u25bc' : '\u25b2') + label.textContent.slice(1);
   }
 
   /* ---- REPORTS ---- */
   function renderReportsTab() {
     const el = document.getElementById('reports');
-    if (!reportWeeks.length) { el.innerHTML = '<div class="reports-no-data"><strong>No reports yet.</strong><p>Add reports/week-1.json to populate.</p></div>'; return; }
+    if (!reportWeeks.length) {
+      el.innerHTML = '<div class="reports-no-data"><strong>No weekly reports yet.</strong><p>Reports will appear here once added to the repo.</p></div>';
+      return;
+    }
     currentReportWeek = reportWeeks[reportWeeks.length - 1];
-    const opts = reportWeeks.slice().reverse().map(n => '<option value="' + n + '"' + (n === currentReportWeek ? ' selected' : '') + '>Week ' + n + '</option>').join('');
-    el.innerHTML = '<div class="reports-toolbar"><select class="reports-week-select" onchange="selectReportWeek(parseInt(this.value))">' + opts + '</select><div class="seq-count-note">' + reportWeeks.length + ' week(s)</div></div><div id="report-body"></div>';
-    renderReportBody(currentReportWeek);
+    const options = reportWeeks.map(n => '<option value="' + n + '"' + (n === currentReportWeek ? ' selected' : '') + '>Week ' + n + '</option>').join('');
+    el.innerHTML = '<div class="reports-toolbar"><select class="reports-week-select" id="week-select" onchange="switchReportWeek(+this.value)">' + options + '</select></div><div id="report-body"></div>';
+    renderReportWeek(currentReportWeek);
   }
 
-  function selectReportWeek(n) { currentReportWeek = n; renderReportBody(n); }
+  function switchReportWeek(n) {
+    currentReportWeek = n;
+    renderReportWeek(n);
+  }
 
-  function renderReportBody(n) {
-    const body = document.getElementById('report-body');
-    if (!body) return;
+  function renderReportWeek(n) {
     const data = reportsCache[n];
-    if (!data) { body.innerHTML = '<div class="reports-no-data"><strong>No data for Week ' + n + '.</strong></div>'; return; }
-    let html = '<div class="report-week-label">Week ' + n + (data.date_range ? ' · ' + escHtml(data.date_range) : '') + '</div>';
-    if (data.highlights && data.highlights.length) html += '<div class="report-block"><div class="report-block-title">Highlights</div><ul style="padding-left:18px;font-size:13px;line-height:1.7;">' + data.highlights.map(h => '<li style="margin-bottom:6px;">' + escHtml(h) + '</li>').join('') + '</ul></div>';
-    if (data.next_steps && data.next_steps.length) html += '<div class="report-block"><div class="report-block-title">Next steps</div><ul style="padding-left:18px;font-size:13px;line-height:1.7;">' + data.next_steps.map(h => '<li style="margin-bottom:6px;">' + escHtml(h) + '</li>').join('') + '</ul></div>';
+    const el = document.getElementById('report-body');
+    if (!el) return;
+    if (!data) { el.innerHTML = '<div class="reports-no-data"><strong>Week ' + n + ' not found.</strong></div>'; return; }
+    const weekLabel = data.week_label || ('Week ' + n);
+    let html = '<div class="report-week-label">' + escHtml(weekLabel) + '</div>';
+    if (data.summary) html += '<div class="report-block"><div class="report-block-title">Summary</div><div class="report-note">' + escHtml(data.summary) + '</div></div>';
+    if (data.wins && data.wins.length) html += '<div class="report-block"><div class="report-block-title">Wins</div>' + data.wins.map(w => '<div class="report-note" style="margin-bottom:8px;">&#9679; ' + escHtml(w) + '</div>').join('') + '</div>';
+    if (data.blockers && data.blockers.length) html += '<div class="report-block"><div class="report-block-title">Blockers</div>' + data.blockers.map(b => '<div class="report-note" style="margin-bottom:8px;">&#9651; ' + escHtml(b) + '</div>').join('') + '</div>';
+    if (data.next_week && data.next_week.length) html += '<div class="report-block"><div class="report-block-title">Next week</div>' + data.next_week.map(x => '<div class="report-note" style="margin-bottom:8px;">&#9658; ' + escHtml(x) + '</div>').join('') + '</div>';
     if (data.notes) html += '<div class="report-block"><div class="report-block-title">Notes</div><div class="report-note">' + escHtml(data.notes) + '</div></div>';
-    body.innerHTML = html;
+    el.innerHTML = html;
   }
 
   /* ---- AUDIENCES ---- */
   function renderAudiencesTab(audiences, campaigns) {
     const el = document.getElementById('audiences');
-    el.innerHTML = '<div class="aud-toolbar"><div class="section-label" style="margin:0;">' + audiences.length + ' audience profile(s)</div><div class="view-toggle"><button class="view-btn active" id="aud-card-btn" onclick="setAudView(\'card\')">Cards</button><button class="view-btn" id="aud-list-btn" onclick="setAudView(\'list\')">List</button></div></div><div id="aud-card-view" class="aud-grid">' + audiences.map(a => renderAudCard(a, campaigns)).join('') + '</div><div id="aud-list-view" style="display:none;">' + renderAudList(audiences, campaigns) + '</div>';
+    if (!audiences.length) { el.innerHTML = '<div class="empty-state"><strong>No audiences defined yet.</strong></div>'; return; }
+    el.innerHTML = `
+      <div class="aud-toolbar">
+        <div class="section-label" style="margin:0;">${audiences.length} audience profile${audiences.length !== 1 ? 's' : ''}</div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="aud-btn-card" onclick="setAudView('card')">&#9632; Cards</button>
+          <button class="view-btn" id="aud-btn-list" onclick="setAudView('list')">&#9776; List</button>
+        </div>
+      </div>
+      <div id="aud-view-area"></div>
+    `;
+    window._audData = audiences;
+    window._audCamps = campaigns;
+    renderAudView();
   }
 
   function setAudView(v) {
     audView = v;
-    document.getElementById('aud-card-view').style.display = v === 'card' ? 'grid' : 'none';
-    document.getElementById('aud-list-view').style.display = v === 'list' ? 'block' : 'none';
-    document.getElementById('aud-card-btn').classList.toggle('active', v === 'card');
-    document.getElementById('aud-list-btn').classList.toggle('active', v === 'list');
+    document.getElementById('aud-btn-card').classList.toggle('active', v === 'card');
+    document.getElementById('aud-btn-list').classList.toggle('active', v === 'list');
+    renderAudView();
   }
 
-  function renderAudCard(a, campaigns) {
-    const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
-    const seqLink = linked.length ? '<div style="margin-top:8px;font-size:11px;color:#4A8C3F;">' + linked.length + ' campaign(s) linked</div>' : '';
-    return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml((a.targetTitles || []).join(', ')) + '</div><div class="aud-tags">' + (a.sector ? '<span class="aud-tag aud-tag-sector">' + escHtml(a.sector) + '</span>' : '') + (a.geo ? '<span class="aud-tag aud-tag-geo">' + escHtml(a.geo) + '</span>' : '') + '</div><div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle || a.whyTheyMatter || '') + '</div>' + seqLink + '</div>';
+  function renderAudView() {
+    const audiences = window._audData || [];
+    const campaigns = window._audCamps || [];
+    const area = document.getElementById('aud-view-area');
+    if (!area) return;
+    if (audView === 'list') {
+      const rows = audiences.map(a => {
+        const campCount = campaigns.filter(c => c.targetAudienceId === a.id || c.targetAudience === a.name).length;
+        return '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml(a.titles || '') + '</div></td>'
+          + '<td style="font-size:12px;color:#555;">' + escHtml(a.segment || '') + '</td>'
+          + '<td style="font-size:12px;color:#3A6B35;">' + (campCount || '—') + '</td>'
+          + '<td style="font-size:12px;color:#444;line-height:1.5;">' + escHtml((a.sectors || []).join(', ')) + '</td>'
+          + '<td style="font-size:12px;color:#444;line-height:1.55;">' + escHtml(a.angle || '') + '</td></tr>';
+      }).join('');
+      area.innerHTML = '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Segment</th><th>Campaigns</th><th>Sectors</th><th>Angle</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    } else {
+      area.innerHTML = '<div class="aud-grid">' + audiences.map(a => {
+        const tags = [...(a.sectors || []).map(s => '<span class="aud-tag aud-tag-sector">' + escHtml(s) + '</span>'), ...(a.geos || []).map(g => '<span class="aud-tag aud-tag-geo">' + escHtml(g) + '</span>')].join('');
+        return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div>'
+          + (a.titles ? '<div class="aud-titles">' + escHtml(a.titles) + '</div>' : '')
+          + (tags ? '<div class="aud-tags">' + tags + '</div>' : '')
+          + (a.angle ? '<div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle) + '</div>' : '') + '</div>';
+      }).join('') + '</div>';
+    }
   }
 
-  function renderAudList(audiences, campaigns) {
-    if (!audiences.length) return '<div class="empty-state"><strong>No audience profiles yet.</strong></div>';
-    return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Titles</th><th>Sector / Geo</th></tr></thead><tbody>' + audiences.map(a => '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div><div class="aud-list-titles">' + escHtml(a.segment || '') + '</div></td><td>' + escHtml((a.targetTitles || []).join(', ')) + '</td><td>' + escHtml(a.sector || '') + (a.geo ? ' / ' + escHtml(a.geo) : '') + '</td></tr>').join('') + '</tbody></table>';
-  }
-
-  /* ---- SYS INFO ---- */
+  /* ---- SYSTEM INFO ---- */
   function renderSysInfo(campaigns) {
     const el = document.getElementById('sysinfo');
     const pending  = campaigns.filter(c => c.status === 'pending').length;
@@ -758,7 +809,7 @@
     const rejected = campaigns.filter(c => c.status === 'rejected').length;
     const elTotal  = campaigns.filter(isExitLab).length;
     const elSent   = campaigns.filter(c => isExitLab(c) && (c.sent || sentOverrides[c.id])).length;
-    el.innerHTML = '<div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign summary</div><div class="info-row"><span class="info-label">Total</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">' + approved + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + rejected + '</span></div></div><div class="info-card"><div class="info-card-title">Exit Lab outreach</div><div class="info-row"><span class="info-label">Total targets</span><span class="info-value">' + elTotal + '</span></div><div class="info-row"><span class="info-label">Sent</span><span class="info-value green">' + elSent + '</span></div><div class="info-row"><span class="info-label">Still to send</span><span class="info-value">' + (elTotal - elSent) + '</span></div><div class="info-row"><span class="info-label">Source</span><span class="info-value">Work on Climate Slack</span></div></div></div><table class="stack-table"><thead><tr><th>File</th><th>Purpose</th><th>Status</th></tr></thead><tbody><tr><td>campaigns.json</td><td>All campaign records</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>audiences.json</td><td>Audience profiles</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>initiatives.json</td><td>Active BTC initiatives</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>content_formats.json</td><td>Webinar and content formats</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>reports/week-N.json</td><td>Weekly progress reports</td><td><span class="status-pill status-planned">Add as needed</span></td></tr></tbody></table>';
+    el.innerHTML = '<div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign summary</div><div class="info-row"><span class="info-label">Total</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value green">' + approved + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + rejected + '</span></div></div><div class="info-card"><div class="info-card-title">Exit Lab outreach</div><div class="info-row"><span class="info-label">Total targets</span><span class="info-value">' + elTotal + '</span></div><div class="info-row"><span class="info-label">Sent</span><span class="info-value green">' + elSent + '</span></div><div class="info-row"><span class="info-label">Still to send</span><span class="info-value">' + (elTotal - elSent) + '</span></div><div class="info-row"><span class="info-label">Source</span><span class="info-value">Work on Climate Slack</span></div></div></div><table class="stack-table"><thead><tr><th>File</th><th>Purpose</th><th>Status</th></tr></thead><tbody><tr><td>campaigns.json</td><td>All campaign records</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>audiences.json</td><td>Audience profiles</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>initiatives.json</td><td>Active BTC initiatives</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>content_formats.json</td><td>Webinar and content formats</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>reports/week-N.json</td><td>Weekly progress reports</td><td><span class="status-pill status-planned">Add as needed</span></td></tr></tbody></table><div class="section-label" style="margin-top:24px;margin-bottom:12px;">Scheduling Links</div><table class="stack-table"><thead><tr><th>Person</th><th>Link</th><th>Use</th></tr></thead><tbody><tr><td>Keyona Meeks</td><td><a href="https://calendar.app.google/8tKeKSmLL9shGiDr5" target="_blank" style="color:#2D5C28;font-size:12px;">Book with Keyona</a></td><td>BTC meetings, Exit Lab interviews</td></tr><tr><td>Bryan Duarte</td><td><a href="https://calendly.com/bryanduarte/60-minute-meeting-with-btc" target="_blank" style="color:#2D5C28;font-size:12px;">Book with Bryan</a></td><td>60-min BTC meeting via Calendly</td></tr></tbody></table>';
   }
 
   function escHtml(str) {
