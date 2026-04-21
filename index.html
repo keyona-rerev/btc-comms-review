@@ -1,1 +1,856 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Tech Capital · Comms &amp; Marketing Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F2F5F0; color: #1a1f1a; min-height: 100vh; }
+    #gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #F2F5F0; }
+    .gate-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 16px; padding: 40px 48px; max-width: 380px; width: 90%; text-align: center; }
+    .gate-logo { font-size: 14px; font-weight: 700; color: #1A3A1A; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 6px; }
+    .gate-logo span { color: #4A8C3F; font-weight: 400; }
+    .gate-subtitle { font-size: 13px; color: #3A6B35; margin-bottom: 28px; }
+    .gate-card input[type="password"] { width: 100%; padding: 10px 14px; font-size: 14px; border: 1px solid #B0C9A8; border-radius: 8px; outline: none; background: #F7FAF6; color: #1A3A1A; margin-bottom: 12px; }
+    .gate-card input[type="password"]:focus { border-color: #4A8C3F; background: #fff; }
+    .gate-btn { width: 100%; padding: 10px; font-size: 14px; font-weight: 600; background: #2D5C28; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+    .gate-btn:hover { background: #1A3A1A; }
+    .gate-error { font-size: 12px; color: #8B3A1A; margin-top: 10px; display: none; }
+    #app { display: none; }
+    .site-header { background: #E8EFE6; border-bottom: 1px solid #B0C9A8; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .site-logo { font-size: 15px; font-weight: 700; color: #1A3A1A; letter-spacing: 0.06em; text-transform: uppercase; }
+    .site-logo span { color: #4A8C3F; font-weight: 400; }
+    .header-meta { font-size: 12px; color: #3A6B35; }
+    .tabs-bar { display: flex; gap: 4px; padding: 16px 32px 0; background: #E8EFE6; border-bottom: 2px solid #B0C9A8; overflow-x: auto; }
+    .tab { padding: 9px 20px; font-size: 13px; color: #3A6B35; border-radius: 8px 8px 0 0; cursor: pointer; border: 1px solid transparent; border-bottom: none; background: transparent; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+    .tab.active { background: #fff; border-color: #B0C9A8; border-bottom-color: #fff; font-weight: 600; color: #1A3A1A; margin-bottom: -2px; }
+    .tab-badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+    .badge-pending  { background: #FDF3DC; color: #7A5200; }
+    .badge-audience { background: #EDE8F5; color: #5A3A8C; }
+    .badge-info     { background: #F0EEE8; color: #5A5850; }
+    .badge-reports  { background: #E8EFE6; color: #3A6B35; }
+    .badge-initiative { background: #E6EEF5; color: #1A4A7A; }
+    .main { padding: 28px 32px; max-width: 1060px; margin: 0 auto; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .section-label { font-size: 11px; color: #4A8C3F; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; }
+    .card.exit-lab { border-left: 4px solid #1A4A7A; }
+    .card.sent-done { background: #F7FAF6; opacity: 0.72; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+    .card-title { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
+    .card-audience { font-size: 13px; font-weight: 500; color: #3A6B35; margin-bottom: 4px; }
+    .card-meta { font-size: 12px; color: #3A6B35; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .type-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .badge-email    { background: #E8EFE6; color: #3A6B35; border: 1px solid #8BBF82; }
+    .badge-linkedin { background: #E6EEF5; color: #1A4A7A; border: 1px solid #85B0D8; }
+    .badge-content  { background: #FDF3DC; color: #7A5200; border: 1px solid #E8C87A; }
+    .badge-event    { background: #EDE8F5; color: #5A3A8C; border: 1px solid #B09AD8; }
+    .badge-pr       { background: #FAEAE6; color: #8B3A1A; border: 1px solid #D8957A; }
+    .badge-exitlab  { background: #E6EEF5; color: #1A4A7A; border: 1px solid #85B0D8; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+    .sent-badge { background: #E6F4E0; color: #2D6B1A; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+    .usage-note { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
+    .angle-note { background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #7A5200; margin-bottom: 12px; line-height: 1.55; }
+    .angle-note strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
+    .exitlab-angle { background: #E6EEF5; border: 1px solid #B0C4D8; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #1A3A5A; margin-bottom: 12px; line-height: 1.55; }
+    .exitlab-angle strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #1A4A7A; margin-bottom: 3px; }
+    .ini-context-strip { background: #E6EEF5; border: 1px solid #B0C4D8; border-radius: 6px; padding: 7px 12px; font-size: 11px; color: #1A4A7A; margin-bottom: 12px; line-height: 1.5; }
+    .ini-context-strip strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #1A5A8A; margin-bottom: 2px; }
+    .contact-intel-strip { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 6px; padding: 7px 12px; font-size: 11px; color: #3A6B35; margin-bottom: 12px; line-height: 1.55; }
+    .contact-intel-strip strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 2px; }
+    .draft-toggle { font-size: 12px; color: #2D5C28; cursor: pointer; font-weight: 600; margin-bottom: 10px; display: inline-block; }
+    .draft-toggle:hover { text-decoration: underline; }
+    .draft-block { background: #F7FAF6; border: 1px solid #B0C9A8; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #1A3A1A; line-height: 1.7; white-space: pre-wrap; display: none; margin-bottom: 12px; }
+    .card-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .btn { font-size: 12px; padding: 6px 16px; border-radius: 6px; border: 1px solid; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-block; background: none; }
+    .btn-view { background: #2D5C28; color: #fff; border-color: #2D5C28; }
+    .btn-view:hover { background: #1A3A1A; }
+    .btn-feedback { background: #E8EFE6; color: #3A6B35; border-color: #8BBF82; }
+    .btn-mark-sent { background: #E6EEF5; color: #1A4A7A; border-color: #85B0D8; font-size: 12px; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; }
+    .btn-mark-sent:hover { background: #D0DFF0; }
+    .btn-mark-sent.done { background: #E6F4E0; color: #2D6B1A; border-color: #8BBF82; cursor: default; }
+    .rejection-note { background: #FFF7F0; border: 1px solid #E8A07A; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #6B2A0D; margin-bottom: 12px; }
+    .rejection-note strong { display: block; font-weight: 600; margin-bottom: 4px; color: #8B3A1A; }
+    .approved-note { background: #F0F9EA; border: 1px solid #8BBF82; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #2D6B1A; margin-bottom: 12px; }
+    .approved-note strong { display: block; font-weight: 600; margin-bottom: 4px; }
+    .status-pill-seq { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.03em; }
+    .pill-pending  { background: #FDF3DC; color: #7A5200; }
+    .pill-approved { background: #E6F4E0; color: #2D6B1A; }
+    .pill-rejected { background: #FAEAE6; color: #8B3A1A; }
+    .outreach-pill { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.03em; margin-left: 6px; }
+    .outreach-waiting { background: #E6F4E0; color: #2D6B1A; }
+    .outreach-blocked { background: #FAEAE6; color: #8B3A1A; }
+    .outreach-move    { background: #FDF3DC; color: #7A5200; }
+    .move-select { font-size: 11px; padding: 3px 8px; border-radius: 6px; border: 1px solid #B0C9A8; background: #F7FAF6; color: #1A3A1A; outline: none; cursor: pointer; }
+    .camp-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+    .camp-toolbar-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .seq-filter { padding: 7px 12px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; }
+    .seq-count-note { font-size: 12px; color: #3A6B35; }
+    .view-toggle { display: flex; border: 1px solid #B0C9A8; border-radius: 6px; overflow: hidden; }
+    .view-btn { font-size: 12px; padding: 6px 14px; background: #fff; color: #3A6B35; border: none; cursor: pointer; font-weight: 500; }
+    .view-btn.active { background: #E8EFE6; color: #1A3A1A; font-weight: 600; }
+    .view-btn:not(:last-child) { border-right: 1px solid #B0C9A8; }
+    .status-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+    @media (max-width: 720px) { .status-columns { grid-template-columns: 1fr; } }
+    .status-col { border-radius: 12px; padding: 16px; }
+    .status-col-waiting { background: #F0F9EA; border: 1px solid #8BBF82; }
+    .status-col-blocked { background: #FFF5F5; border: 1px solid #E8A0A0; }
+    .status-col-move    { background: #FFFBF0; border: 1px solid #E8C87A; }
+    .status-col-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+    .status-col-waiting .status-col-header { color: #2D6B1A; }
+    .status-col-blocked .status-col-header { color: #8B1A1A; }
+    .status-col-move    .status-col-header { color: #7A5200; }
+    .status-col-sub { font-size: 11px; color: #5A6B5A; margin-bottom: 14px; line-height: 1.5; }
+    .status-col-count { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+    .status-col-waiting .status-col-count { background: #E6F4E0; color: #2D6B1A; }
+    .status-col-blocked .status-col-count { background: #FAEAE6; color: #8B3A1A; }
+    .status-col-move    .status-col-count { background: #FDF3DC; color: #7A5200; }
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dot-waiting { background: #4A8C3F; }
+    .dot-blocked { background: #C0392B; }
+    .dot-move    { background: #E8A000; }
+    .status-card { background: #fff; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; border: 1px solid #D8E8D0; }
+    .status-col-blocked .status-card { border-color: #E8C0C0; }
+    .status-col-move    .status-card { border-color: #E8D8A0; }
+    .status-card:last-child { margin-bottom: 0; }
+    .status-card-title { font-size: 13px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; line-height: 1.3; }
+    .status-card-org { font-size: 11px; color: #3A6B35; margin-bottom: 8px; }
+    .status-card-detail { font-size: 12px; color: #444; line-height: 1.5; border-top: 1px solid #E8EFE6; padding-top: 6px; margin-top: 4px; }
+    .status-card-detail strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 2px; }
+    .status-col-blocked .status-card-detail strong { color: #8B3A1A; }
+    .status-col-move    .status-card-detail strong { color: #7A5200; }
+    .status-empty { font-size: 12px; color: #8BBF82; text-align: center; padding: 20px 0; font-style: italic; }
+    .list-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; overflow: hidden; }
+    .list-table th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #3A6B35; background: #E8EFE6; border-bottom: 1px solid #B0C9A8; white-space: nowrap; }
+    .list-table td { padding: 10px 14px; border-bottom: 1px solid #C8DFC2; vertical-align: middle; color: #1a1f1a; line-height: 1.45; }
+    .list-table tr:last-child td { border-bottom: none; }
+    .list-table tr.el-row td:first-child { border-left: 3px solid #1A4A7A; padding-left: 11px; }
+    .list-table tr.sent-row { opacity: 0.6; }
+    .list-title-cell { font-weight: 600; font-size: 13px; color: #1A3A1A; }
+    .list-org { font-size: 12px; color: #3A6B35; margin-top: 2px; }
+    .list-person { font-size: 11px; color: #555; }
+    .list-email { font-size: 11px; color: #1A4A7A; word-break: break-all; }
+    .list-email.tbc { color: #B07A00; font-style: italic; }
+    .list-status-select { font-size: 11px; padding: 3px 7px; border-radius: 6px; border: 1px solid #B0C9A8; background: #F7FAF6; color: #1A3A1A; outline: none; cursor: pointer; min-width: 130px; }
+    .ini-list-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; overflow: hidden; }
+    .ini-list-table th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #3A6B35; background: #E8EFE6; border-bottom: 1px solid #B0C9A8; white-space: nowrap; }
+    .ini-list-table td { padding: 11px 14px; border-bottom: 1px solid #C8DFC2; vertical-align: top; color: #1a1f1a; line-height: 1.5; font-size: 13px; }
+    .ini-list-table tr:last-child td { border-bottom: none; }
+    .ini-list-table td:first-child { border-left: 4px solid #1A5A8A; padding-left: 10px; }
+    .ini-list-name { font-weight: 600; color: #1A3A1A; }
+    .ini-list-venture { font-size: 11px; color: #3A6B35; margin-top: 2px; }
+    .ini-list-question { font-size: 11px; color: #555; margin-top: 4px; line-height: 1.5; font-style: italic; }
+    .ini-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border-left: 4px solid #1A5A8A; }
+    .ini-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .ini-name { font-size: 15px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
+    .ini-timeline { font-size: 12px; color: #3A6B35; }
+    .ini-pills { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .ini-status-pill { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    .ini-status-active    { background: #E6F4E0; color: #2D6B1A; }
+    .ini-status-planning  { background: #E6EEF5; color: #1A4A7A; }
+    .ini-status-braindump { background: #F0EEE8; color: #5A5850; }
+    .ini-priority-critical { background: #FAEAE6; color: #8B3A1A; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .ini-priority-high     { background: #FDF3DC; color: #7A5200; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .ini-priority-medium   { background: #E8EFE6; color: #3A6B35; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .ini-goal { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 10px; }
+    .ini-question { font-size: 12px; color: #3A6B35; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
+    .ini-question strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
+    .ini-notes { font-size: 12px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; line-height: 1.55; }
+    .ini-notes strong { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #A07000; margin-bottom: 3px; }
+    .ini-section-divider { border: none; border-top: 1px solid #E8EFE6; margin: 14px 0; }
+    .ini-section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; margin-bottom: 8px; display: block; }
+    .ini-contact-card { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
+    .ini-contact-card:last-child { margin-bottom: 0; }
+    .ini-contact-name { font-size: 13px; font-weight: 600; color: #1A3A1A; margin-bottom: 2px; }
+    .ini-contact-title { font-size: 11px; color: #3A6B35; margin-bottom: 4px; }
+    .ini-contact-intel { font-size: 11px; color: #444; line-height: 1.55; }
+    .fmt-toggle-bar { background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 8px; padding: 10px 14px; margin-top: 4px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+    .fmt-toggle-bar:hover { background: #EEF5EC; }
+    .fmt-toggle-label { font-size: 12px; font-weight: 600; color: #2D5C28; }
+    .fmt-toggle-icon { font-size: 14px; color: #4A8C3F; transition: transform 0.2s; }
+    .fmt-toggle-icon.open { transform: rotate(180deg); }
+    .fmt-panel { display: none; margin-top: 10px; }
+    .fmt-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; border-left: 3px solid #4A8C3F; }
+    .fmt-card:last-child { margin-bottom: 0; }
+    .fmt-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .fmt-name { font-size: 13px; font-weight: 600; color: #1A3A1A; }
+    .fmt-meta { font-size: 11px; color: #3A6B35; margin-bottom: 8px; }
+    .fmt-status { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+    .fmt-status-dev { background: #E6F4E0; color: #2D6B1A; }
+    .fmt-status-concept { background: #FDF3DC; color: #7A5200; }
+    .fmt-value-prop { font-size: 12px; color: #444; line-height: 1.6; background: #F7FAF6; border: 1px solid #C8DFC2; border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; }
+    .fmt-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A8C3F; margin: 8px 0 4px; }
+    .fmt-outline { font-size: 12px; color: #1a1f1a; line-height: 1.6; padding-left: 16px; margin-bottom: 8px; }
+    .fmt-outline li { margin-bottom: 3px; }
+    .fmt-cohost { font-size: 11px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 6px; padding: 8px 12px; }
+    .ini-id { font-size: 10px; color: #8BBF82; font-family: monospace; margin-top: 10px; }
+    .reports-no-data { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
+    .reports-no-data p { margin-top: 8px; font-size: 13px; color: #4A8C3F; }
+    .report-block { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 22px 24px; margin-bottom: 16px; }
+    .report-block-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4A8C3F; margin-bottom: 14px; }
+    .reports-week-select { padding: 8px 14px; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 6px; background: #fff; color: #1A3A1A; outline: none; cursor: pointer; min-width: 160px; }
+    .report-note { font-size: 13px; color: #444; line-height: 1.65; }
+    .report-week-label { font-size: 13px; color: #3A6B35; background: #E8EFE6; border: 1px solid #B0C9A8; border-radius: 20px; padding: 4px 14px; display: inline-block; margin-bottom: 20px; }
+    .reports-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .aud-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+    .aud-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .aud-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; border-left: 4px solid #4A8C3F; }
+    .aud-segment { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #4A8C3F; margin-bottom: 5px; }
+    .aud-name { font-size: 14px; font-weight: 600; color: #1A3A1A; margin-bottom: 3px; }
+    .aud-titles { font-size: 12px; color: #3A6B35; margin-bottom: 10px; line-height: 1.5; }
+    .aud-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .aud-tag { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+    .aud-tag-sector { background: #E6F4E0; color: #2D6B1A; }
+    .aud-tag-geo { background: #E8EFE6; color: #3A6B35; }
+    .aud-angle { font-size: 12px; color: #444; line-height: 1.55; border-top: 1px solid #C8DFC2; padding-top: 10px; margin-top: 4px; }
+    .aud-angle strong { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #4A8C3F; margin-bottom: 3px; }
+    .aud-list-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid #B0C9A8; border-radius: 12px; overflow: hidden; }
+    .aud-list-table th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #3A6B35; background: #E8EFE6; border-bottom: 1px solid #B0C9A8; }
+    .aud-list-table td { padding: 12px 16px; border-bottom: 1px solid #C8DFC2; color: #1a1f1a; vertical-align: top; line-height: 1.5; }
+    .aud-list-table tr:last-child td { border-bottom: none; }
+    .aud-list-table td:first-child { border-left: 4px solid #4A8C3F; padding-left: 12px; }
+    .aud-list-name { font-weight: 600; font-size: 13px; color: #1A3A1A; }
+    .aud-list-titles { font-size: 12px; color: #3A6B35; margin-top: 2px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+    .info-card { background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; padding: 18px 20px; }
+    .info-card-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #4A8C3F; margin-bottom: 12px; }
+    .info-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 6px 0; border-bottom: 1px solid #E8EFE6; font-size: 13px; }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { color: #3A6B35; font-weight: 500; flex-shrink: 0; }
+    .info-value { color: #1A3A1A; text-align: right; font-size: 12px; }
+    .info-value.green { color: #2D6B1A; font-weight: 600; }
+    .stack-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border: 1px solid #B0C9A8; border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+    .stack-table th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #3A6B35; background: #E8EFE6; border-bottom: 1px solid #B0C9A8; }
+    .stack-table td { padding: 11px 16px; border-bottom: 1px solid #C8DFC2; vertical-align: top; color: #1a1f1a; font-size: 13px; line-height: 1.5; }
+    .stack-table tr:last-child td { border-bottom: none; }
+    .stack-table td:first-child { font-weight: 600; color: #1A3A1A; white-space: nowrap; }
+    .status-pill { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+    .status-active  { background: #E6F4E0; color: #2D6B1A; }
+    .status-planned { background: #FDF3DC; color: #7A5200; }
+    .empty-state { text-align: center; padding: 56px 20px; color: #3A6B35; font-size: 14px; }
+    #loading { text-align: center; padding: 60px; color: #4A8C3F; font-size: 14px; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1A3A1A; color: #fff; font-size: 13px; padding: 10px 20px; border-radius: 8px; display: none; z-index: 999; white-space: nowrap; }
+    .apollo-note { font-size: 11px; color: #7A5200; background: #FFFBF0; border: 1px solid #E8C87A; border-radius: 6px; padding: 6px 10px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo">Black Tech Capital <span>/ Comms Review</span></div>
+    <div class="gate-subtitle">Communications &amp; marketing tracker — team access only</div>
+    <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()" />
+    <button class="gate-btn" onclick="checkPw()">Enter</button>
+    <div class="gate-error" id="gate-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
+<div id="app">
+  <div class="site-header">
+    <div class="site-logo">Black Tech Capital <span>/ Comms &amp; Marketing</span></div>
+    <div class="header-meta" id="last-updated">Loading...</div>
+  </div>
+  <div class="tabs-bar">
+    <div class="tab active" onclick="switchTab('home',this)">&#127968; Home</div>
+    <div class="tab" onclick="switchTab('campaigns',this)">Campaigns <span class="tab-badge badge-pending" id="count-pending">—</span></div>
+    <div class="tab" onclick="switchTab('initiatives',this)">Initiatives <span class="tab-badge badge-initiative" id="count-initiatives">—</span></div>
+    <div class="tab" onclick="switchTab('reports',this)">Weekly Reports <span class="tab-badge badge-reports" id="count-reports">—</span></div>
+    <div class="tab" onclick="switchTab('audiences',this)">Audiences <span class="tab-badge badge-audience" id="count-audiences">—</span></div>
+    <div class="tab" onclick="switchTab('sysinfo',this)">System Info <span class="tab-badge badge-info">&#9432;</span></div>
+  </div>
+  <div class="main">
+    <div id="loading">Loading...</div>
+    <div id="home"        class="tab-content" style="display:none;"></div>
+    <div id="campaigns"   class="tab-content" style="display:none;"></div>
+    <div id="initiatives" class="tab-content" style="display:none;"></div>
+    <div id="reports"     class="tab-content" style="display:none;"></div>
+    <div id="audiences"   class="tab-content" style="display:none;"></div>
+    <div id="sysinfo"     class="tab-content" style="display:none;"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+  const SITE_PASSWORD = 'btc2026';
+  const REPO_RAW   = 'https://raw.githubusercontent.com/keyona-rerev/btc-comms-review/main';
+  const PAGES_BASE = 'https://keyona-rerev.github.io/btc-comms-review';
+  const GITHUB_EDIT = 'https://github.com/keyona-rerev/btc-comms-review/edit/main/campaigns.json';
+
+  let audView = 'card';
+  let campFilter = 'all';
+  let campView = 'cards';
+  let iniView = 'cards';
+  let allCampaigns = [];
+  let allRejections = [];
+  let allInitiatives = [];
+  let allFormats = [];
+  let reportWeeks = [];
+  let reportsCache = {};
+  let currentReportWeek = null;
+  let sentOverrides = {};
+  let statusOverrides = {};
+
+  function showToast(msg, ms) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, ms || 2500);
+  }
+
+  function checkPw() {
+    if (document.getElementById('pw-input').value === SITE_PASSWORD) {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      try { const s = localStorage.getItem('btc_sent'); if (s) sentOverrides = JSON.parse(s); } catch(e) {}
+      try { const s = localStorage.getItem('btc_status'); if (s) statusOverrides = JSON.parse(s); } catch(e) {}
+      loadData();
+    } else {
+      document.getElementById('gate-error').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  function markSent(campId, btn) {
+    sentOverrides[campId] = true;
+    try { localStorage.setItem('btc_sent', JSON.stringify(sentOverrides)); } catch(e) {}
+    btn.textContent = 'Sent';
+    btn.classList.add('done');
+    btn.disabled = true;
+    const card = btn.closest('.card');
+    if (card) card.classList.add('sent-done');
+    navigator.clipboard.writeText('"sent": true').catch(() => {});
+    showToast('Marked as sent — open GitHub to commit.', 4000);
+    setTimeout(() => { window.open(GITHUB_EDIT, '_blank'); }, 800);
+  }
+
+  function moveStatus(campId, newStatus) {
+    if (!newStatus) return;
+    statusOverrides[campId] = newStatus;
+    try { localStorage.setItem('btc_status', JSON.stringify(statusOverrides)); } catch(e) {}
+    showToast('Status updated to: ' + newStatus);
+    renderCampView();
+  }
+
+  function getEffectiveStatus(camp) {
+    return statusOverrides[camp.id] || camp.outreachStatus;
+  }
+
+  async function loadData() {
+    try {
+      const ts = '?t=' + Date.now();
+      const [campRes, rejRes, audRes, fmtRes, iniRes] = await Promise.all([
+        fetch(REPO_RAW + '/campaigns.json' + ts),
+        fetch(REPO_RAW + '/rejections.json' + ts),
+        fetch(REPO_RAW + '/audiences.json' + ts),
+        fetch(REPO_RAW + '/content_formats.json' + ts),
+        fetch(REPO_RAW + '/initiatives.json' + ts)
+      ]);
+      const campData = await campRes.json();
+      const rejData  = await rejRes.json();
+      const audData  = await audRes.json();
+      const fmtData  = await fmtRes.json();
+      const iniData  = await iniRes.json();
+      allCampaigns   = campData.campaigns  || [];
+      allRejections  = rejData.rejections  || [];
+      allInitiatives = iniData.initiatives || [];
+      allFormats     = fmtData.formats     || [];
+      window._allInitiatives = allInitiatives;
+      window._allFormats     = allFormats;
+      reportWeeks = await discoverReportWeeks();
+      render(allCampaigns, allRejections, audData.audiences || [], allFormats, allInitiatives);
+    } catch(e) {
+      document.getElementById('loading').textContent = 'Failed to load. Please refresh. (' + e.message + ')';
+    }
+  }
+
+  async function discoverReportWeeks() {
+    const found = [];
+    for (let n = 1; n <= 52; n++) {
+      try {
+        const res = await fetch(REPO_RAW + '/reports/week-' + n + '.json?t=' + Date.now());
+        if (!res.ok) break;
+        const data = await res.json();
+        reportsCache[n] = data;
+        found.push(n);
+      } catch(e) { break; }
+    }
+    return found;
+  }
+
+  function render(campaigns, rejections, audiences, formats, initiatives) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('count-pending').textContent     = campaigns.length || '0';
+    document.getElementById('count-initiatives').textContent = initiatives.length || '0';
+    document.getElementById('count-audiences').textContent   = audiences.length;
+    document.getElementById('count-reports').textContent     = reportWeeks.length > 0 ? reportWeeks.length + ' wk' : '0';
+    const now = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('last-updated').textContent = 'kmeeks@blacktechcapital.com · ' + now;
+    renderHomeTab(campaigns);
+    renderCampaignsTab(campaigns, rejections);
+    renderInitiativesTab(initiatives, campaigns, formats);
+    renderReportsTab();
+    renderAudiencesTab(audiences, campaigns);
+    renderSysInfo(campaigns);
+    document.getElementById('home').classList.add('active');
+    document.getElementById('home').style.display = 'block';
+  }
+
+  function switchTab(id, el) {
+    document.querySelectorAll('.tab-content').forEach(t => { t.style.display = 'none'; t.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).style.display = 'block';
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+
+  /* ---- HOME ---- */
+  function renderHomeTab(campaigns) {
+    const el = document.getElementById('home');
+    const CTEL_OUTREACH_GOAL = 20;
+    const INVESTOR_GOAL = 20;
+    const CONFIRMATION_TARGET = 35;
+    const CTEL_INI = 'INI-001';
+    const INVESTOR_INI = 'INI-1775180457900';
+
+    const now = new Date();
+    const dow = now.getDay();
+    const weekStart = new Date(now);
+    weekStart.setDate(now.getDate() + (dow === 0 ? -6 : 1 - dow));
+    weekStart.setHours(0,0,0,0);
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6);
+    weekEnd.setHours(23,59,59,999);
+    const fmtDate = d => d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+
+    let ctelWeek = 0, ctelConfirmed = 0, investorWeek = 0;
+
+    campaigns.forEach(c => {
+      const isSent = c.sent || sentOverrides[c.id];
+      const isCTEL = c.sc_initiative_id === CTEL_INI
+        || (c.id && (c.id.startsWith('ctel-') || c.id.startsWith('el-camp-')));
+      const isInvestor = c.sc_initiative_id === INVESTOR_INI
+        || (c.targetAudience && c.targetAudience.toLowerCase().includes('investor'));
+      if (isCTEL && c.outreachStatus === 'confirmed') ctelConfirmed++;
+      if (isSent) {
+        if (isCTEL) ctelWeek++;
+        if (isInvestor) investorWeek++;
+      }
+    });
+
+    const barColor = pct => pct >= 100 ? '#2D6B1A' : pct >= 60 ? '#1A5A8A' : '#B07A00';
+    const ctelPct = Math.min(100, Math.round((ctelWeek / CTEL_OUTREACH_GOAL) * 100));
+    const invPct  = Math.min(100, Math.round((investorWeek / INVESTOR_GOAL) * 100));
+    const confPct = Math.min(100, Math.round((ctelConfirmed / CONFIRMATION_TARGET) * 100));
+
+    function bar(pct, color) {
+      return `<div style="background:#E8EFE6;border-radius:8px;height:10px;overflow:hidden;margin-top:10px;">
+        <div style="height:100%;border-radius:8px;background:${color};width:${pct}%;transition:width 0.4s;"></div>
+      </div>`;
+    }
+
+    el.innerHTML = `
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4A8C3F;margin-bottom:14px;">This week &middot; ${fmtDate(weekStart)} &ndash; ${fmtDate(weekEnd)}</div>
+
+      <div style="background:#fff;border:1px solid #B0C9A8;border-radius:14px;padding:20px 22px;margin-bottom:12px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#4A8C3F;margin-bottom:6px;">CTEL Outreach</div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+          <div style="font-size:28px;font-weight:700;color:#1A3A1A;">${ctelWeek}<span style="font-size:13px;font-weight:400;color:#3A6B35;margin-left:5px;">/ ${CTEL_OUTREACH_GOAL} goal</span></div>
+          <div style="font-size:22px;font-weight:700;color:${barColor(ctelPct)};">${ctelPct}%</div>
+        </div>
+        ${bar(ctelPct, barColor(ctelPct))}
+        <div style="font-size:12px;color:#3A6B35;margin-top:8px;">${ctelPct >= 100 ? '<span style="color:#2D6B1A;font-weight:600;">Weekly goal hit.</span>' : (CTEL_OUTREACH_GOAL - ctelWeek) + ' more to reach 20 this week'}</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #B0C9A8;border-radius:14px;padding:20px 22px;margin-bottom:12px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#4A8C3F;margin-bottom:6px;">Investor Pipeline Activations</div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+          <div style="font-size:28px;font-weight:700;color:#1A3A1A;">${investorWeek}<span style="font-size:13px;font-weight:400;color:#3A6B35;margin-left:5px;">/ ${INVESTOR_GOAL} goal</span></div>
+          <div style="font-size:22px;font-weight:700;color:${barColor(invPct)};">${invPct}%</div>
+        </div>
+        ${bar(invPct, barColor(invPct))}
+        <div style="font-size:12px;color:#3A6B35;margin-top:8px;">${invPct >= 100 ? '<span style="color:#2D6B1A;font-weight:600;">Weekly goal hit.</span>' : (INVESTOR_GOAL - investorWeek) + ' more to reach 20 this week'}</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #B0C9A8;border-left:4px solid #1A5A8A;border-radius:14px;padding:20px 22px;margin-bottom:20px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#1A5A8A;margin-bottom:8px;">CTEL Confirmations — Season Total</div>
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:10px;">
+          <div style="font-size:36px;font-weight:700;color:#1A3A1A;">${ctelConfirmed}<span style="font-size:14px;font-weight:400;color:#3A6B35;margin-left:6px;">/ ${CONFIRMATION_TARGET} target</span></div>
+          <div style="font-size:12px;color:#3A6B35;line-height:1.6;">
+            ${Math.round(ctelConfirmed / 5 * 10) / 10} episodes worth confirmed<br>
+            <span style="font-size:11px;color:#8BBF82;">Goal: 35 guests for 6 episodes &middot; Set <code>outreachStatus: "confirmed"</code> to track</span>
+          </div>
+        </div>
+        ${bar(confPct, barColor(confPct))}
+      </div>
+
+      <div style="background:#F7FAF6;border:1px solid #C8DFC2;border-radius:10px;padding:14px 16px;font-size:12px;color:#3A6B35;line-height:1.7;">
+        <strong style="display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#4A8C3F;margin-bottom:4px;">Note on tracking</strong>
+        Weekly bars count all sent campaigns in current data. Once <code>sentDate</code> fields are added to campaigns.json, bars auto-reset each Monday. To mark a CTEL guest confirmed, update <code>outreachStatus: "confirmed"</code> in campaigns.json.
+      </div>
+    `;
+  }
+
+  /* ---- CAMPAIGNS ---- */
+  function renderCampaignsTab(campaigns, rejections) {
+    const el = document.getElementById('campaigns');
+    const rejMap = {};
+    rejections.forEach(r => { rejMap[r.id] = r.reason; });
+    campaigns.forEach(c => { if (c.status === 'rejected' && rejMap[c.id]) c._rejectionReason = rejMap[c.id]; });
+    el.innerHTML = `
+      <div class="camp-toolbar">
+        <div class="camp-toolbar-left">
+          <select class="seq-filter" id="camp-filter-select" onchange="campFilter=this.value;renderCampView()">
+            <option value="all">All campaigns</option>
+            <option value="exitlab">Exit Lab outreach</option>
+            <option value="pending">Awaiting Review</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Flagged</option>
+            <option value="waiting">Waiting on Them</option>
+            <option value="blocked">Legitimate Blocker</option>
+            <option value="move">Time to Move</option>
+          </select>
+          <div class="seq-count-note" id="camp-count-note"></div>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="btn-cards" onclick="setCampView('cards')">&#9632; Cards</button>
+          <button class="view-btn" id="btn-board" onclick="setCampView('board')">&#9638; Board</button>
+          <button class="view-btn" id="btn-list" onclick="setCampView('list')">&#9776; List</button>
+        </div>
+      </div>
+      <div id="camp-view-area"></div>
+    `;
+    window._allCamps = campaigns;
+    renderCampView();
+  }
+
+  function setCampView(v) {
+    campView = v;
+    document.getElementById('btn-cards').classList.toggle('active', v === 'cards');
+    document.getElementById('btn-board').classList.toggle('active', v === 'board');
+    document.getElementById('btn-list').classList.toggle('active', v === 'list');
+    renderCampView();
+  }
+
+  function isExitLab(c) { return c.id && (c.id.startsWith('el-camp-') || c.id.startsWith('ctel-')); }
+
+  function getFilteredCamps() {
+    const camps = window._allCamps || [];
+    if (campFilter === 'all')      return camps;
+    if (campFilter === 'exitlab')  return camps.filter(isExitLab);
+    if (campFilter === 'pending')  return camps.filter(c => c.status === 'pending');
+    if (campFilter === 'approved') return camps.filter(c => c.status === 'approved');
+    if (campFilter === 'rejected') return camps.filter(c => c.status === 'rejected');
+    if (campFilter === 'waiting')  return camps.filter(c => getEffectiveStatus(c) === 'waiting');
+    if (campFilter === 'blocked')  return camps.filter(c => getEffectiveStatus(c) === 'blocked');
+    if (campFilter === 'move')     return camps.filter(c => { const s = getEffectiveStatus(c); return s === 'needs_send' || !s; });
+    return camps;
+  }
+
+  function renderCampView() {
+    const filtered = getFilteredCamps();
+    const note = document.getElementById('camp-count-note');
+    if (note) note.textContent = filtered.length + ' campaign' + (filtered.length !== 1 ? 's' : '');
+    const area = document.getElementById('camp-view-area');
+    if (!area) return;
+    if (!filtered.length) { area.innerHTML = '<div class="empty-state"><strong>No campaigns match this filter.</strong></div>'; return; }
+    if (campView === 'list') {
+      renderCampListView(filtered, area);
+    } else if (campView === 'board') {
+      const waiting = filtered.filter(c => getEffectiveStatus(c) === 'waiting');
+      const blocked = filtered.filter(c => getEffectiveStatus(c) === 'blocked');
+      const move    = filtered.filter(c => { const s = getEffectiveStatus(c); return s === 'needs_send' || !s; });
+      function boardCol(label, sub, cls, dotCls, items, detailKey, detailLabel) {
+        const cards = items.length ? items.map(c => {
+          const det = c[detailKey] ? '<div class="status-card-detail"><strong>' + detailLabel + '</strong>' + escHtml(c[detailKey]) + '</div>' : '';
+          const moveOpts = '<select class="move-select" style="margin-top:8px;" onchange="moveStatus(\'' + c.id + '\',this.value);this.blur()">'
+            + '<option value="">Move to...</option>'
+            + '<option value="waiting">Waiting on Them</option>'
+            + '<option value="blocked">Legitimate Blocker</option>'
+            + '<option value="needs_send">Time to Move</option>'
+            + '</select>';
+          return '<div class="status-card"><div class="status-card-title">' + escHtml(c.title) + '</div><div class="status-card-org">' + escHtml(c.contactOrg || c.targetAudience || '') + (c.from ? ' &middot; ' + escHtml(c.from) : '') + '</div>' + det + moveOpts + '</div>';
+        }).join('') : '<div class="status-empty">None right now.</div>';
+        return '<div class="status-col ' + cls + '"><div class="status-col-header"><span class="status-dot ' + dotCls + '"></span>' + label + ' <span class="status-col-count">' + items.length + '</span></div><div class="status-col-sub">' + sub + '</div>' + cards + '</div>';
+      }
+      area.innerHTML = '<div class="status-columns">'
+        + boardCol('Waiting on Them', 'You sent something. Ball is in their court.', 'status-col-waiting', 'dot-waiting', waiting, 'waitingOn', 'Waiting on')
+        + boardCol('Legitimate Blocker', 'Something real is in the way.', 'status-col-blocked', 'dot-blocked', blocked, 'blocker', 'Blocker')
+        + boardCol('Time to Move', 'Outreach not sent yet. Your attention goes here.', 'status-col-move', 'dot-move', move, 'exitLabAngle', 'Exit Lab angle')
+        + '</div>';
+    } else {
+      const sorted = [
+        ...filtered.filter(c => c.status === 'pending'),
+        ...filtered.filter(c => c.status === 'approved'),
+        ...filtered.filter(c => c.status === 'rejected')
+      ];
+      area.innerHTML = sorted.map(c => renderCampCard(c)).join('');
+    }
+  }
+
+  function renderCampListView(filtered, area) {
+    const rows = filtered.map(c => {
+      const eff = getEffectiveStatus(c);
+      const isSent = c.sent || sentOverrides[c.id];
+      const el_flag = isExitLab(c);
+      const emailRaw = c.contactEmail || '';
+      const emailIsTBC = emailRaw.includes('TBC') || emailRaw === '';
+      const emailCell = emailIsTBC
+        ? '<span class="list-email tbc">TBC — Apollo</span>'
+        : '<span class="list-email">' + escHtml(emailRaw) + '</span>';
+      const sourceCell = c.source
+        ? '<span style="font-size:11px;color:#888;">' + escHtml(c.source) + '</span>'
+        : (c.sc_initiative_id ? '<span style="font-size:11px;color:#1A5A8A;">' + escHtml(c.sc_initiative_id) + '</span>' : '<span style="font-size:11px;color:#ccc;">—</span>');
+      const reviewPill = (c.status === 'approved') ? '<span class="status-pill-seq pill-approved">Approved</span>'
+        : (c.status === 'rejected') ? '<span class="status-pill-seq pill-rejected">Flagged</span>'
+        : '<span class="status-pill-seq pill-pending">Pending</span>';
+      const sentCell = isSent
+        ? '<span class="sent-badge">Sent</span>'
+        : (el_flag ? '<button class="btn-mark-sent" style="font-size:11px;padding:3px 10px;" onclick="markSent(\'' + c.id + '\',this)">Mark sent</button>' : '<span style="font-size:11px;color:#ccc;">—</span>');
+      const statusSelect = '<select class="list-status-select" onchange="moveStatus(\'' + c.id + '\',this.value)">'
+        + '<option value="waiting"' + (eff === 'waiting' ? ' selected' : '') + '>Waiting on Them</option>'
+        + '<option value="blocked"' + (eff === 'blocked' ? ' selected' : '') + '>Blocker</option>'
+        + '<option value="needs_send"' + ((eff === 'needs_send' || !eff) ? ' selected' : '') + '>Time to Move</option>'
+        + '</select>';
+      const rowCls = (el_flag ? 'el-row' : '') + (isSent ? ' sent-row' : '');
+      return '<tr class="' + rowCls.trim() + '">'
+        + '<td><div class="list-title-cell">' + (el_flag ? '<span class="badge-exitlab" style="margin-right:6px;font-size:9px;">Exit Lab</span>' : '') + escHtml(c.title) + '</div><div class="list-org">' + escHtml(c.contactOrg || '') + '</div><div class="list-person">' + escHtml(c.contactPerson || '') + '</div></td>'
+        + '<td>' + emailCell + '</td>'
+        + '<td>' + statusSelect + '</td>'
+        + '<td>' + reviewPill + '</td>'
+        + '<td>' + sentCell + '</td>'
+        + '<td>' + sourceCell + '</td>'
+        + '</tr>';
+    }).join('');
+    area.innerHTML = '<table class="list-table"><thead><tr><th>Campaign / Contact</th><th>Email</th><th>Outreach status</th><th>Review</th><th>Sent</th><th>Source / Initiative</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  }
+
+  const TYPE_BADGE_MAP = { email:'badge-email', linkedin:'badge-linkedin', content:'badge-content', event:'badge-event', pr:'badge-pr' };
+  const TYPE_LABEL_MAP = { email:'Email', linkedin:'LinkedIn', content:'Content', event:'Event', pr:'PR / Press' };
+
+  function outreachPillHtml(camp) {
+    const s = getEffectiveStatus(camp);
+    if (s === 'waiting') return '<span class="outreach-pill outreach-waiting">Waiting on Them</span>';
+    if (s === 'blocked') return '<span class="outreach-pill outreach-blocked">Blocker</span>';
+    return '<span class="outreach-pill outreach-move">Time to Move</span>';
+  }
+
+  function renderCampCard(camp) {
+    const el_flag = isExitLab(camp);
+    const isSent = camp.sent || sentOverrides[camp.id];
+    const ini = (window._allInitiatives || []).find(i => i.id === camp.sc_initiative_id);
+    const iniStrip = ini ? '<div class="ini-context-strip"><strong>Initiative</strong>' + escHtml(ini.name) + ' — ' + escHtml(ini.goal) + '</div>' : '';
+    const intelStrip = camp.contactIntel ? '<div class="contact-intel-strip"><strong>Contact Intel</strong>' + escHtml(camp.contactIntel) + '</div>' : '';
+    const status = camp.status || 'pending';
+    const pillClass = status === 'approved' ? 'pill-approved' : status === 'rejected' ? 'pill-rejected' : 'pill-pending';
+    const pillLabel = status === 'approved' ? 'Approved' : status === 'rejected' ? 'Flagged' : 'Awaiting Review';
+    const typeKey = (camp.type || 'content').toLowerCase();
+    const typeBadge = '<span class="type-badge ' + (TYPE_BADGE_MAP[typeKey] || 'badge-content') + '">' + (TYPE_LABEL_MAP[typeKey] || camp.type) + '</span>';
+    const exitLabBadge = el_flag ? '<span class="badge-exitlab">Exit Lab</span>' : '';
+    const sentBadgeHtml = isSent ? '<span class="sent-badge">Sent</span>' : '';
+    const fromTag = camp.from ? ' &middot; From: ' + escHtml(camp.from) : '';
+    const sourceNote = camp.source ? '<div style="font-size:11px;color:#3A6B35;margin-bottom:10px;"><strong style="font-weight:600;">Source:</strong> ' + escHtml(camp.source) + '</div>' : '';
+    const feedbackBtn = status === 'pending' && !el_flag ? '<a class="btn btn-feedback" href="https://github.com/keyona-rerev/btc-comms-review/issues/new?title=Feedback%3A+' + encodeURIComponent(camp.title) + '&body=**Campaign+ID:**+' + camp.id + '%0A%0A**Feedback:**%0A" target="_blank">Leave feedback</a>' : '';
+    const markSentBtn = el_flag && !isSent ? '<button class="btn btn-mark-sent" onclick="markSent(\'' + camp.id + '\', this)">Mark as sent</button>' : '';
+    const moveSelectHtml = '<select class="move-select" onchange="moveStatus(\'' + camp.id + '\',this.value)">'
+      + '<option value="">Move status...</option>'
+      + '<option value="waiting">Waiting on Them</option>'
+      + '<option value="blocked">Legitimate Blocker</option>'
+      + '<option value="needs_send">Time to Move</option>'
+      + '</select>';
+    const approvedNote = status === 'approved' && camp.approvalNote ? '<div class="approved-note"><strong>Why it worked</strong>' + escHtml(camp.approvalNote) + '</div>' : '';
+    const rejectedNote = status === 'rejected' && (camp.rejectionReason || camp._rejectionReason) ? '<div class="rejection-note"><strong>Bryan\'s feedback</strong>' + escHtml(camp.rejectionReason || camp._rejectionReason) + '</div>' : '';
+    const usageNote = camp.usageNote ? '<div class="usage-note">' + escHtml(camp.usageNote) + '</div>' : '';
+    const angleNote = camp.webinarAngle ? '<div class="angle-note"><strong>Webinar angle</strong>' + escHtml(camp.webinarAngle) + '</div>' : '';
+    const elAngleNote = camp.exitLabAngle ? '<div class="exitlab-angle"><strong>Exit Lab angle</strong>' + escHtml(camp.exitLabAngle) + '</div>' : '';
+    const blockerNote = getEffectiveStatus(camp) === 'blocked' && camp.blocker ? '<div class="rejection-note"><strong>Blocker</strong>' + escHtml(camp.blocker) + '</div>' : '';
+    const apolloNote = el_flag && camp.contactEmail && camp.contactEmail.includes('TBC') ? '<div class="apollo-note">Apollo needed: ' + escHtml(camp.contactEmail) + '</div>' : '';
+    const emailNote = camp.contactEmail && !camp.contactEmail.includes('TBC') ? '<div class="usage-note" style="margin-bottom:8px;"><strong>Email:</strong> ' + escHtml(camp.contactEmail) + '</div>' : '';
+    const draftId = 'draft-' + camp.id;
+    const draftHtml = camp.emailDraft ? '<span class="draft-toggle" onclick="toggleDraft(\'' + draftId + '\', this)">&#9660; View email draft</span><div class="draft-block" id="' + draftId + '">' + escHtml(camp.emailDraft) + '</div>' : '';
+    const cardCls = 'card' + (el_flag ? ' exit-lab' : '') + (isSent ? ' sent-done' : '');
+    return '<div class="' + cardCls + '">'
+      + '<div class="card-top"><div><div class="card-title">' + escHtml(camp.title) + '</div>'
+      + (camp.targetAudience ? '<div class="card-audience">' + escHtml(camp.targetAudience) + '</div>' : '')
+      + '<div class="card-meta">' + escHtml(camp.pushedDate || '') + fromTag + ' ' + typeBadge
+      + (exitLabBadge ? ' ' + exitLabBadge : '') + outreachPillHtml(camp) + (sentBadgeHtml ? ' ' + sentBadgeHtml : '')
+      + '</div></div><span class="status-pill-seq ' + pillClass + '">' + pillLabel + '</span></div>'
+      + iniStrip + intelStrip + emailNote + apolloNote + sourceNote
+      + usageNote + angleNote + elAngleNote + blockerNote + approvedNote + rejectedNote + draftHtml
+      + '<div class="card-actions">' + feedbackBtn + markSentBtn + moveSelectHtml + '</div></div>';
+  }
+
+  function toggleDraft(id, btn) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const open = el.style.display === 'block';
+    el.style.display = open ? 'none' : 'block';
+    btn.textContent = open ? '\u25bc View email draft' : '\u25b2 Hide email draft';
+  }
+
+  /* ---- INITIATIVES ---- */
+  function setIniView(v) {
+    iniView = v;
+    document.getElementById('ini-btn-cards').classList.toggle('active', v === 'cards');
+    document.getElementById('ini-btn-list').classList.toggle('active', v === 'list');
+    renderIniView();
+  }
+
+  function renderInitiativesTab(initiatives, campaigns, formats) {
+    const el = document.getElementById('initiatives');
+    if (!initiatives.length) { el.innerHTML = '<div class="empty-state"><strong>No initiatives yet.</strong></div>'; return; }
+    window._iniCampaigns = campaigns;
+    window._iniFmtMap = {};
+    formats.forEach(f => { window._iniFmtMap[f.id] = f; });
+    const ORDER = { Critical: 0, High: 1, Medium: 2, Low: 3 };
+    window._iniSorted = [...initiatives].sort((a, b) => (ORDER[a.priority] ?? 9) - (ORDER[b.priority] ?? 9));
+    el.innerHTML = `
+      <div class="camp-toolbar">
+        <div class="camp-toolbar-left">
+          <div class="section-label" style="margin:0;">${initiatives.length} initiative${initiatives.length !== 1 ? 's' : ''}</div>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="ini-btn-cards" onclick="setIniView('cards')">&#9632; Cards</button>
+          <button class="view-btn" id="ini-btn-list" onclick="setIniView('list')">&#9776; List</button>
+        </div>
+      </div>
+      <div id="ini-view-area"></div>
+    `;
+    renderIniView();
+  }
+
+  function renderIniView() {
+    const area = document.getElementById('ini-view-area');
+    if (!area) return;
+    const sorted = window._iniSorted || [];
+    const campaigns = window._iniCampaigns || [];
+    const fmtMap = window._iniFmtMap || {};
+    if (iniView === 'list') {
+      const rows = sorted.map(ini => {
+        const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
+        const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
+        const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
+        const linked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
+        const campCount = linked.length ? '<span style="font-size:11px;color:#3A6B35;">' + linked.length + ' campaign' + (linked.length !== 1 ? 's' : '') + '</span>' : '<span style="font-size:11px;color:#ccc;">—</span>';
+        const question = ini.core_question ? '<div class="ini-list-question">' + escHtml(ini.core_question) + '</div>' : '';
+        return '<tr>'
+          + '<td><div class="ini-list-name">' + escHtml(ini.name) + '</div><div class="ini-list-venture">' + escHtml(ini.venture || '') + '</div>' + question + '</td>'
+          + '<td><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span></td>'
+          + '<td><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></td>'
+          + '<td style="font-size:12px;color:#555;">' + escHtml(ini.timeline || '—') + '</td>'
+          + '<td>' + campCount + '</td>'
+          + '<td style="font-size:11px;color:#8BBF82;font-family:monospace;">' + escHtml(ini.id) + '</td>'
+          + '</tr>';
+      }).join('');
+      area.innerHTML = '<table class="ini-list-table"><thead><tr><th>Initiative</th><th>Status</th><th>Priority</th><th>Timeline</th><th>Campaigns</th><th>ID</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    } else {
+      area.innerHTML = sorted.map(ini => renderIniCard(ini, campaigns, fmtMap)).join('');
+    }
+  }
+
+  function renderIniCard(ini, campaigns, fmtMap) {
+    const statusKey = (ini.status || '').toLowerCase().replace(/\s/g, '');
+    const statusCls = statusKey === 'active' ? 'ini-status-active' : statusKey === 'planning' ? 'ini-status-planning' : 'ini-status-braindump';
+    const priCls = ini.priority === 'Critical' ? 'ini-priority-critical' : ini.priority === 'High' ? 'ini-priority-high' : 'ini-priority-medium';
+    const question = ini.core_question ? '<div class="ini-question"><strong>Core question</strong>' + escHtml(ini.core_question) + '</div>' : '';
+    const notes = ini.notes ? '<div class="ini-notes"><strong>Notes</strong>' + escHtml(ini.notes) + '</div>' : '';
+    const allLinked = campaigns.filter(c => c.sc_initiative_id === ini.id || (ini.linked_campaigns || []).includes(c.id));
+    const uniqueLinked = [...new Map(allLinked.map(c => [c.id, c])).values()];
+    const contactSection = uniqueLinked.length
+      ? '<hr class="ini-section-divider"><span class="ini-section-label">Campaigns &amp; Contacts (' + uniqueLinked.length + ')</span>'
+        + uniqueLinked.map(c => {
+          const personLine = c.contactPerson ? escHtml(c.contactPerson) + (c.contactTitle ? ', ' + escHtml(c.contactTitle) : '') : '';
+          const intel = c.contactIntel ? '<div class="ini-contact-intel">' + escHtml(c.contactIntel) + '</div>' : '';
+          const eff = getEffectiveStatus(c);
+          const outreach = eff === 'waiting' ? '<span style="font-size:10px;color:#2D6B1A;font-weight:600;">Waiting on them</span>'
+            : eff === 'blocked' ? '<span style="font-size:10px;color:#8B3A1A;font-weight:600;">Blocker</span>'
+            : '<span style="font-size:10px;color:#7A5200;font-weight:600;">Time to move</span>';
+          return '<div class="ini-contact-card"><div class="ini-contact-name">' + escHtml(c.contactOrg || c.title) + ' ' + outreach + '</div>' + (personLine ? '<div class="ini-contact-title">' + personLine + '</div>' : '') + intel + '</div>';
+        }).join('')
+      : '';
+    const linkedFmts = (ini.contentFormats || []).map(fid => fmtMap[fid]).filter(Boolean);
+    const fmtSection = linkedFmts.length
+      ? '<hr class="ini-section-divider"><div class="fmt-toggle-bar" onclick="toggleFmt(\'' + ini.id + '\')"><span class="fmt-toggle-label">Content Formats (' + linkedFmts.length + ')</span><span class="fmt-toggle-icon" id="fmticon-' + ini.id + '">&#9660;</span></div><div class="fmt-panel" id="fmtpanel-' + ini.id + '">'
+        + linkedFmts.map(f => {
+          const sc = f.status === 'In Development' ? 'fmt-status-dev' : 'fmt-status-concept';
+          const ol = (f.contentOutline || []).map(i => '<li>' + escHtml(i) + '</li>').join('');
+          return '<div class="fmt-card"><div class="fmt-header"><div><div class="fmt-name">' + escHtml(f.name) + '</div><div class="fmt-meta">' + escHtml(f.duration || '') + '</div></div><span class="fmt-status ' + sc + '">' + escHtml(f.status) + '</span></div><div class="fmt-value-prop">' + escHtml(f.valueProp || '') + '</div><div class="fmt-section">Content outline</div><ul class="fmt-outline">' + ol + '</ul><div class="fmt-section">Co-host angle</div><div class="fmt-cohost">' + escHtml(f.coHostAngle || '') + '</div></div>';
+        }).join('') + '</div>'
+      : '';
+    return '<div class="ini-card"><div class="ini-card-top"><div><div class="ini-name">' + escHtml(ini.name) + '</div><div class="ini-timeline">' + escHtml(ini.timeline || '') + '</div></div><div class="ini-pills"><span class="ini-status-pill ' + statusCls + '">' + escHtml(ini.status) + '</span><span class="' + priCls + '">' + escHtml(ini.priority) + '</span></div></div><div class="ini-goal">' + escHtml(ini.goal) + '</div>' + question + notes + contactSection + fmtSection + '<div class="ini-id">' + escHtml(ini.id) + '</div></div>';
+  }
+
+  function toggleFmt(iniId) {
+    const panel = document.getElementById('fmtpanel-' + iniId);
+    const icon  = document.getElementById('fmticon-' + iniId);
+    if (!panel) return;
+    const open = panel.style.display === 'block';
+    panel.style.display = open ? 'none' : 'block';
+    if (icon) icon.classList.toggle('open', !open);
+  }
+
+  /* ---- REPORTS ---- */
+  function renderReportsTab() {
+    const el = document.getElementById('reports');
+    if (!reportWeeks.length) { el.innerHTML = '<div class="reports-no-data"><strong>No reports yet.</strong><p>Add reports/week-1.json to populate.</p></div>'; return; }
+    currentReportWeek = reportWeeks[reportWeeks.length - 1];
+    const opts = reportWeeks.slice().reverse().map(n => '<option value="' + n + '"' + (n === currentReportWeek ? ' selected' : '') + '>Week ' + n + '</option>').join('');
+    el.innerHTML = '<div class="reports-toolbar"><select class="reports-week-select" onchange="selectReportWeek(parseInt(this.value))">' + opts + '</select><div class="seq-count-note">' + reportWeeks.length + ' week(s)</div></div><div id="report-body"></div>';
+    renderReportBody(currentReportWeek);
+  }
+
+  function selectReportWeek(n) { currentReportWeek = n; renderReportBody(n); }
+
+  function renderReportBody(n) {
+    const body = document.getElementById('report-body');
+    if (!body) return;
+    const data = reportsCache[n];
+    if (!data) { body.innerHTML = '<div class="reports-no-data"><strong>No data for Week ' + n + '.</strong></div>'; return; }
+    let html = '<div class="report-week-label">Week ' + n + (data.date_range ? ' · ' + escHtml(data.date_range) : '') + '</div>';
+    if (data.highlights && data.highlights.length) html += '<div class="report-block"><div class="report-block-title">Highlights</div><ul style="padding-left:18px;font-size:13px;line-height:1.7;">' + data.highlights.map(h => '<li style="margin-bottom:6px;">' + escHtml(h) + '</li>').join('') + '</ul></div>';
+    if (data.next_steps && data.next_steps.length) html += '<div class="report-block"><div class="report-block-title">Next steps</div><ul style="padding-left:18px;font-size:13px;line-height:1.7;">' + data.next_steps.map(h => '<li style="margin-bottom:6px;">' + escHtml(h) + '</li>').join('') + '</ul></div>';
+    if (data.notes) html += '<div class="report-block"><div class="report-block-title">Notes</div><div class="report-note">' + escHtml(data.notes) + '</div></div>';
+    body.innerHTML = html;
+  }
+
+  /* ---- AUDIENCES ---- */
+  function renderAudiencesTab(audiences, campaigns) {
+    const el = document.getElementById('audiences');
+    el.innerHTML = '<div class="aud-toolbar"><div class="section-label" style="margin:0;">' + audiences.length + ' audience profile(s)</div><div class="view-toggle"><button class="view-btn active" id="aud-card-btn" onclick="setAudView(\'card\')">Cards</button><button class="view-btn" id="aud-list-btn" onclick="setAudView(\'list\')">List</button></div></div><div id="aud-card-view" class="aud-grid">' + audiences.map(a => renderAudCard(a, campaigns)).join('') + '</div><div id="aud-list-view" style="display:none;">' + renderAudList(audiences, campaigns) + '</div>';
+  }
+
+  function setAudView(v) {
+    audView = v;
+    document.getElementById('aud-card-view').style.display = v === 'card' ? 'grid' : 'none';
+    document.getElementById('aud-list-view').style.display = v === 'list' ? 'block' : 'none';
+    document.getElementById('aud-card-btn').classList.toggle('active', v === 'card');
+    document.getElementById('aud-list-btn').classList.toggle('active', v === 'list');
+  }
+
+  function renderAudCard(a, campaigns) {
+    const linked = campaigns.filter(c => (a.campaigns || []).includes(c.id));
+    const seqLink = linked.length ? '<div style="margin-top:8px;font-size:11px;color:#4A8C3F;">' + linked.length + ' campaign(s) linked</div>' : '';
+    return '<div class="aud-card"><div class="aud-segment">' + escHtml(a.segment || '') + '</div><div class="aud-name">' + escHtml(a.name) + '</div><div class="aud-titles">' + escHtml((a.targetTitles || []).join(', ')) + '</div><div class="aud-tags">' + (a.sector ? '<span class="aud-tag aud-tag-sector">' + escHtml(a.sector) + '</span>' : '') + (a.geo ? '<span class="aud-tag aud-tag-geo">' + escHtml(a.geo) + '</span>' : '') + '</div><div class="aud-angle"><strong>Angle</strong>' + escHtml(a.angle || a.whyTheyMatter || '') + '</div>' + seqLink + '</div>';
+  }
+
+  function renderAudList(audiences, campaigns) {
+    if (!audiences.length) return '<div class="empty-state"><strong>No audience profiles yet.</strong></div>';
+    return '<table class="aud-list-table"><thead><tr><th>Audience</th><th>Titles</th><th>Sector / Geo</th></tr></thead><tbody>' + audiences.map(a => '<tr><td><div class="aud-list-name">' + escHtml(a.name) + '</div></td><td>' + escHtml((a.targetTitles || []).join(', ')) + '</td><td>' + escHtml(a.sector || '') + (a.geo ? ' / ' + escHtml(a.geo) : '') + '</td></tr>').join('') + '</tbody></table>';
+  }
+
+  /* ---- SYS INFO ---- */
+  function renderSysInfo(campaigns) {
+    const el = document.getElementById('sysinfo');
+    const pending  = campaigns.filter(c => c.status === 'pending').length;
+    const approved = campaigns.filter(c => c.status === 'approved').length;
+    const rejected = campaigns.filter(c => c.status === 'rejected').length;
+    const sent     = campaigns.filter(c => c.sent || sentOverrides[c.id]).length;
+    el.innerHTML = '<div class="info-grid"><div class="info-card"><div class="info-card-title">Campaign summary</div><div class="info-row"><span class="info-label">Total campaigns</span><span class="info-value">' + campaigns.length + '</span></div><div class="info-row"><span class="info-label">Sent</span><span class="info-value green">' + sent + '</span></div><div class="info-row"><span class="info-label">Awaiting review</span><span class="info-value">' + pending + '</span></div><div class="info-row"><span class="info-label">Approved</span><span class="info-value">' + approved + '</span></div><div class="info-row"><span class="info-label">Flagged</span><span class="info-value">' + rejected + '</span></div></div><div class="info-card"><div class="info-card-title">BTC goals</div><div class="info-row"><span class="info-label">CTEL outreach / week</span><span class="info-value green">20</span></div><div class="info-row"><span class="info-label">Investor activations / week</span><span class="info-value green">20</span></div><div class="info-row"><span class="info-label">CTEL guest target</span><span class="info-value green">35 confirmed</span></div><div class="info-row"><span class="info-label">Episodes planned</span><span class="info-value">6</span></div></div></div><table class="stack-table"><thead><tr><th>File</th><th>Purpose</th><th>Status</th></tr></thead><tbody><tr><td>campaigns.json</td><td>All campaign and outreach records</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>audiences.json</td><td>Audience profiles</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>initiatives.json</td><td>BTC initiatives (CTEL, LP pipeline, etc.)</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>pipeline.json</td><td>Investor pipeline</td><td><span class="status-pill status-active">Active</span></td></tr><tr><td>reports/week-N.json</td><td>Weekly progress reports</td><td><span class="status-pill status-planned">Add as needed</span></td></tr></tbody></table>';
+  }
+
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+</script>
+</body>
+</html>
